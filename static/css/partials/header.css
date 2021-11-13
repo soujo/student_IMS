@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
+
+
+*,*::after,*::before{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Lora', serif;
+}
+
+header{
+    height: 150px;
+    width: 100%;
+    background-color: #81a7ee;
+    display: flex;
+    justify-content: space-between;
+}
+header .header__text{
+    color: #ffffff;
+    margin-left: 5rem;
+    font-size: 30px;
+    font-weight: 600;
+    text-align: center;
+    height: 90%;
+    margin-top: 15px;
+}
+
+
+header .header__box__info{
+    margin-right: 3rem;
+    padding: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    width: 28%;
+}
+.header__box__info .info__box{
+    color: white;
+    padding: 0.5rem;
+    text-align: end;
+}
+.header__box__info .student__picture{
+    border: 1px solid white;
+    height: 122px;
+}
+.header__box__info .student__picture img{
+    height: 120px;
+    width: 120px;    
+}
+.info__box .info__LP{
+    margin-top: 0.5rem;
+    display: flex;
+    justify-content: end;
+}
+.info__LP .logout{
+    padding: 0.5rem 0.8rem;
+    background-color: rgb(0, 60, 128);
+    border-radius: 19px;
+    cursor: pointer;
+}
+.info__LP a{
+    text-decoration: none;
+    color: white;
+}
+.info__LP .home{
+    padding: 0.5rem 0.8rem;
+    background-color: rgb(0, 60, 128);
+    border-radius: 19px;
+    cursor: pointer;
+    margin-right: 1rem;
+}
