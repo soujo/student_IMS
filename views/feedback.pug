@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Feedback</title>
+    <link rel="stylesheet" href="../static/css/feedback.css">
+</head>
+<body>
+    <div class="container">
+        include ./partials/header.pug
+        <div class="aside__section">
+            include ./partials/aside.pug
+            <section>
+                include ./partials/flag.pug
+                <br><br><br>
+                <div class="feedback__box">
+                    <form action="/student/feedback" method="post">
+                        <div class="first">
+                            <label for="name">Name</label>
+                            input(type="text" name="name" id="name" )
+                            <label for="email">Email</label>
+                            input(type="email" name="email" id="email")
+                        </div>
+                        <div class="second">
+                            <label for="roll">Roll No.</label>
+                            input(type="text" name="roll" id="roll" )
+                            <label for="dept">Department</label>
+                            input(type="text" name="dept" id="dept" )
+                        </div>
+                        <label for="msg">What improvement do you suggest for this website?</label>
+                        <textarea name="msg" id="msg" cols="1" rows="8" required></textarea>
+                        <input type="submit" value="Submit">
+                    </form>
+                </div> 
+            </section>
+        </div>
+        include ./partials/footer.pug
+    </div>
+    <script src="../static/js/feedback.js"></script>
+</body>
+</html>
