@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Info</title>
+    <link rel="stylesheet" href="../static/css/personalInfo.css">
+</head>
+
+<body>
+    <div class="container">
+        include ./partials/header.pug
+        <div class="aside__section">
+            include ./partials/aside.pug
+            <section>
+                include ./partials/flag.pug
+                <div class="student__details">
+                    <a href="/student/personalInfoEdit">
+                        <div class="edit">Edit</div>
+                    </a>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Student Details</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>Personal Details</th>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th>Name</th>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th>Roll Number</th>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th>Batch</th>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th>Branch</th>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th>Semester</th>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th>DOB</th>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th>Category</th>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th>Gender</th>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th>Blood Group</th>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th>Aadhar Number</th>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="picture">
+                        img(src=image, alt="Your image") 
+                    </div>
+                </div>                
+                <div class="admission__details">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Admission Details</th>
+                            </tr>
+                        </thead> 
+                        <tbody>
+                            <tr>
+                                <th>Admission Year</th>
+                                <td></td>
+                                <th>Admission Type</th>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th>WBJEE/JEE Rank</th>
+                                <td></td>
+                                <th>JELET Rank</th>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>                
+                <div class="communication__details">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Communication Details</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>Father's Name</th>
+                                <td></td>
+                                <th>Mother's name</th>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th>Email</th>
+                                <td></td>
+                                <th>Mobile Number</th>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th>Address</th>
+                                <td></td>
+                            </tr> 
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+        include ./partials/footer.pug
+    </div>
+    <script src="../static/js/personalInfo.js"></script>
+</body>
+
+</html>
