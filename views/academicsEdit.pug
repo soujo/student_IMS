@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academics</title>
+    <link rel="stylesheet" href="../static/css/academicsEdit.css">
+</head>
+
+<body>
+    <div class="container">
+        include ./partials/header.pug
+        <div class="aside__section">
+            include ./partials/aside.pug
+            <form action="/student/academicsEdit" method="POST">
+                <section>
+                    include ./partials/flag.pug
+                    <br><br><br>
+                    <div class="secondary__details">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Institute : 10th (Matric) Details</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th>Degree Name</th>
+                                    <td><input type="text" name="secondaryDegreeName" id="secondaryDegreeName"></td>
+                                    <th>Board Name</th>
+                                    <td><input type="text" name="secondaryBoardName" id="secondaryBoardName"></td>
+                                </tr>
+                                <tr>
+                                    <th>Institute Name</th>
+                                    <td><input type="text" name="secondaryInstituteName" id="secondaryInstituteName">
+                                    </td>
+                                    <th>Passing Year</th>
+                                    <td>
+                                        <select name="secondaryPassingYear" id="secondaryPassingYear">
+                                            <option value="">Select Passing Year</option>
+                                            <option value="2010">2010</option>
+                                            <option value="2011">2011</option>
+                                            <option value="2012">2012</option>
+                                            <option value="2013">2013</option>
+                                            <option value="2014">2014</option>
+                                            <option value="2015">2015</option>
+                                            <option value="2016">2016</option>
+                                            <option value="2017">2017</option>
+                                            <option value="2018">2018</option>
+                                            <option value="2019">2019</option>
+                                            <option value="2020">2020</option>
+                                            <option value="2021">2021</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Obtained Marks</th>
+                                    <td><input type="text" name="secondaryObtainedMarks" id="secondaryObtainedMarks">
+                                    </td>
+                                    <th>Total Marks</th>
+                                    <td><input type="text" name="secondaryTotalMarks" id="secondaryTotalMarks"></td>
+                                </tr>
+                                <tr>
+                                    <th>Total CGPA</th>
+                                    <td><input type="text" name="secondaryTotalCGPA" id="secondaryTotalCGPA"></td>
+                                    <th>Total Percentage</th>
+                                    <td><input type="text" name="secondaryTotalPercentage"id="secondaryTotalPercentage"></td>
+                                </tr>
+                                <tr>
+                                    <th>Division</th>
+                                    <td>
+                                        <select name="secondaryDivision" id="secondaryDivision">
+                                            <option value="">Select Division</option>
+                                            <option value="1st">1st</option>
+                                            <option value="2nd">2nd</option>
+                                            <option value="3rd">3rd</option>
+                                        </select>
+                                    </td>
+                                    <th>Specialization</th>
+                                    <td><input type="text" name="secondarySpecialization" id="secondarySpecialization">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <br><br><br>
+                    <div class="senior__secondary__details">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Last Institute : +2 (Intermediate) Details</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th>Degree Name</th>
+                                    <td><input type="text" name="seniorSecondaryDegreeName" id="seniorSecondaryDegreeName"></td>
+                                    <th>Board Name</th>
+                                    <td><input type="text" name="seniorSecondaryBoardName" id="seniorSecondaryBoardName"></td>
+                                </tr>
+                                <tr>
+                                    <th>Institute Name</th>
+                                    <td><input type="text" name="seniorSecondaryInstituteName" id="seniorSecondaryInstituteName"></td>
+                                    <th>Passing Year</th>
+                                    <td>
+                                        <select name="seniorSecondaryPassingYear" id="seniorSecondaryPassingYear">
+                                            <option value="">Select Passing Year</option>
+                                            <option value="2012">2012</option>
+                                            <option value="2013">2013</option>
+                                            <option value="2014">2014</option>
+                                            <option value="2015">2015</option>
+                                            <option value="2016">2016</option>
+                                            <option value="2017">2017</option>
+                                            <option value="2018">2018</option>
+                                            <option value="2019">2019</option>
+                                            <option value="2020">2020</option>
+                                            <option value="2021">2021</option>
+                                            <option value="2022">2022</option>
+                                            <option value="2023">2023</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Obtained Marks</th>
+                                    <td><input type="text" name="seniorSecondaryObtainedMarks"id="seniorSecondaryObtainedMarks"></td>
+                                    <th>Total Marks</th>
+                                    <td><input type="text" name="seniorSecondaryTotalMarks"id="seniorSecondaryTotalMarks"></td>
+                                </tr>
+                                <tr>
+                                    <th>Total CGPA</th>
+                                    <td><input type="text" name="seniorSecondaryTotalCGPA"id="seniorSecondaryTotalCGPA"></td>
+                                    <th>Total Percentage</th>
+                                    <td><input type="text" name="seniorSecondaryTotalPercentage"id="seniorSecondaryTotalPercentage"></td>
+                                </tr>
+                                <tr>
+                                    <th>Division</th>
+                                    <td>
+                                        <select name="seniorSecondaryDivision" id="seniorSecondaryDivision">
+                                            <option value="">Select Division</option>
+                                            <option value="1st">1st</option>
+                                            <option value="2nd">2nd</option>
+                                            <option value="3rd">3rd</option>
+                                        </select>
+                                    </td>
+                                    <th>Specialization</th>
+                                    <td><input type="text" name="seniorSecondarySpecialization" id="seniorSecondarySpecialization"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <br><br><br>
+                    <div class="institute__details">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Current Institute : +2+3/4 (Graduation) Details</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th>Degree Name</th>
+                                    <td>B.Tech</td>
+                                    <th>University Name</th>
+                                    <td>MAKAUT</td>
+                                </tr>
+                                <tr>
+                                    <th>Institute Name</th>
+                                    <td>Kalyani Goverment Engineering College</td>
+                                    <th>Passing Year</th>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th>Obtained Marks</th>
+                                    <td></td>
+                                    <th>Total Marks</th>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th>Total CGPA</th>
+                                    <td></td>
+                                    <th>Total Percentage</th>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th>Division</th>
+                                    <td></td>
+                                    <th>Department</th>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <br><br>
+                    <input type="submit" value="Submit" id="submit">
+                </section>
+            </form>
+        </div>
+        include ./partials/footer.pug
+    </div>
+    <script src="../static/js/academics.js"></script>
+</body>
+
+</html>
