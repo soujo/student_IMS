@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Achievements</title>
+    <link rel="stylesheet" href="../static/css/achievements.css">
+</head>
+
+<body>
+    <div class="container">
+        include ./partials/header.pug
+        <div class="aside__section">
+            include ./partials/aside.pug
+            <section>
+                include ./partials/flag.pug
+                <br><br><br>
+                <div class="extra__curricular">
+                    <a href="/student/achievementsEdit">
+                        <div class="edit">Edit</div>
+                    </a>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Extra Curricular Activities</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>Hobbies</th>
+                                <td></td>
+                                <th>Sports</th>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th>Language Known</th>
+                                <td></td>
+                                <th>Clubs Member</th>
+                                <td></td> 
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <br><br><br>
+                <div class="description">
+                    <ul>
+                        <li>Add Achievements</li>
+                    </ul>
+                    <br>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Category</th>
+                                <th>Achievements</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead> 
+                        <tbody>
+                            <tr>
+                                <td  style ="width:884px;text-align:center;">No achievement added</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+            include ./partials/footer.pug
+    <script src="../static/js/achievements.js"></script>
+    
+</body>
+
+</html>  
