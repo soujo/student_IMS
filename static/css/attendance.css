@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
+
+
+*,*::after,*::before{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Lora', serif;
+}
+
+.aside__section{
+    display: flex;
+}
+section{
+    margin: 1rem;
+    height: 732px;
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: scroll;
+}
+
+
+.accordion {
+    background-color: #81a7ee;
+    color: #ffffff;
+    cursor: pointer;
+    padding: 18px;
+    width: 90%;
+    text-align: center;
+    border: none;
+    outline: none;
+    transition: 0.2s;
+    font-size: 16px;
+    border-bottom: 2px solid white;
+}
+
+.active, .accordion:hover {
+    background-color: #5a8ce7;
+}
+
+.accordion:after {
+    content: "+";
+    font-size: 20px;
+    float: right;
+}
+  
+.active:after {
+    content: "-";
+    font-size: 20px;
+
+}
+   
+.panel {
+    padding: 0 18px;
+    background-color: white;
+    display: none;
+}
+
+.panel .semester1{
+    width: 800px;
+    height: 200px;
+    padding: 0.3rem;
+}
+.panel .semester2{
+    width: 800px;
+    height: 245px;
+    padding: 0.3rem;
+}
+.panel .semester3{
+    width: 800px;
+    height: 285px;
+    padding: 0.3rem;
+}
+
+.panel table{
+    width: 100%;
+    height: 275px;
+    display: flex;
+    flex-direction: column;
+    border-collapse: collapse;
+}
+
+.panel table thead tr {
+    color: white;
+    background-color: #81a7ee;
+    height: 40px;
+    text-align: left;
+}
+
+.panel table thead tr th:first-child,
+.panel table tbody tr td:first-child
+{
+    width: 110px;
+    border: 2px solid white;
+    padding-left: 0.5rem;
+}
+
+.panel table thead tr th:nth-child(2),
+.panel table tbody tr td:nth-child(2)
+{
+    border: 2px solid white;
+    padding-left: 0.5rem;
+    width: 330px;
+}
+
+.panel table thead tr th:nth-child(3),
+.panel table tbody tr td:nth-child(3)
+{
+    border: 2px solid white;
+    text-align: center;
+    width: 120px;
+}
+.panel table thead tr th:nth-child(4),
+.panel table tbody tr td:nth-child(4)
+{
+    border: 2px solid white;
+    text-align: center;
+    width: 130px;
+}
+
+.panel table thead tr th:last-child,
+.panel table tbody tr td:last-child
+{
+    border: 2px solid white;
+    width: 98px;
+    text-align: center;
+}
+
+.panel table tbody tr:nth-child(2n){
+    background-color: #ecf2ff;
+
+}
+.panel table tbody tr:nth-child(2n+1){
+    background-color: #9bbefd;
+
+}
