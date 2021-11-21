@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books</title>
+    <link rel="stylesheet" href="../static/css/books.css">
+</head>
+
+<body>
+    <div class="container">
+        include ./partials/header.pug
+        <div class="aside__section">
+            include ./partials/aside.pug
+            <form action="/books" method="POST">
+                <section>
+                    include ./partials/flag.pug
+                    <br><br><br>
+                    <div class="msg">
+                        <ul> 
+                            <li>
+                                |Book section will be added shortly
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+            </form>
+        </div>
+        include ./partials/footer.pug
+    </div>
+    <script src="../static/js/book.js"></script>
+</body>
+
+</html>
