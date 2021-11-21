@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Achievements Edit</title>
+    <link rel="stylesheet" href="../static/css/achievementsEdit.css">
+</head>
+
+<body>
+    <div class="container">
+        include ./partials/header.pug
+        <div class="aside__section">
+            include ./partials/aside.pug
+            <form action="/student/achievementsEdit" method="POST">
+                <section>
+                    include ./partials/flag.pug
+                    <br><br><br>
+                    <div class="extra__curricular">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Extra Curricular Activities</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th>Hobbies</th>
+                                    <td>
+                                        <input type="text" name="hobbies" id="hobbies">
+                                    </td>
+                                    <th>Sports</th>
+                                    <td>
+                                        <input type="text" name="sports" id="sports">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Language Known</th>
+                                    <td>
+                                        <input type="text" name="language" id="language">
+                                    </td>
+                                    <th>Clubs Member</th> 
+                                    <td>
+                                        <div class="club">
+                                            <input type="checkbox" name="DSC" id="DSC" value="DSC">
+                                            <label for="DSC">DSC</label>
+                                            <input type="checkbox" name="SAC" id="SAC" value="SAC">
+                                            <label for="SAC">SAC</label>
+                                            <input type="checkbox" name="riyaz" id="riyaz" value="Riyaz">
+                                            <label for="riyaz">Riyaz</label>
+                                            <input type="checkbox" name="elysium" id="elysium" value="Elysium">
+                                            <label for="elysium">Elysium</label>
+                                            <input type="checkbox" name="chitrank" id="chitrank" value="Chitrank">
+                                            <label for="chitrank">Chitrank</label>
+                                            <input type="checkbox" name="infinitio" id="infinitio" value="Infinitio">
+                                            <label for="infinitio">Infinitio</label>
+                                            <input type="checkbox" name="ecell" id="ecell" value="E-Cell">
+                                            <label for="ecell">E-Cell</label>
+                                            <input type="checkbox" name="litmus" id="litmus" value="Litmus">
+                                            <label for="litmus">Litmus</label>
+                                            <input type="checkbox" name="quiz" id="quiz" value="Les-Quizarable">
+                                            <label for="quiz">Les-Quizerabels</label>
+                                            <input type="checkbox" name="shutterburg" id="shutterburg" value="Shutterburg">
+                                            <label for="shutterburg">Shutterburg</label>
+                                            <input type="checkbox" name="robotics" id="robotics" value="Robotics Society">
+                                            <label for="robotics">Robotics Society</label>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <br><br><br>
+                    <div class="description">
+                        <ul>
+                            <li>Add Achievements</li>
+                        </ul>
+                        <br>
+                        <table id="table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Category</th>
+                                    <th>Achievements</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody id="putHere">
+                                <tr>
+                                    <td>1</td>
+                                    <td>
+                                        <select name="category" id="category">
+                                            <option value="">Select Category</option>
+                                            <option value="Academic">Academic</option>
+                                            <option value="Extra-Curricular">Extra-Curricular</option>
+                                            <option value="Others">Others</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select name="achievements_item" id="achievements">
+                                            <option value="">Select item</option>
+                                            <option value="ISO">ISO</option>
+                                            <option value="IMO">IMO</option>
+                                            <option value="NSEIS">NSEIS</option>
+                                            <option value="RMO">RMO</option>
+                                            <option value="IOI">IOI</option>
+                                            <option value="NTSE">NTSE</option>
+                                            <option value="KVPY">KVPY</option>
+                                            <option value="Hackathon">Hackathons</option>
+                                            <option value="Contribution">Contribution</option>
+                                            <option value="NPTEL">NPTEL</option>
+                                            <option value="Sports Tournament">Sports Tournament</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <input type="text" name="description_text" id="description_text" autocomplete="off">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div> 
+                    <br><br>
+                    <div class="add__box">Add Row</div>
+                    <br>
+                    <div class="delete__box off">Delete Row</div>
+                </section>
+                <input type="submit" value="Submit" id="submit">
+            </form>
+        </div>
+        include ./partials/footer.pug
+    </div>
+    <script src="../static/js/achievementsEdit.js"></script>
+</body>
+
+</html> 
