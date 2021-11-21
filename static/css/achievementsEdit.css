@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
+
+
+*,*::after,*::before{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Lora', serif;
+}
+
+.aside__section{
+    display: flex;
+}
+form{
+    position: relative;
+}
+form input,
+form select{
+    outline: none;
+}
+form #hobbies,
+form #language,
+form #sports{
+    width: 94%;
+}
+form .club{
+    margin-left: 1rem;
+}
+form #description_text{
+    width: 90%;
+}
+form #submit{
+    position: absolute;
+    bottom: 10px;
+    left: 817px;
+    padding: 0.5rem;
+    border-radius: 15px;
+    width: 70px;
+    height: 30px;
+    border: none;
+    background-color: #81a7ee;
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+    align-self: flex-end;
+    margin-right: 4rem;
+}
+
+form #submit:hover{
+    background-color: #4e87f0;
+}
+section{
+    margin: 1rem;
+    height: 732px;
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.extra__curricular,
+.description{
+    width: 90%;
+    position: relative;
+}
+
+.extra__curricular table,
+.description table
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border-collapse: collapse;
+}
+
+.extra__curricular table thead{
+    display: flex;
+    justify-content: center;
+    height: 35px;
+    background-color: #81a7ee;
+    margin-bottom: 0.1rem;
+    padding-top: 0.4rem;
+    color: white;
+    border-left: 2px solid white;
+    border-right: 2px solid white;
+}
+
+.extra__curricular table tbody,
+.description table tbody
+{
+    display: flex;
+    flex-direction: column;
+}
+
+.extra__curricular table tbody tr:nth-child(2n+1),
+.description table tbody tr:nth-child(2n+1)
+{
+    background-color: #abc4f1;
+}
+
+.extra__curricular table tbody tr:nth-child(2n),
+.description table tbody tr:nth-child(2n)
+{
+    background-color: #d2def5;
+}
+
+.extra__curricular table tbody tr th{
+    height: 50px;
+    text-align: start;
+    padding-left: 0.4rem;
+    border:2px solid white;
+}
+.extra__curricular table tbody tr:nth-child(1) td:nth-child(2),
+.extra__curricular table tbody tr:nth-child(1) td:nth-child(4),
+.extra__curricular table tbody tr:nth-child(2) td:nth-child(2)
+{
+    border:2px solid white;
+    text-align: start;
+    padding-left: 0.5rem;
+}
+
+.extra__curricular table tbody tr th:nth-child(1){
+    width: 16%;
+}
+.extra__curricular table tbody tr td:nth-child(2){
+    width: 300px;
+}
+.extra__curricular table tbody tr th:nth-child(3){
+    width: 16%;
+}
+.extra__curricular table tbody tr td:nth-child(4){
+    width: 300px;
+}
+.extra__curricular table tbody tr:nth-child(2) td:nth-child(2)
+{
+    width: 313px;
+}
+.extra__curricular table tbody tr:nth-child(2) td:nth-child(4){
+    border: 2px solid white;
+}
+
+ul li{
+    margin-left: 1.5rem;
+    font-size: 18px;
+    font-weight: 600;
+}
+.description table thead{
+    background-color: #81a7ee;
+    margin-bottom: 0.1rem;
+    color: white;
+    border-left: 2px solid white;
+    border-right: 2px solid white;
+}
+.description table tbody{
+    border-left: 2px solid white;
+    border-right: 2px solid white;
+}
+.description table thead tr th{
+    border: 2px solid white;
+    height: 35px;
+}
+.description table tbody tr td{
+    border: 2px solid white;
+    height: 40px;
+    padding-left: 0.5rem;
+}
+.description table thead tr th:nth-child(1),
+.description table tbody tr td:nth-child(1)
+{
+    width: 5%;
+}
+.description table thead tr th:nth-child(2),
+.description table tbody tr td:nth-child(2)
+{
+    width: 20%;
+}
+.description table thead tr th:nth-child(3),
+.description table tbody tr td:nth-child(3)
+{
+    width: 20%;
+}
+.description table thead tr th:nth-child(4),
+.description table tbody tr td:nth-child(4)
+{
+    width: 505px;
+    /* width: 428px; */
+}
+.description table thead tr th:nth-child(5),
+.description table tbody tr td:nth-child(5)
+{
+    width: 5%;
+}
+
+.add__box{
+    background-color: #81a7ee;
+    color: white;
+    align-self: end;
+    margin-right: 3rem;
+    padding-top: 0.15rem;
+    height: 25px;
+    width: 80px;
+    text-align: center;
+    border-radius: 15px;
+    font-size: 15px;
+    cursor: pointer;
+}
+.add__box:hover,
+.delete__box:hover
+{
+    background-color: #396bc9;
+}
+
+.delete__box{
+    background-color: #81a7ee;
+    color: white;
+    align-self: end;
+    margin-right: 3rem;
+    padding-top: 0.15rem;
+    height: 25px;
+    width: 95px;
+    text-align: center;
+    border-radius: 15px;
+    font-size: 15px;
+    cursor: pointer;
+}
