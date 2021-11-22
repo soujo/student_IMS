@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/classMaterials.css">
+    <title>Class Materials</title>
+</head>
+<body>
+    <div class="container">
+        include ./partials/header.pug
+        <div class="aside__section">
+            include ./partials/aside.pug
+            <section>
+                include ./partials/flag.pug
+                <br><br><br>
+                <button class="accordion">Semester 1</button> 
+                <div class="panel">
+                    <div class="semester1">
+                        <ul>
+                            <li><b>Class Materials will be provided later</b></li>
+                        </ul>
+                    </div>
+                </div>
+                <button class="accordion">Semester 2</button> 
+                <div class="panel">
+                    <div class="semester2">
+                        <ul>
+                            <li><b>Class Materials will be provided later</b></li>
+                        </ul>
+                    </div>
+                </div>
+                <button class="accordion">Semester 3</button> 
+                <div class="panel">
+                    <div class="semester3">
+                        |hello
+                    </div>
+                </div>
+            </section>
+        </div>
+        include ./partials/footer.pug
+    </div>
+    <script src="/static/js/classMaterials.js"></script>
+</body>
+</html>
