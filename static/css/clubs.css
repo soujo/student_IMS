@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
+
+
+*,*::after,*::before{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Lora', serif;
+}
+
+.aside__section{
+    display: flex;
+}
+section{
+    margin: 1rem;
+    height: 732px;
+    width: 100%; 
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: scroll;
+}
+
+.accordion {
+    background-color: #81a7ee;
+    color: #ffffff;
+    cursor: pointer;
+    padding: 18px;
+    width: 90%;
+    text-align: center;
+    border: none;
+    outline: none;
+    transition: 0.2s;
+    font-size: 16px;
+    border-bottom: 2px solid white;
+}
+
+.active, .accordion:hover {
+    background-color: #5a8ce7;
+}
+
+.panel {
+    padding: 0 18px;
+    background-color: white;
+    display: none;
+}
+
+.panel .dsc,
+.panel .sac,
+.panel .riyaz,
+.panel .elysium,
+.panel .chitrank,
+.panel .keygen,
+.panel .infinitio,
+.panel .ecell,
+.panel .litmus,
+.panel .shutterburg
+{
+    width: 800px;
+    height: 115px;
+    padding: 0.3rem;
+}
+
+
+.panel table{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    padding-left: 1rem;
+}
+
+.panel table tr{
+    text-align: left;
+    width: 100%;
+}
+
+.panel table tr td:nth-child(2){
+    width: 450px;
+    padding: 0.5rem;
+    text-align:left;
+}
+
+.panel table tr td:first-child,
+.panel table tr td:nth-child(3),
+.panel table tr td:nth-child(4),
+.panel table tr td:last-child
+{
+    padding: 1rem;
+}
+.panel table tr td:first-child img{
+    height: 75px;
+    width: 75px;
+    border: 1px solid black;
+    border-radius: 50%;
+}
