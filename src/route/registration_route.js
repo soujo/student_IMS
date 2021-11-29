@@ -25,7 +25,7 @@ Router.route("/registration")
                 });
 
                 const registered = await students.save();
-                res.status(201).send("Registration is successful");
+                res.status(201).redirect("/login");
             }
             else {
                 res.send("Password are not matching");
