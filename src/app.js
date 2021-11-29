@@ -4,6 +4,9 @@ const views_path = path.join(__dirname, "../views");
 const static_path = path.join(__dirname, "../static");
 const app = express();
 const port = process.env.PORT || 80;
+const bcrypt = require("bcryptjs");
+const Register = require("../src/models/userRegistration");
+let roll;
 
 
 app.use("/static",express.static(static_path));
@@ -12,6 +15,32 @@ app.use(urlencoded({ extended: false }));
 
 app.set("view engine", "pug");
 app.set("views", views_path);
+
+app.get("/login", (req, res) => {
+    res.status(200).render("login.pug");
+});
+
+
+app.post("/login",async (req, res) => {
+    try {
+        roll = req.body.roll;
+        const password = req.body.password;
+
+        const userRoll = await Register.findOne({ roll });
+
+        const isMatch = await bcrypt.compare(password, userRoll?.password);
+        if (isMatch) {
+            res.status(200).send("Welcome to homepage");
+        }
+        else {
+            res.status(400).send("Invalid password details");
+        }
+    }
+    catch (err) {
+        console.log(err);
+        res.status(400).send(err);
+    }
+});
 
 // * Home 
 
