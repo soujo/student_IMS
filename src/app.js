@@ -48,6 +48,11 @@ app.post("/login",async (req, res) => {
 const registrationRouter = require("../src/route/registration_route");
 app.use("/home", registrationRouter);
 
+
+//* Student
+const studentRouter = require("../src/route/student_route");
+app.use("/student", studentRouter);
+
 //* listen
 app.listen(port, () => {
     console.log(`The application started successfully on port ${port}`);
