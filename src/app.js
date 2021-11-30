@@ -24,13 +24,14 @@ app.get("/login", (req, res) => {
 app.post("/login",async (req, res) => {
     try {
         roll = req.body.roll;
+        exports.roll=roll;
         const password = req.body.password;
 
         const userRoll = await Register.findOne({ roll });
 
         const isMatch = await bcrypt.compare(password, userRoll?.password);
         if (isMatch) {
-            res.status(200).send("Welcome to homepage");
+            res.status(200).redirect("/student/homepage");
         }
         else {
             res.status(400).send("Invalid password details");
@@ -46,7 +47,6 @@ app.post("/login",async (req, res) => {
 
 const registrationRouter = require("../src/route/registration_route");
 app.use("/home", registrationRouter);
-
 
 //* listen
 app.listen(port, () => {
