@@ -53,6 +53,10 @@ app.use("/home", registrationRouter);
 const studentRouter = require("../src/route/student_route");
 app.use("/student", studentRouter);
 
+const personalInfoRouter = require("../src/route/personalInfo_route");
+app.use("/student", personalInfoRouter);
+
+
 //* listen
 app.listen(port, () => {
     console.log(`The application started successfully on port ${port}`);
