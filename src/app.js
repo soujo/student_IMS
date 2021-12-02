@@ -56,6 +56,10 @@ app.use("/student", studentRouter);
 const personalInfoRouter = require("../src/route/personalInfo_route");
 app.use("/student", personalInfoRouter);
 
+const personalInfoEditRouter = require("../src/route/personalInfoEdit_route");
+app.use("/student", personalInfoEditRouter);
+
+
 
 //* listen
 app.listen(port, () => {
