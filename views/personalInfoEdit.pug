@@ -17,6 +17,8 @@
             <form action="/student/personalInfoEdit" method="POST" >
                 <section>
                     include ./partials/flag.pug
+                    -if(msg.length>0)
+                        .error #{msg}
                     <div class="student__details">
                         <table>
                             <thead>
