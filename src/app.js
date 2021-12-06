@@ -6,12 +6,23 @@ const app = express();
 const port = process.env.PORT || 80;
 const bcrypt = require("bcryptjs");
 const Register = require("../src/models/userRegistration");
+
+const session = require("express-session");
+const flash =require("connect-flash");
 let roll;
 
 
 app.use("/static",express.static(static_path));
 app.use(express.json());
 app.use(urlencoded({ extended: false })); 
+
+app.use(session({
+    secret:"secret",
+    cookie:{message:60000},
+    resave:false,
+    saveUninitialized:false
+}));
+app.use(flash());
 
 app.set("view engine", "pug");
 app.set("views", views_path);
