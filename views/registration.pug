@@ -16,6 +16,12 @@
             <li><a href="">About</a></li> 
         </ul>
     </nav> 
+    -if(msg.length>0){
+        .error #{msg}
+    -}
+    -if(dup_err.length>0){
+        .error #{dup_err}
+    -}
     <div class="container">
         <div class="welcome__box">
             <img class="welcome__image" src="/static/images/welcome__image.svg" alt="welcome image">
