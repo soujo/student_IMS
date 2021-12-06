@@ -4,7 +4,10 @@ const Register = require("../models/userRegistration");
 
 Router.route("/registration")
     .get(async (req, res) => {
-        res.status(200).render("registration.pug");
+        res.status(200).render("registration.pug",{
+            msg:req.flash("pass-err"),
+            dup_err:req.flash("duplicate")
+        });
     })
     .post(async (req, res) => {
 
@@ -25,16 +28,18 @@ Router.route("/registration")
                 });
 
                 const registered = await students.save();
+                req.flash("reg-success","Registration is successful ! \n You can login now");
                 res.status(201).redirect("/login");
             }
             else {
-                res.send("Password are not matching");
+                req.flash("pass-err","Password and confirm password are different !")
+                res.redirect("/home/registration");
             }
 
         }
         catch (err) {
-            res.status(400).send(err);
-            console.log(err);
+            req.flash("duplicate","Roll and email are already registered !");
+            res.redirect("/home/registration");
         }
     })
 
