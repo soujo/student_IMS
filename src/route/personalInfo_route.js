@@ -31,7 +31,6 @@ Router.route("/personalInfo")
             const fatherName = personalInfoRoll?.fatherName;
             const motherName = personalInfoRoll?.motherName;
             const address = personalInfoRoll?.address;
-            
             const param = {
                 "content":"Personal Info",
                 "firstName": firstName,
@@ -53,7 +52,8 @@ Router.route("/personalInfo")
                 "jeletRank": jeletRank,
                 "fatherName": fatherName,
                 "motherName": motherName,
-                "address": address
+                "address": address,
+                "msg":req.flash("personalInfo-success")
             }
             res.status(200).render("personalInfo.pug", param);
         }
