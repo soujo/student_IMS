@@ -31,6 +31,7 @@ Router.route("/personalInfo")
             const fatherName = personalInfoRoll?.fatherName;
             const motherName = personalInfoRoll?.motherName;
             const address = personalInfoRoll?.address;
+            const image = `../static/uploads/${rollNumber.roll}.jpeg`;
             const param = {
                 "content":"Personal Info",
                 "firstName": firstName,
@@ -53,6 +54,7 @@ Router.route("/personalInfo")
                 "fatherName": fatherName,
                 "motherName": motherName,
                 "address": address,
+                "image":image,
                 "msg":req.flash("personalInfo-success")
             }
             res.status(200).render("personalInfo.pug", param);
