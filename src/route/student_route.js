@@ -9,10 +9,12 @@ Router.route("/homepage")
             const userRoll = await Register.findOne({ roll: rollNumber.roll });
             const firstName = userRoll?.firstName;
             const lastName = userRoll?.lastName;
+            const image = `../static/uploads/${rollNumber.roll}.jpeg`
             const param = {
                 "content":"Information Management System",
                 "firstName": firstName,
                 "lastName": lastName,
+                "image":image
             };
 
             res.status(200).render("student.pug", param);
