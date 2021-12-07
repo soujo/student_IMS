@@ -14,13 +14,18 @@
             <li><a href="/home/about">About</a></li> 
         </ul>
     </nav>  
+    -if(msg.length>0){
+        .error #{msg}
+    -}
+    -if(login_msg.length>0){
+        .success #{login_msg}
+    -}
     <div class="container">
         <div class="welcome__box">
             <img class="welcome__image" src="/static/images/login.svg" alt="welcome image">
         </div>
         <div class="login__box">
             <h2>Student Login </h2>
-            
             <div class="form">
                 <div >
                     <img class="people__logo" src="/static/images/people__logo.svg" alt="Login Image">
