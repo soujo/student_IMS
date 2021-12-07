@@ -28,7 +28,11 @@ app.set("view engine", "pug");
 app.set("views", views_path);
 
 app.get("/login", (req, res) => {
-    res.status(200).render("login.pug");
+    res.status(200).render("login.pug",
+    {
+        msg:req.flash("login-err"),
+        login_msg:req.flash("reg-success")
+    });
 });
 
 
@@ -45,12 +49,14 @@ app.post("/login",async (req, res) => {
             res.status(200).redirect("/student/homepage");
         }
         else {
-            res.status(400).send("Invalid password details");
+            req.flash("login-err","Invalid Password");
+            res.redirect("/login");
         }
     }
     catch (err) {
         console.log(err);
-        res.status(400).send(err);
+        req.flash("login-err","Invalid Roll");
+        res.redirect("/login");
     }
 });
 
