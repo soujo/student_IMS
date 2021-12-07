@@ -3,6 +3,8 @@ const Router = express.Router();
 const rollNumber = require("../app");
 const Register = require("../models/userRegistration");
 const PersonalInfo = require("../models/personalInfo");
+const multerImport = require("../multer/multer");
+const upload = multerImport.upload;
 
 
 Router.route("/personalInfoEdit")
@@ -15,6 +17,7 @@ Router.route("/personalInfoEdit")
             const gender = userRoll?.gender;
             const email = userRoll?.email;
             const phone = userRoll?.phone;
+            const image = `../static/uploads/${rollNumber.roll}.jpeg`
             const param = {
                 "content": "Personal Info",
                 "firstName": firstName,
@@ -23,6 +26,7 @@ Router.route("/personalInfoEdit")
                 "gender": gender,
                 "phone": phone,
                 "email": email,
+                "image": image,
                 "msg": req.flash("personalInfoEdit-err")
             };
             res.status(200).render("personalInfoEdit.pug", param);
@@ -33,7 +37,7 @@ Router.route("/personalInfoEdit")
             console.log(err);
         }
     })
-    .post(async (req, res) => {
+    .post(upload.single("image"), async (req, res) => {
 
 
         const personalInfoRoll = await PersonalInfo.findOne({ roll: rollNumber.roll });
@@ -63,6 +67,7 @@ Router.route("/personalInfoEdit")
                     admissionType: req.body.admissionType,
                     fatherName: req.body.fatherName,
                     motherName: req.body.motherName,
+                    image: req.file.filename,
                     edit: "firstTime"
                 });
 
@@ -106,6 +111,7 @@ Router.route("/personalInfoEdit")
                                 admissionType: req.body.admissionType,
                                 fatherName: req.body.fatherName,
                                 motherName: req.body.motherName,
+                                image: req.file.filename,
                                 edit: `updated-${i++}`
                             }
                         },
