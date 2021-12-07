@@ -130,6 +130,10 @@ section{
     height: 120px;
     width: 120px;
     border: 2px solid white;
+    font-size: 14px;
+    display: flex;    
+    padding-left: 1rem;
+    align-items: center;
 }
 .student__details .picture #image{
     margin-left: 5rem;
