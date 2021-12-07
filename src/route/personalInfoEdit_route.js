@@ -23,6 +23,7 @@ Router.route("/personalInfoEdit")
                 "gender": gender,
                 "phone": phone,
                 "email": email,
+                "msg": req.flash("personalInfoEdit-err")
             };
             res.status(200).render("personalInfoEdit.pug", param);
 
@@ -66,10 +67,12 @@ Router.route("/personalInfoEdit")
                 });
 
                 const personalInfoSubmitted = await personalInfoEdits.save();
+                req.flash("personalInfo-success", "Your data has been saved !");
                 res.status(200).redirect("/student/personalInfo");
             }
             catch (err) {
-                res.status(400).send(err);
+                req.flash("personalInfoEdit-err", "Some error occured.Try again !");
+                res.status(200).redirect("/student/personalInfoEdit");
                 console.log(err);
             }
 
@@ -112,10 +115,13 @@ Router.route("/personalInfoEdit")
                         }
                     );
                     const updated = await update.save();
+                    req.flash("personalInfo-success", "Your data has been saved !");
                     res.status(200).redirect("/student/personalInfo");
 
                 }
                 catch (err) {
+                    req.flash("personalInfoEdit-err", "Some error occured.Try again !");
+                    res.status(200).redirect("/student/personalInfoEdit");
                     console.log(err);
                 }
 
