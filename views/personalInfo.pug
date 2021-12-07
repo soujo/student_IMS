@@ -16,6 +16,9 @@
             include ./partials/aside.pug
             <section>
                 include ./partials/flag.pug
+                -if(msg.length>0){
+                    .success #{msg}
+                -}
                 <div class="student__details">
                     <a href="/student/personalInfoEdit">
                         <div class="edit">Edit</div>
