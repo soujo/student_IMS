@@ -222,3 +222,46 @@ body{
 
 }
 
+/* error  */
+.error{
+    width: 40%;
+    text-align: center;
+    padding: 0.5rem;
+    color: #ffffff;
+    background-color: #f56b6b ;
+    position: absolute;
+    top: 70px;
+    left: 408px;
+    animation: fadeIn 0.7s, hideAnimation 0s ease-in 3s;
+    animation-fill-mode: forwards;
+    opacity: 1;
+}
+
+.success{
+    width: 40%;
+    text-align: center;
+    padding: 0.5rem;
+    color: #ffffff;
+    background-color: #42ba96 ;
+    position: absolute;
+    top: 70px;
+    left: 408px;
+    animation: fadeIn 0.7s, hideAnimation 0s ease-in 3s;
+    animation-fill-mode: forwards;
+    opacity: 1;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+       opacity: 1;
+    }
+  }
+
+  @keyframes hideAnimation {
+    to {
+      visibility: hidden;
+    }
+  }
