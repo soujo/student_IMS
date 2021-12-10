@@ -79,7 +79,8 @@ app.use("/student", personalInfoEditRouter);
 const academicsRouter = require("../src/route/academics_route");
 app.use("/student", academicsRouter);
 
-
+const academicsEditRouter = require("../src/route/academicsEdit_route");
+app.use("/student", academicsEditRouter);
 
 //* listen
 app.listen(port, () => {
