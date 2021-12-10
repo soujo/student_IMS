@@ -1,0 +1,105 @@
+const mongoose = require('mongoose');
+
+const academicsSchema= new mongoose.Schema({
+    secondaryDegreeName:{
+        type:String,
+        uppercase:true
+    },
+    secondaryBoardName:{
+        type:String,
+        uppercase:true
+    },
+    secondaryInstituteName:{
+        type:String,
+        uppercase:true
+    },
+    secondaryPassingYear:{
+        type:Number
+    },
+    secondaryObtainedMarks:{
+        type:Number
+    },
+    secondaryTotalMarks:{
+        type:Number
+    },
+    secondaryTotalCGPA:{
+        type:Number
+    },
+    secondaryTotalPercentage:{
+        type:String
+    },
+    secondaryDivision:{
+        type:String
+    },
+    secondarySpecialization:{
+        type:String,
+        uppercase:true
+    },
+    seniorSecondaryDegreeName:{
+        type:String,
+        uppercase:true
+    },
+    seniorSecondaryBoardName:{
+        type:String,
+        uppercase:true
+    },
+    seniorSecondaryInstituteName:{
+        type:String,
+        uppercase:true
+    },
+    seniorSecondaryPassingYear:{
+        type:Number
+    },
+    seniorSecondaryObtainedMarks:{
+        type:Number
+    },
+    seniorSecondaryTotalMarks:{
+        type:Number
+    },
+    seniorSecondaryTotalCGPA:{
+        type:Number
+    },
+    seniorSecondaryTotalPercentage:{
+        type:String
+    },
+    seniorSecondaryDivision:{
+        type:String
+    },
+    seniorSecondarySpecialization:{
+        type:String,
+        uppercase:true
+    },
+    collegePassingYear:{
+        type:Number
+    },
+    collegeObtainedMarks:{
+        type:Number
+    },
+    collegeTotalMarks:{
+        type:Number
+    },
+    collegeTotalCGPA:{
+        type:Number
+    },
+    collegeTotalPercentage:{
+        type:String
+    },
+    collegeDivision:{
+        type:String
+    },
+    branch:{
+        type:String, 
+        uppercase:true
+    },
+    roll:{
+        type:Number
+    },
+    edit:{
+        type:String
+    }
+});
+
+
+const Academics = new mongoose.model("Academic",academicsSchema);
+
+module.exports=Academics;
