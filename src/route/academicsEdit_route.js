@@ -15,13 +15,14 @@ Router.route("/academicsEdit")
 
             const personalInfoRoll = await PersonalInfo.findOne({ roll: rollNumber.roll });
             const branch = personalInfoRoll?.branch;
-            const image = `../static/uploads/${rollNumber.roll}.jpeg`
+            const image = `../static/uploads/${rollNumber.roll}.jpeg`;
             const params = {
                 "content":"Academics",
                 "firstName": firstName,
                 "lastName": lastName,
                 "branch": branch,
-                "image":image
+                "image":image,
+                "msg": req.flash("academicsEdit-err")
             };
 
             res.status(200).render("academicsEdit.pug", params);
@@ -71,12 +72,14 @@ Router.route("/academicsEdit")
                 });
 
                 const academicsEditSubmitted = await academicsEdits.save();
+                req.flash("academicsEdit-success", "Your data has been saved !");
                 res.status(200).redirect("/student/academics");
 
 
             }
             catch (err) {
-                console.log(err);
+                req.flash("personalInfoEdit-err", "Some error occured.Try again !");
+                res.status(200).redirect("/student/academicsEdit");
             }
 
         }
@@ -126,11 +129,13 @@ Router.route("/academicsEdit")
                         }
                     );
                     const updated = await update.save();
+                    req.flash("academicsEdit-success", "Your data has been saved !");
                     res.status(200).redirect("/student/academics");
 
                 }
                 catch (err) {
-                    console.log(err);
+                    req.flash("personalInfoEdit-err", "Some error occured.Try again !");
+                    res.status(200).redirect("/student/academicsEdit");
                 }
 
             };
