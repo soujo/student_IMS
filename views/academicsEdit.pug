@@ -17,6 +17,9 @@
             <form action="/student/academicsEdit" method="POST">
                 <section>
                     include ./partials/flag.pug
+                    -if(msg.length>0){
+                        .error #{msg}
+                    -}
                     <br><br><br>
                     <div class="secondary__details">
                         <table>
