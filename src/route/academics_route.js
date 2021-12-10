@@ -45,6 +45,7 @@ Router.route("/academics")
             const collegeTotalCGPA = academicsRoll?.collegeTotalCGPA;
             const collegeTotalPercentage = academicsRoll?.collegeTotalPercentage;
             const collegeDivision = academicsRoll?.collegeDivision;
+            const image = `../static/uploads/${rollNumber.roll}.jpeg`;
             const params = {
                 "content":"Academics",
                 "firstName": firstName,
@@ -75,7 +76,8 @@ Router.route("/academics")
                 "collegeTotalMarks": collegeTotalMarks,
                 "collegeTotalCGPA": collegeTotalCGPA,
                 "collegeTotalPercentage": collegeTotalPercentage,
-                "collegeDivision": collegeDivision
+                "collegeDivision": collegeDivision,
+                "image":image
             };
 
             res.status(200).render("academics.pug", params);
