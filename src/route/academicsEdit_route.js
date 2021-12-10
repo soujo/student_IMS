@@ -15,11 +15,13 @@ Router.route("/academicsEdit")
 
             const personalInfoRoll = await PersonalInfo.findOne({ roll: rollNumber.roll });
             const branch = personalInfoRoll?.branch;
+            const image = `../static/uploads/${rollNumber.roll}.jpeg`
             const params = {
                 "content":"Academics",
                 "firstName": firstName,
                 "lastName": lastName,
-                "branch": branch
+                "branch": branch,
+                "image":image
             };
 
             res.status(200).render("academicsEdit.pug", params);
@@ -128,7 +130,7 @@ Router.route("/academicsEdit")
 
                 }
                 catch (err) {
-                    console.log(err)
+                    console.log(err);
                 }
 
             };
