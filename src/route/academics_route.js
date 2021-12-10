@@ -77,7 +77,8 @@ Router.route("/academics")
                 "collegeTotalCGPA": collegeTotalCGPA,
                 "collegeTotalPercentage": collegeTotalPercentage,
                 "collegeDivision": collegeDivision,
-                "image":image
+                "image":image,
+                "msg":req.flash("academicsEdit-success")
             };
 
             res.status(200).render("academics.pug", params);
