@@ -31,6 +31,7 @@ Router.route("/achievements")
             const robotics = achievementsRoll?.clubs[10] == null ? "" : achievementsRoll?.clubs[10].toString();
 
             const achievement = achievementsRoll?.achievement;
+            const image = `../static/uploads/${rollNumber.roll}.jpeg`;
             const params = {
                 "content":"Achievements",
                 "firstName": firstName,
@@ -41,6 +42,7 @@ Router.route("/achievements")
                 "clubs": [`${DSC} ${SAC} ${riyaz} ${elysium} ${chitrank} ${infinitio} ${litmus} ${ecell} ${quiz} ${shutterburg} ${robotics}`],
                 "achievement": achievement,
                 "msg": "No Achievements Added",
+                "image":image
             };
 
             res.status(200).render("achievements.pug", params);
