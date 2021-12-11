@@ -42,6 +42,7 @@ Router.route("/achievements")
                 "clubs": [`${DSC} ${SAC} ${riyaz} ${elysium} ${chitrank} ${infinitio} ${litmus} ${ecell} ${quiz} ${shutterburg} ${robotics}`],
                 "achievement": achievement,
                 "msg": "No Achievements Added",
+                "success_msg":req.flash("achievementsEdit-success"),
                 "image":image
             };
 
