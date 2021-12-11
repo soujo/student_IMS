@@ -30,15 +30,15 @@
                         <tbody>
                             <tr>
                                 <th>Hobbies</th>
-                                <td></td>
+                                <td>#{hobbies}</td>
                                 <th>Sports</th>
-                                <td></td>
+                                <td>#{sports}</td>
                             </tr>
                             <tr>
                                 <th>Language Known</th>
-                                <td></td>
+                                <td>#{language}</td>
                                 <th>Clubs Member</th>
-                                <td></td> 
+                                <td>#{clubs}</td> 
                             </tr>
                         </tbody>
                     </table>
@@ -57,11 +57,20 @@
                                 <th>Achievements</th>
                                 <th>Description</th>
                             </tr>
-                        </thead> 
-                        <tbody>
-                            <tr>
-                                <td  style ="width:884px;text-align:center;">No achievement added</td>
-                            </tr>
+                        </thead>
+                        -const object=achievement;  
+                        -let i=0;   
+                        <tbody id="tbody">
+                            if object != undefined                            
+                                for val of object
+                                    tr           
+                                        td #{++i}                                          
+                                        td #{val.category}
+                                        td #{val.achievements_item}
+                                        td #{val.description_text}
+                            else 
+                                tr 
+                                    <td style ="width:884px;text-align:center;">#{msg}</td>
                         </tbody>
                     </table>
                 </div>
