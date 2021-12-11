@@ -82,6 +82,10 @@ app.use("/student", academicsRouter);
 const academicsEditRouter = require("../src/route/academicsEdit_route");
 app.use("/student", academicsEditRouter);
 
+const achievementRouter = require("../src/route/achievements_route");
+app.use("/student", achievementRouter);
+
+
 //* listen
 app.listen(port, () => {
     console.log(`The application started successfully on port ${port}`);
