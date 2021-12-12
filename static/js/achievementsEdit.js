@@ -100,7 +100,7 @@ function add() {
                     padding-left: 0.5rem;
                  "
                 >
-                    <input type="text" name="description_text" id="description_text">
+                    <input type="text" name="description_text" id="description_text" autocomplete="off">
                 </td>                          
         </tr>
         `
