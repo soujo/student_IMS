@@ -17,7 +17,8 @@ Router.route("/achievementsEdit")
                 "content": "Achievements",
                 "firstName": firstName,
                 "lastName": lastName,
-                "image": image
+                "image": image,
+                "msg": req.flash("achievementsEdit-err")
             };
 
             res.status(200).render("achievementsEdit.pug", params);
@@ -67,13 +68,14 @@ Router.route("/achievementsEdit")
                     edit: "firstTime"
                 });
                 const achievementsSubmitted = await achievements.save();
+                req.flash("achievementsEdit-success", "Your data has been saved !");
                 res.status(200).redirect("/student/achievements");
 
 
             }
             catch (err) {
-                res.status(400).send(err);
-                console.log(err);
+                req.flash("achievementsEdit-err", "Some error occured.Try again !");
+                res.status(200).redirect("/student/achievementsEdit");
             }
 
         }
@@ -124,12 +126,13 @@ Router.route("/achievementsEdit")
                         }
                     );
                     const updated = await update.save();
+                    req.flash("achievementsEdit-success", "Your data has been saved !");
                     res.status(200).redirect("/student/achievements");
 
                 }
                 catch (err) {
-                    res.status(400).send(err);
-                    console.log(err);
+                    req.flash("achievementsEdit-err", "Some error occured.Try again !");
+                    res.status(200).redirect("/student/achievementsEdit");
                 }
 
             };
