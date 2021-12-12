@@ -12,10 +12,12 @@ Router.route("/achievementsEdit")
 
             const firstName = userRoll?.firstName;
             const lastName = userRoll?.lastName;
+            const image = `../static/uploads/${rollNumber.roll}.jpeg`;
             const params = {
                 "content": "Achievements",
                 "firstName": firstName,
-                "lastName": lastName
+                "lastName": lastName,
+                "image": image
             };
 
             res.status(200).render("achievementsEdit.pug", params);
