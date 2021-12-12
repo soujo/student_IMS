@@ -15,10 +15,9 @@ let roll;
 app.use("/static",express.static(static_path));
 app.use(express.json());
 app.use(urlencoded({ extended: false })); 
-
 app.use(session({
     secret:"secret",
-    cookie:{message:60000},
+    cookie:{},
     resave:false,
     saveUninitialized:false
 }));
@@ -66,6 +65,7 @@ const registrationRouter = require("../src/route/registration_route");
 app.use("/home", registrationRouter);
 
 
+
 //* Student
 const studentRouter = require("../src/route/student_route");
 app.use("/student", studentRouter);
@@ -84,6 +84,10 @@ app.use("/student", academicsEditRouter);
 
 const achievementRouter = require("../src/route/achievements_route");
 app.use("/student", achievementRouter);
+
+const achievementEditRouter = require("../src/route/achievementEdit_route");
+app.use("/student", achievementEditRouter);
+
 
 
 //* listen
