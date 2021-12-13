@@ -26,6 +26,7 @@ app.use(flash());
 app.set("view engine", "pug");
 app.set("views", views_path);
 
+
 app.get("/login", (req, res) => {
     res.status(200).render("login.pug",
     {
@@ -59,6 +60,7 @@ app.post("/login",async (req, res) => {
     }
 });
 
+
 // * Home 
 
 const registrationRouter = require("../src/route/registration_route");
@@ -69,6 +71,9 @@ app.use("/home", registrationRouter);
 //* Student
 const studentRouter = require("../src/route/student_route");
 app.use("/student", studentRouter);
+
+const feedbackRouter = require("../src/route/feedback_route");
+app.use("/student", feedbackRouter);
 
 const personalInfoRouter = require("../src/route/personalInfo_route");
 app.use("/student", personalInfoRouter);
@@ -87,6 +92,7 @@ app.use("/student", achievementRouter);
 
 const achievementEditRouter = require("../src/route/achievementEdit_route");
 app.use("/student", achievementEditRouter);
+
 
 
 
