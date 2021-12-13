@@ -13,7 +13,10 @@
         <div class="aside__section">
             include ./partials/aside.pug
             <section>
-                include ./partials/flag.pug
+                include ./partials/flag.pug                
+                -if(msg.length>0){
+                    .success #{msg}
+                -}
                 <br><br><br>
                 <div class="feedback__box">
                     <form action="/student/feedback" method="post">
