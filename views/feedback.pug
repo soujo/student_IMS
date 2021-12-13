@@ -19,15 +19,15 @@
                     <form action="/student/feedback" method="post">
                         <div class="first">
                             <label for="name">Name</label>
-                            input(type="text" name="name" id="name" )
+                            input(type="text" name="name" id="name" readonly="true" value=firstName + " " + lastName)
                             <label for="email">Email</label>
-                            input(type="email" name="email" id="email")
+                            input(type="email" name="email" id="email" readonly="true" value=email)
                         </div>
                         <div class="second">
                             <label for="roll">Roll No.</label>
-                            input(type="text" name="roll" id="roll" )
+                            input(type="text" name="roll" id="roll" readonly="true" value=roll)
                             <label for="dept">Department</label>
-                            input(type="text" name="dept" id="dept" )
+                            input(type="text" name="dept" id="dept" readonly="true" value=dept)
                         </div>
                         <label for="msg">What improvement do you suggest for this website?</label>
                         <textarea name="msg" id="msg" cols="1" rows="8" required></textarea>
