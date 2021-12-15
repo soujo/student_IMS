@@ -18,13 +18,15 @@ Router.route("/feedback")
 
             const personalInfoRoll = await PersonalInfo.findOne({ roll: rollNumber.roll });
             const branch = personalInfoRoll?.branch;
+            const image = `../static/uploads/${rollNumber.roll}.jpeg`;
             const param = {
                 "content":"Feedback",
                 "firstName": firstName,
                 "lastName": lastName,
                 "email": email,
                 "dept": branch,
-                "roll": rollNumber.roll
+                "roll": rollNumber.roll,
+                "image":image
             };
 
             res.status(200).render("feedback.pug", param);
