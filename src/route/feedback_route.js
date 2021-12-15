@@ -26,7 +26,8 @@ Router.route("/feedback")
                 "email": email,
                 "dept": branch,
                 "roll": rollNumber.roll,
-                "image":image
+                "image":image,
+                "msg":req.flash("feedback-success")
             };
 
             res.status(200).render("feedback.pug", param);
@@ -47,6 +48,7 @@ Router.route("/feedback")
                 msg: req.body.msg
             });
             const feedbackSubmitted = await Feedbacks.save();
+            req.flash("feedback-success","Thanks for your feedback");
             res.status(200).redirect("/student/feedback");
         }
         catch (err) {
