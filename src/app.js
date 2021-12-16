@@ -94,6 +94,9 @@ const achievementEditRouter = require("../src/route/achievementEdit_route");
 app.use("/student", achievementEditRouter);
 
 
+const pyqRouter = require("../src/route/pyq_route");
+app.use("/student", pyqRouter);
+
 
 
 //* listen
