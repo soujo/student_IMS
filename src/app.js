@@ -97,6 +97,8 @@ app.use("/student", achievementEditRouter);
 const pyqRouter = require("../src/route/pyq_route");
 app.use("/student", pyqRouter);
 
+const booksRouter = require("../src/route/books_route");
+app.use("/student", booksRouter);
 
 
 //* listen
