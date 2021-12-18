@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/partials/teacher/header.css">
+</head>
+<body>
+    <header class="header__box">
+        <div class="header__text"><br>
+           |#{content}
+        </div>
+        <div class="header__box__info">
+            <div class="info__box">
+                <div class="student__info">
+                   | Welcome <b>#{firstName} #{lastName}</b><br>
+                   | Logged in as <b>Teacher</b>
+                   | <div class="date__time"></div>
+                </div>
+                <div class="info__LP">
+                    <a href="/teacher/homepage">
+                        <div class="home">Home</div>
+                    </a>
+                    <a href="/logout">
+                        <div class="logout">Logout</div>                        
+                    </a>                      
+                </div>
+            </div>
+            <div class="teacher__picture">
+                    img(src=image, alt="Your image") 
+            </div>
+        </div>
+    </header>
+</body>
+</html>
