@@ -66,6 +66,8 @@ app.post("/login",async (req, res) => {
 const registrationRouter = require("../src/route/registration_route");
 app.use("/home", registrationRouter);
 
+const teacherRegistrationRouter = require("../src/route/teacher/T-registration_route");
+app.use("/home",teacherRegistrationRouter);
 
 
 //* Student
