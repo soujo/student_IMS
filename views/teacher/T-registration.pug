@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Registration</title>
+    <link rel="stylesheet" href="/static/css/teacher/T-registration.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="/home">Home</a></li>
+            <li><a href="/home/about">About</a></li> 
+        </ul>
+    </nav> 
+    <div class="container">
+        <div class="welcome__box">
+            <img class="welcome__image" src="/static/images/welcome__image.svg" alt="welcome image">
+        </div>
+        <div class="registration__box">
+            <h2>Teacher Registration</h2>
+            
+            <div class="form">
+                <form action="/home/teacherRegistration" class="form__form" method="POST">
+                    <div class="form__first">
+                        <div class="form_div">
+                            <input type="text" name="firstName" id="firstName" class="form_input" autocomplete="off" placeholder=" ">
+                            <label for="firstName" class="form_label">First Name</label>
+                        </div>
+                        <div class="form_div">
+                            <input type="text" name="lastName" id="lastName" class="form_input" autocomplete="off" placeholder=" ">
+                            <label for="lastName" class="form_label">Last Name</label>
+                        </div>
+                        <div class="form_div">
+                            <input type="email" name="email" id="email" class="form_input" autocomplete="off" placeholder=" ">
+                            <label for="email" class="form_label">Email</label>
+                        </div>
+                        <div class="form_div">
+                            <input type="tel" name="phone" id="phone" class="form_input" autocomplete="off" placeholder=" ">
+                            <label for="phone" class="form_label">Phone No.</label>
+                        </div>
+                    </div>
+                    <div class="form__second">
+                        <div class="form_div">
+                            <input type="password" name="password" id="password" class="form_input" autocomplete="off" placeholder=" ">
+                            <label for="password" class="form_label">Password</label>
+                        </div>
+                        <div class="form_div">
+                            <input type="password" name="confirmPassword" id="confirmPassword" class="form_input" autocomplete="off" placeholder=" ">
+                            <label for="confirmPassword" class="form_label">Confirm Password</label>
+                        </div>
+                        <div class="form_div">
+                            <input type="text" name="regNum" id="regNum" class="form_input" autocomplete="off" placeholder=" ">
+                            <label for="regNum" class="form_label">Registration No.</label>
+                        </div>
+                        <div class="form_div">
+                            <input type="radio" name="gender" id="male" value="MALE" >
+                            <label for="gender">Male</label>                        
+                                               
+                            <input type="radio" name="gender" id="female" value="FEMALE">
+                            <label for="gender">Female</label>                         
+                        </div>
+                    </div>
+                    <input type="submit" class="register" value="Register">
+                </form>
+                <div class="welcome__login">
+                    | Have an account?
+                    <a href="/home/teacherLogin">Click here</a>
+                </div>
+            </div>
+        </div>
+        <div class="strip__triangle"></div>
+        <div class="strip"></div>
+    </div>
+</body> 
+
+</html>
