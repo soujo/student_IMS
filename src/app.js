@@ -35,6 +35,10 @@ app.get("/login", (req, res) => {
     });
 });
 
+app.get("/home/teacherLogin", (req, res) => {
+    res.status(200).render("teacher/T-login.pug");
+});
+
 
 app.post("/login",async (req, res) => {
     try {
