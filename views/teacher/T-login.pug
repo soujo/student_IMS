@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/teacher/T-login.css">
+    <title>Login</title>
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="/home">Home</a></li>
+            <li><a href="/home/about">About</a></li> 
+        </ul>
+    </nav>  
+    <div class="container">
+        <div class="welcome__box">
+            <img class="welcome__image" src="/static/images/login.svg" alt="welcome image">
+        </div>
+        <div class="login__box">
+            <h2>Teacher Login </h2>
+            
+            <div class="form">
+                <div >
+                    <img class="people__logo" src="/static/images/teacher.svg" alt="Login Image">
+                </div>
+                <form action="/home/teacherLogin" class="form__form" method="POST">
+                        <div class="form_div">
+                            <input type="text" name="regNum" id="regNum" class="form_input" autocomplete="off" placeholder=" ">
+                            <label for="regNum" class="form_label">Registration No.</label>
+                        </div>
+                        <div class="form_div">
+                            <input type="password" name="password" id="password" class="form_input" autocomplete="off" placeholder=" ">
+                            <label for="password" class="form_label">Password</label>
+                        </div>
+                        <input type="submit" class="login" value="Login">          
+                </form>
+            </div>
+            <div class="welcome__login">
+                | Don't have an account?
+                <br>
+                <a href="/home/teacherRegistration">Click here</a>
+            </div>
+        </div>
+        <div class="strip__triangle"></div>
+        <div class="strip"></div>
+    </div>
+</body>
+</html>
