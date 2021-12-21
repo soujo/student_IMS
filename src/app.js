@@ -133,6 +133,13 @@ const booksRouter = require("../src/route/books_route");
 app.use("/student", booksRouter);
 
 
+//* Teacher
+
+const teacherRouter = require("../src/route/teacher/T-teacher_route");
+app.use("/teacher",teacherRouter);
+
+
+
 //* listen
 app.listen(port, () => {
     console.log(`The application started successfully on port ${port}`);
