@@ -6,6 +6,7 @@ const app = express();
 const port = process.env.PORT || 80;
 const bcrypt = require("bcryptjs");
 const Register = require("../src/models/userRegistration");
+const TeacherRegister = require("../src/models/teacher/teacherRegistration");
 
 const session = require("express-session");
 const flash =require("connect-flash");
@@ -61,6 +62,27 @@ app.post("/login",async (req, res) => {
         console.log(err);
         req.flash("login-err","Invalid Roll");
         res.redirect("/login");
+    }
+});
+
+app.post("/home/teacherLogin",async (req, res) => {
+    try {
+        regNum = req.body.regNum;
+        const password = req.body.password;
+
+        const teacherRegNum = await TeacherRegister.findOne({ regNum });
+
+        const isMatch = await bcrypt.compare(password, teacherRegNum?.password);
+        if (isMatch) {
+            res.status(200).redirect("/teacher/homepage");
+        }
+        else {
+            res.status(400).send("Invalid password details");
+        }
+    }
+    catch (err) {
+        console.log(err);
+        res.status(400).send(err);
     }
 });
 
