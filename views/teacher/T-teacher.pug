@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <link rel="stylesheet" href="../../static/css/teacher/T-teacher.css">
+</head>
+<body>
+    <div class="container">
+        include ../../views/partials/teacher/header.pug
+        <div class="aside__section">
+            include ../../views/partials/teacher/aside.pug
+            <section>                 
+                <div class="flag" id="flag">
+                    <div class="flag__icon">!</div>
+                    <div class="flag__text">
+                      |  Please upload the documents in the <a href="">personal info</a>
+                    </div>
+                </div>
+                
+                <div class="notice__board">Notice Board</div>               
+                <div class="notification">
+                    <div class="notification__title">Seminar</div>
+                    <div class="notification__text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi,
+                       | repellat?</div>
+                    <div class="notification__more">
+                       | By someone
+                    </div>
+                </div>
+                <div class="notification">
+                    <div class="notification__title">Seminar</div>
+                    <div class="notification__text">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                       | repellat? Lorem ipsum dolor, sit amet consectetur adipisicing elit.</div>
+                    <div class="notification__more">
+                       | By someone
+                    </div>
+                </div>
+            </section>
+        </div>
+        include ../../views/partials/teacher/footer.pug
+    </div>
+    <script src="/static/js/teacher/teacher.js"></script>
+</body>
+</html>
