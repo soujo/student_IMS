@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const bcrypt = require("bcryptjs");
 
 const teacherSchema = new mongoose.Schema({
     firstName: {
@@ -44,6 +45,13 @@ const teacherSchema = new mongoose.Schema({
     }
 });
 
+teacherSchema.pre("save", async function (next) {
+    if (this.isModified("password")) {
+        this.password = await bcrypt.hash(this.password, 4);
+        this.confirmPassword = await bcrypt.hash(this.confirmPassword, 4);
+    }
+    next();
+});
 
 const TeacherRegister = new mongoose.model("Teacher", teacherSchema);
 
