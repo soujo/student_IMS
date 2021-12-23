@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
+
+
+*,*::after,*::before{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Lora', serif;
+}
+
+.container header{
+    height: 150px;
+    width: 100%;
+    background-color: #81a7ee;
+    display: flex;
+    justify-content: space-between;
+}
+.aside__section{
+    display: flex;
+}
+
+section{
+    margin: 1rem;
+    height: 732px;
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+}
+
+section form {
+    width: 90%;
+    padding: 1rem;
+    margin-top: 1rem;
+}
+
+form ul li{
+    font-weight: 700;
+    margin-bottom: 2rem;
+    font-size: 18px;
+    margin-left: 1rem;
+}
+
+.announcement__heading,
+.announcement__by
+{
+    display: inline-block;
+}
+
+form label{
+    margin: 0 0.5rem 0.5rem 0;
+    font-size: 18px;
+}
+
+form #heading{
+    margin-right: 3rem;
+}
+
+form input[type=text]{
+    font-size: 18px;
+    padding-left: 0.5rem;
+    width: 200px;
+    outline: none;
+}
+
+form textarea{
+    font-size: 18px;
+    padding-left: 0.5rem;
+    outline: none;
+}
+
+form #desc{
+    width: 429px;
+    height: 200px;
+}
+
+form #descLabel{
+    display: block;
+    margin-top: 1rem;
+}
+
+form input[type=submit]{
+    border: 2px solid red;
+    font-size: 18px;
+    padding: 0.4rem;
+    width: 60px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    margin-top: 1rem;
+    margin-left: 14vw;
+    cursor: pointer;
+}
+
+form input[type=submit]:hover{
+    background-color: #d3d3d3;
+}
