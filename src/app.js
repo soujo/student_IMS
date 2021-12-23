@@ -139,6 +139,9 @@ const teacherRouter = require("../src/route/teacher/T-teacher_route");
 app.use("/teacher",teacherRouter);
 
 
+const teacherAnnouncementRouter = require("../src/route/teacher/T-announcement_route");
+app.use("/teacher",teacherAnnouncementRouter);
+
 
 //* listen
 app.listen(port, () => {
