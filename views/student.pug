@@ -22,15 +22,17 @@
                     </div>
                 </div>
                 <div class="notice__board">Notice Board</div>
-                <div class="notification">
-                    <div class="notification__title">Seminar</div>
-                    <div class="notification__text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi,
-                       | repellat? Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi amet qui itaque 
-                       </div>
-                    <div class="notification__more">
-                       | By someone
-                    </div>
-                </div>
+                    -const announcementsArr = announcements;
+                    -let len = announcementsArr.length;
+                    if len !=0 
+                        -for(let i=0;i<announcementsArr.length;i++){
+                            .notification
+                                .notification__title #{announcementsArr[i].heading}
+                                .notification__text #{announcementsArr[i].desc}
+                                .notification__more By: #{announcementsArr[i].by}
+                        -}
+                    else 
+                        <li style="align-self:flex-start;margin-left:3rem;">#{msg}</li>
             </section>
         </div>
         include ./partials/footer.pug
