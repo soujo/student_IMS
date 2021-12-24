@@ -1,6 +1,7 @@
 const express = require("express");
 const Router = express.Router();
 const Register = require("../models/userRegistration");
+const TeacherAnnoucement = require("../models/teacher/teacherAnnouncement");
 let rollNumber = require("../app");
  
 Router.route("/homepage")
@@ -9,12 +10,15 @@ Router.route("/homepage")
             const userRoll = await Register.findOne({ roll: rollNumber.roll });
             const firstName = userRoll?.firstName;
             const lastName = userRoll?.lastName;
-            const image = `../static/uploads/${rollNumber.roll}.jpeg`
+            const image = `../static/uploads/${rollNumber.roll}.jpeg`;
+            const announcements = await TeacherAnnoucement.find();
             const param = {
                 "content":"Information Management System",
                 "firstName": firstName,
                 "lastName": lastName,
-                "image":image
+                "image":image,
+                "announcements":announcements,
+                "msg":"No announcement from any teacher"
             };
 
             res.status(200).render("student.pug", param);
