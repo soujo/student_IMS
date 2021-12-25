@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Feedback</title>
+    <link rel="stylesheet" href="../static/css/feedback.css">
+</head>
+<body>
+    <div class="container">
+        include ../../views/partials/teacher/header.pug
+        <div class="aside__section">
+            include ../../views/partials/teacher/aside.pug
+            <section>
+                include ../../views/partials/teacher/flag.pug
+                <br><br><br>
+                <div class="feedback__box">
+                    <form action="/teacher/feedback" method="post">
+                        <div class="first">
+                            <label for="name">Name</label>
+                            input(type="text" name="name" id="name" readonly="true" value=firstName + " " + lastName)
+                            <label for="email">Email</label>
+                            input(type="email" name="email" id="email" readonly="true" value=email)
+                        </div>
+                        <div class="second">
+                            <label for="roll">Reg No.</label>
+                            input(type="text" name="roll" id="roll" readonly="true" value=roll)
+                            <label for="dept">Department</label>
+                            input(type="text" name="dept" id="dept" readonly="true" value=dept)
+                        </div>
+                        <label for="msg">What improvement do you suggest for this website?</label>
+                        <textarea name="msg" id="msg" cols="1" rows="8" required></textarea>
+                        <input type="submit" value="Submit">
+                    </form>
+                </div> 
+            </section>
+        </div>
+        include ../../views/partials/teacher/footer.pug
+    </div>
+    <script src="../static/js/feedback.js"></script>
+</body>
+</html>
