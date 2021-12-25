@@ -1,6 +1,7 @@
 const express = require("express");
 const Router = express.Router();
 const TeacherRegister = require("../../models/teacher/teacherRegistration");
+const Feedback=require("../../models/feedback");
 
 
 Router.route("/feedback")
@@ -26,6 +27,28 @@ Router.route("/feedback")
             console.log(err);
         }
     })
+
+    .post(async (req, res) => {
+
+        try {
+            const Feedbacks = new Feedback({
+                name: req.body.name,
+                email: req.body.email,
+                dept: req.body.dept,
+                roll: req.body.roll, //As this is the same model as student so roll is basically regNum 
+                msg: req.body.msg
+            });
+            const feedbackSubmitted = await Feedbacks.save();
+            res.status(200).redirect("/teacher/feedback");
+        }
+        catch (err) {
+
+            res.status(400).send(err);
+            console.log(err);
+        }
+
+    })
+
 
 
 module.exports = Router;
