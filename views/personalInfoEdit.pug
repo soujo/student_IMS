@@ -14,7 +14,7 @@
         include ./partials/header.pug
         <div class="aside__section">
             include ./partials/aside.pug
-            <form action="/student/personalInfoEdit" method="POST" >
+            <form action="/student/personalInfoEdit" method="POST" enctype="multipart/form-data">
                 <section>
                     include ./partials/flag.pug
                     -if(msg.length>0)
@@ -128,9 +128,9 @@
                             </tbody>
                         </table>
                         <div class="picture">
-                            <div class="img"></div>
+                            <div class="img">Upload your image within 100kb</div>
                             <br><br>
-                            <input type="file" name="image" id="image">
+                            <input type="file" name="image" id="image" required>
                         </div>
                     </div>
                     <br>
