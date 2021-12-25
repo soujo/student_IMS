@@ -87,6 +87,7 @@ app.post("/home/teacherLogin",async (req, res) => {
 });
 
 
+
 // * Home 
 
 const registrationRouter = require("../src/route/registration_route");
@@ -141,6 +142,10 @@ app.use("/teacher",teacherRouter);
 
 const teacherAnnouncementRouter = require("../src/route/teacher/T-announcement_route");
 app.use("/teacher",teacherAnnouncementRouter);
+
+
+const teacherFeedbackRouter = require("../src/route/teacher/T-feedback_route");
+app.use("/teacher",teacherFeedbackRouter);
 
 
 //* listen
