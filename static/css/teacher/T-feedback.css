@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
+
+
+*,*::after,*::before{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Lora', serif;
+}
+
+.aside__section{
+    display: flex;
+}
+section{
+    margin: 1rem;
+    height: 732px;
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.feedback__box{
+    width: 90%;
+    height: 100%;
+    padding: 1rem;
+    margin-left: 5rem;
+}
+
+.feedback__box form{
+    display: flex;
+    flex-direction: column;
+    font-size: 18px;
+}
+
+.feedback__box form input,
+.feedback__box form textarea
+{
+    font-size: 18px;
+}
+
+.feedback__box form #name,
+.feedback__box form .first label:first-child
+{
+    padding-left: 0.5rem;
+    width: 200px;
+    margin-right: 0.5rem;
+    margin-bottom: 2rem;
+}
+.feedback__box form #email{
+    padding-left: 0.5rem;
+    width: 230px;
+    margin-right: 0.5rem;
+    margin-bottom: 2rem;
+}
+.feedback__box form #roll,
+.feedback__box form #dept
+{
+    margin-left: 0.5rem;
+}
+
+.feedback__box form .first label:nth-child(3)
+{
+    margin-left: 5rem;
+    margin-right: 0.5rem;
+}
+
+.feedback__box form .second label:first-child{
+    margin-left: 0.5rem;
+}
+
+.feedback__box form .second input:nth-child(2){
+    padding-left: 0.5rem;
+    width: 190px;
+}
+
+.feedback__box form .second input:nth-child(4)
+{
+    width: 60px;
+    padding-left: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+.feedback__box form .second label:nth-child(3){
+    margin-left: 90px;
+}
+
+.feedback__box form > label{
+    padding-left: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.feedback__box form textarea{
+    padding-left: 0.5rem;
+    margin-bottom: 1rem;
+    margin-left: 0.5rem;
+    width: 613px;
+    outline: none;
+}
+
+.feedback__box form >input{
+    width: 100px;
+    height: 35px;
+    border-radius: 15px;
+    border: none;
+    cursor: pointer;
+    align-self: center;
+    margin-right: 12rem;
+}
+
+.feedback__box form >input:hover{
+    background-color: #c4c4c4e1;
+}
+
+.feedback__box form .first > input,
+.feedback__box form .second > input
+{
+    outline: none;
+    cursor: not-allowed;
+}
+
