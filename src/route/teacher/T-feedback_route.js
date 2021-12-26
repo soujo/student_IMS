@@ -17,7 +17,8 @@ Router.route("/feedback")
                 "firstName": firstName,
                 "lastName": lastName,
                 "email":email,
-                "roll":regNum
+                "roll":regNum,
+                "msg":req.flash("Tfeedback-success")
             };
 
             res.status(200).render("teacher/T-feedback.pug", param);
@@ -39,6 +40,7 @@ Router.route("/feedback")
                 msg: req.body.msg
             });
             const feedbackSubmitted = await Feedbacks.save();
+            req.flash("Tfeedback-success","Thanks for your feedback");
             res.status(200).redirect("/teacher/feedback");
         }
         catch (err) {
