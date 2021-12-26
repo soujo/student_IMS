@@ -14,6 +14,9 @@
             include ../../views/partials/teacher/aside.pug
             <section>
                 include ../../views/partials/teacher/flag.pug
+                -if(msg.length>0){
+                    .success #{msg}
+                -}
                 <br><br><br>
                 <div class="feedback__box">
                     <form action="/teacher/feedback" method="post">
