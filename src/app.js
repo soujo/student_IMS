@@ -146,6 +146,12 @@ app.use("/teacher",teacherAnnouncementRouter);
 const studentResultRouter = require("../src/route/teacher/T-studentResult_route");
 app.use("/teacher",studentResultRouter);
 
+const studentAttendanceRouter = require("../src/route/teacher/T-studentAttendance_route");
+app.use("/teacher",studentAttendanceRouter);
+
+const studentAttendanceEditRouter = require("../src/route/teacher/T-studentAttendanceEdit_route");
+app.use("/teacher",studentAttendanceEditRouter);
+
 const teacherFeedbackRouter = require("../src/route/teacher/T-feedback_route");
 app.use("/teacher",teacherFeedbackRouter);
 
