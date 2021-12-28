@@ -143,6 +143,8 @@ app.use("/teacher",teacherRouter);
 const teacherAnnouncementRouter = require("../src/route/teacher/T-announcement_route");
 app.use("/teacher",teacherAnnouncementRouter);
 
+const studentResultRouter = require("../src/route/teacher/T-studentResult_route");
+app.use("/teacher",studentResultRouter);
 
 const teacherFeedbackRouter = require("../src/route/teacher/T-feedback_route");
 app.use("/teacher",teacherFeedbackRouter);
