@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Result</title>
+    <link rel="stylesheet" href="../../static/css/teacher/T-studentAttendance.css">
+</head>
+<body>
+    <div class="container">
+        include ../../views/partials/teacher/header.pug
+        <div class="aside__section">
+            include ../../views/partials/teacher/aside.pug
+            <section>
+                include ../../views/partials/teacher/flag.pug  
+                <div class="student__attendance">
+                    <a href="/teacher/studentAttendanceEdit">
+                        <div class="edit">Edit</div>
+                    </a>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style="width: 881px;">Student Attendance</th>
+                            </tr>
+                        </thead>
+                        <thead>
+                            <tr>
+                                <th>Student Name</th>
+                                <th>Roll No.</th>
+                                <th>Subject</th>
+                                <th>Total Class</th>
+                                <th>Class Attended</th>
+                                <th>%</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Random</td>
+                                <td>Random</td>
+                                <td>Random</td>
+                                <td>Random</td>
+                                <td>Random</td>
+                                <td>Random</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+        include ../../views/partials/teacher/footer.pug
+    </div>
+    <script src="/static/js/teacher/studentAttendance.js"></script>
+</body>
+</html>
