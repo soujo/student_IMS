@@ -139,6 +139,8 @@ app.use("/student", booksRouter);
 const teacherRouter = require("../src/route/teacher/T-teacher_route");
 app.use("/teacher",teacherRouter);
 
+const teacherPersonalInfoRouter = require("../src/route/teacher/T-personalInfo_route");
+app.use("/teacher",teacherPersonalInfoRouter);
 
 const teacherAnnouncementRouter = require("../src/route/teacher/T-announcement_route");
 app.use("/teacher",teacherAnnouncementRouter);
