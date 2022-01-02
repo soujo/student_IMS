@@ -15,25 +15,6 @@ body{
     height: 100vh;
 }
 
-/* Navbar  */
-
-.navbar{
-    align-self: flex-start;
-    height: 3rem;
-    width: 100%;
-    background-color: #060b23;
-}
-.navbar ul{
-    display: flex;
-}
-.navbar ul li{
-    list-style: none;
-    margin: 1rem 1.5rem;
-}
-.navbar ul li a{
-    color: #ffffff;
-    text-decoration: none;
-}
 .container{
     align-self: center;
     display: flex;
