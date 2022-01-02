@@ -11,27 +11,9 @@ body{
     background-color: #fff1e6;
     display: flex;
     flex-direction: column;
+    overflow-y: hidden;
 }
 
-/* Navbar  */
-
-.navbar{
-    align-self: flex-start;
-    height: 3rem;
-    width: 100%;
-    background-color: #060b23;
-}
-.navbar ul{
-    display: flex;
-}
-.navbar ul li{
-    list-style: none;
-    margin: 1rem 1.5rem;
-}
-.navbar ul li a{
-    color: #ffffff;
-    text-decoration: none;
-}
 .container{
     margin-bottom: 2rem;
     align-self: center;
