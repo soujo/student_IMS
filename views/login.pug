@@ -7,13 +7,8 @@
     <link rel="stylesheet" href="/static/css/login.css">
     <title>Login</title>
 </head>
-<body>
-    <nav class="navbar">
-        <ul>
-            <li><a href="/home">Home</a></li>
-            <li><a href="/home/about">About</a></li> 
-        </ul>
-    </nav>  
+<body>  
+    include ../views/partials/navbar.pug
     -if(msg.length>0){
         .error #{msg}
     -}
