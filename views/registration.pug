@@ -10,12 +10,7 @@
 </head>
 
 <body>
-    <nav class="navbar">
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="">About</a></li> 
-        </ul>
-    </nav> 
+    include ../views/partials/navbar.pug 
     -if(msg.length>0){
         .error #{msg}
     -}
