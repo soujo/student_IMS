@@ -1,5 +1,6 @@
 const express = require("express");
 const path = require("path");
+require("dotenv").config();
 const views_path = path.join(__dirname, "../views");
 const static_path = path.join(__dirname, "../static");
 const app = express();
@@ -40,6 +41,9 @@ app.get("/home/teacherLogin", (req, res) => {
     res.status(200).render("teacher/T-login.pug");
 });
 
+app.get("/home/adminLogin", (req, res) => {
+    res.status(200).render("admin/A-login.pug");
+});
 
 app.post("/login",async (req, res) => {
     try {
@@ -86,7 +90,23 @@ app.post("/home/teacherLogin",async (req, res) => {
     }
 });
 
+app.post("/home/adminLogin", (req, res) => {
 
+    const username = req.body.username;
+    const password = req.body.password;
+
+    if(username==process.env.ADMIN_USERNAME){
+        if(password==process.env.ADMIN_PASSWORD){
+            res.status(200).redirect("/admin/homepage");
+        }
+        else{
+            res.status(401).send("Invalid Password");
+        }
+    }
+    else{
+        res.status(401).send("Invalid Credentials");
+    }
+});
 
 // * Home 
 
