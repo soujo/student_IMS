@@ -32,7 +32,7 @@ Router.route("/registration")
                 res.status(201).redirect("/login");
             }
             else {
-                req.flash("pass-err","Password and confirm password are different !")
+                req.flash("pass-err","Password and confirm password should be different !");
                 res.redirect("/home/registration");
             }
 
