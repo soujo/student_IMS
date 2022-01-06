@@ -29,7 +29,7 @@ app.set("view engine", "pug");
 app.set("views", views_path);
 
 
-app.get("/login", (req, res) => {
+app.get("/home/studentLogin", (req, res) => {
     res.status(200).render("login.pug",
     {
         msg:req.flash("login-err"),
@@ -45,7 +45,7 @@ app.get("/home/adminLogin", (req, res) => {
     res.status(200).render("admin/A-login.pug");
 });
 
-app.post("/login",async (req, res) => {
+app.post("/home/studentLogin",async (req, res) => {
     try {
         roll = req.body.roll;
         exports.roll=roll;
@@ -59,13 +59,13 @@ app.post("/login",async (req, res) => {
         }
         else {
             req.flash("login-err","Invalid Password");
-            res.redirect("/login");
+            res.redirect("/home/studentLogin");
         }
     }
     catch (err) {
         console.log(err);
         req.flash("login-err","Invalid Roll");
-        res.redirect("/login");
+        res.redirect("/home/studentLogin");
     }
 });
 
