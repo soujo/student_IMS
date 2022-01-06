@@ -26,13 +26,13 @@
 }
 
 
-.dropdown {
+.nav-dropdown {
   float: left;
   overflow: hidden;
 }
 
 
-.dropdown .dropbtn {
+.nav-dropdown .nav-dropbtn {
   font-size: 16px;
   border: none;
   outline: none;
@@ -43,11 +43,11 @@
   margin-top: 10px;
 }
 
-.dropdown:hover .dropbtn, .home:hover{
+.nav-dropdown:hover .nav-dropbtn, .home:hover{
   background-color: #525252;
 }
 
-.dropdown-content {
+.nav-dropdown-content {
   display: none;
   position: absolute;
   background-color: #f9f9f9;
@@ -55,15 +55,15 @@
   z-index: 1;
 }
 
-.register{
-  width: 105px;
+.nav-register{
+  width: 113px;
 }
 
-.login{
-  width: 85px;
+.nav-login{
+  width: 93px;
 }
 
-.dropdown-content a {
+.nav-dropdown-content a {
   float: none;
   color: black;
   padding: 12px 16px;
@@ -72,12 +72,12 @@
   text-align: left;
 }
 
-.dropdown-content a:hover {
+.nav-dropdown-content a:hover {
   background-color: #ddd;
 }
 
 
-.dropdown:hover .dropdown-content {
+.nav-dropdown:hover .nav-dropdown-content {
   display: block;
 }
 
