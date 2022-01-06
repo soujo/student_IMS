@@ -177,6 +177,11 @@ app.use("/teacher",studentAttendanceEditRouter);
 const teacherFeedbackRouter = require("../src/route/teacher/T-feedback_route");
 app.use("/teacher",teacherFeedbackRouter);
 
+//* Admin
+
+const adminRouter = require("../src/route/admin/A-admin_route");
+app.use("/admin", adminRouter);
+
 
 //* listen
 app.listen(port, () => {
