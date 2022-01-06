@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/static/css/admin/A-login.css">
-    <title>Login</title>
+    <title>Admin Login</title>
 </head>
 <body>
     include ../../views/partials/navbar.pug 
@@ -21,11 +21,11 @@
                 </div>
                 <form action="/home/adminLogin" class="form__form" method="POST">
                         <div class="form_div">
-                            <input type="text" name="username" id="username" class="form_input" autocomplete="off" placeholder=" ">
+                            <input type="text" name="username" id="username" class="form_input" autocomplete="off" placeholder=" " required>
                             <label for="username" class="form_label">Username</label>
                         </div>
                         <div class="form_div">
-                            <input type="password" name="password" id="password" class="form_input" autocomplete="off" placeholder=" ">
+                            <input type="password" name="password" id="password" class="form_input" autocomplete="off" placeholder=" " required>
                             <label for="password" class="form_label">Password</label>
                         </div>
                         <input type="submit" class="login" value="Login">          
