@@ -29,7 +29,7 @@ Router.route("/registration")
 
                 const registered = await students.save();
                 req.flash("reg-success","Registration is successful ! \n You can login now");
-                res.status(201).redirect("/login");
+                res.status(201).redirect("/home/studentLogin");
             }
             else {
                 req.flash("pass-err","Password and confirm password should be different !");
