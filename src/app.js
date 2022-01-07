@@ -182,6 +182,8 @@ app.use("/teacher",teacherFeedbackRouter);
 const adminRouter = require("../src/route/admin/A-admin_route");
 app.use("/admin", adminRouter);
 
+const feedbacksRouter = require("../src/route/admin/A-feedback_route");
+app.use("/admin", feedbacksRouter);
 
 //* listen
 app.listen(port, () => {
