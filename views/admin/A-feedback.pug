@@ -13,14 +13,16 @@
         <div class="aside__section">
             include ../../views/partials/admin/aside.pug
             <section>
-                <div class="notification">
-                    <div class="notification__text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi,
-                       | repellat? Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi amet qui itaque 
-                       </div>
-                    <div class="notification__by">
-                       | By someone
-                    </div>
-                </div>
+                -const feedbacks= feedbackArray;
+                -let len = feedbacks.length;
+                if len != 0
+                    -for(let i in feedbacks){
+                        .notification 
+                            .notification__text #{feedbacks[i].msg}
+                            .notification__by By: #{feedbacks[i].name}
+                    -}
+                else 
+                    <li style="align-self:flex-start;margin-left:3rem;">#{msg}</li>
             </section>
         </div>
         include ../../views/partials/admin/footer.pug
