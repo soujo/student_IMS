@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
+
+
+*,*::after,*::before{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Lora', serif;
+}
+
+.aside__section{
+    display: flex;
+}
+
+section{
+    margin: 1rem;
+    height: 732px;
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+}
+
+section .notification{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    height: max-content;
+    padding: 0.5rem 1rem;
+    background-color: rgb(231, 231, 231);
+    border: 0.2px solid grey;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    margin-top: 15px;
+}
+
+.notification .notification__text{
+    padding: 0.5rem;
+}
+.notification .notification__by{
+    padding: 0.5rem;
+    color: blue;
+}
