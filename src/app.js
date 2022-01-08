@@ -185,6 +185,10 @@ app.use("/admin", adminRouter);
 const feedbacksRouter = require("../src/route/admin/A-feedback_route");
 app.use("/admin", feedbacksRouter);
 
+const announcementRouter = require("../src/route/admin/A-announcement_route");
+app.use("/admin", announcementRouter);
+
+
 //* listen
 app.listen(port, () => {
     console.log(`The application started successfully on port ${port}`);
