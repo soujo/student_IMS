@@ -9,6 +9,9 @@
 </head>
 <body>
     include ../../views/partials/navbar.pug 
+    -if(msg.length>0){
+        .error #{msg}
+    -}
     <div class="container">
         <div class="welcome__box">
             <img class="welcome__image" src="/static/images/login.svg" alt="welcome image">
