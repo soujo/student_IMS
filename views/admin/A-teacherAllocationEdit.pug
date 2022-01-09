@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>#{content}</title>
+    <link rel="stylesheet" href="../../static/css/admin/A-teacherAllocationEdit.css">
+</head>
+
+<body>
+    <div class="container">
+        include ../../views/partials/admin/header.pug
+        <div class="aside__section">
+            include ../../views/partials/admin/aside.pug
+            <form action="/admin/teacherAllocationEdit" method="POST">
+                <section>
+                    -if(msg.length>0){
+                        .error #{msg}
+                    -}
+                    <br><br>
+                    <div class="subject__allocation">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th style="width: 881px;">Teacher Details</th>
+                                </tr>
+                            </thead>
+                            <thead>
+                                <tr>
+                                    <th>Teacher's Name</th>
+                                    <th>Registration No.</th>
+                                    <th>Department</th>
+                                    <th>Semester</th>
+                                    <th>Subject</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                -const teachersArr = teachers;
+                                -let len =teachersArr.length;
+                                if len!=0
+                                    -for(let i=0;i<len;i++){ 
+                                        tr 
+                                            td 
+                                                input(type="text" name="name" id="name" value=teachersArr[i].firstName+" "+teachersArr[i].lastName readonly=true)
+                                            td 
+                                                input(type=" text" name="regNum" id="regNum" value=teachersArr[i].regNum readonly=true) 
+                                            td 
+                                                input(type="text" name="dept" id="dept" value="EE" readonly=true) 
+                                            td 
+                                                select(name="sem" id="sem"+`${i}` onchange=`populate('sem${i}','sub${i}')` required) 
+                                                    <option value="">Select semester</option>
+                                                    <option value="1st">1st</option>
+                                                    <option value="2nd">2nd</option>
+                                                    <option value="3rd">3rd</option>
+                                            td
+                                                select(name="sub" id="sub"+`${i}` required) 
+                                                    <option value="">Select semester first</option>
+                                        -}
+                                else 
+                                    tr 
+                                        <td style="width:884px;">#{msg}</td>
+                            </tbody>
+                        </table>
+                        <input type="submit" value="Submit" id="submit">
+                    </div>
+                </section>
+            </form>
+        </div>
+        include ../../views/partials/admin/footer.pug
+    </div>
+    <script src="/static/js/admin/teacherAllocationEdit.js"></script>
+</body>
+
+</html>
