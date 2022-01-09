@@ -100,11 +100,13 @@ app.post("/home/adminLogin", (req, res) => {
             res.status(200).redirect("/admin/homepage");
         }
         else{
-            res.status(401).send("Invalid Password");
+            req.flash("login-err", "Invalid Password");
+            res.redirect("/home/adminLogin");
         }
     }
     else{
-        res.status(401).send("Invalid Credentials");
+        req.flash("login-err", "Invalid Credentials");
+        res.redirect("/home/adminLogin");
     }
 });
 
