@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>#{content}</title>
+    <link rel="stylesheet" href="../../static/css/admin/A-teacherAllocation.css">
+</head>
+<body>
+    <div class="container">
+        include ../../views/partials/admin/header.pug
+        <div class="aside__section">
+            include ../../views/partials/admin/aside.pug
+            <section> 
+                -if(success.length>0){
+                    .success #{success}
+                -}
+                <br><br>
+                <div class="subject__allocation">
+                    <a href="/admin/teacherAllocationEdit">
+                        <div class="edit">Edit</div>
+                    </a>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style="width: 881px;">Teacher Details</th>
+                            </tr>
+                        </thead>
+                        <thead>
+                            <tr>
+                                <th>Teacher's Name</th>
+                                <th>Registration No.</th>
+                                <th>Department</th>
+                                <th>Semester</th>
+                                <th>Subject</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            -let nameArr = nameArray;
+                            -let regNumArr = regNumArray;
+                            -let deptArr = deptArray;
+                            -let semArr = semArray;
+                            -let subArr = subArray;
+                            if length!=undefined
+                                -for(let i=0;i<length;i++){
+                                    tr 
+                                        td #{nameArr[i]}
+                                        td #{regNumArr[i]}
+                                        td #{deptArr[i]}
+                                        td #{semArr[i]}
+                                        td #{subArr[i]}
+                                -}
+                            else 
+                                tr 
+                                    <td style="width:884px; text-align:center;">#{msg}</td>
+                        </tbody>
+                    </table>
+                </div>                
+            </section>
+        </div>
+        include ../../views/partials/admin/footer.pug
+    </div>
+    <script src="/static/js/admin/teacherAllocation.js"></script>
+</body>
+</html>
