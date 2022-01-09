@@ -184,6 +184,9 @@ app.use("/teacher",teacherFeedbackRouter);
 const adminRouter = require("../src/route/admin/A-admin_route");
 app.use("/admin", adminRouter);
 
+const teacherAllocationRouter = require("../src/route/admin/A-teacherAllocation_route");
+app.use("/admin", teacherAllocationRouter);
+
 const feedbacksRouter = require("../src/route/admin/A-feedback_route");
 app.use("/admin", feedbacksRouter);
 
