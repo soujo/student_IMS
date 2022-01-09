@@ -9,6 +9,9 @@
 </head>
 <body>
     <div class="container">
+        -if(msg.length>0){
+            .success #{msg}
+        -}
         include ../../views/partials/admin/header.pug
         <div class="aside__section">
             include ../../views/partials/admin/aside.pug
