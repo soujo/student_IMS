@@ -7,7 +7,8 @@ Router.route("/announcement")
         try{
             
             const param={
-                "content":"Announcement"
+                "content":"Announcement",
+                "msg":req.flash("announcement-success")
             }
             res.status(200).render("admin/A-announcement.pug",param);
 
@@ -21,13 +22,14 @@ Router.route("/announcement")
 
         try {
 
-            const annoucements = new Announcement({
+            const announcements = new Announcement({
                 heading:req.body.heading,
                 desc:req.body.desc,
                 by:req.body.by
             })
 
-            const annoucementSubmitted = await annoucements.save();
+            const annoucementSubmitted = await announcements.save();
+            req.flash("announcement-success","Your announcement is posted !");
             res.status(201).redirect("/admin/announcement");
 
         }
