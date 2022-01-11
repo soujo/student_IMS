@@ -19,7 +19,7 @@ section{
     display: flex;
     flex-direction: column;
     align-items: center;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 .accordion {
@@ -60,7 +60,7 @@ section{
 
 .panel .semester1{
     width: 800px;
-    height: 80px;
+    height: max-content;
     padding: 0.3rem;
 }
 
@@ -69,10 +69,40 @@ section{
 {
     padding: 0.3rem;
     width: 800px;
-    height: 80px;
+    height: max-content;
+    margin-bottom: 10px;
 }
 
 .panel .semester3{
     padding: 0.3rem;
     width: 800px;
+    height: max-content;
+}
+
+section .material{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    height: max-content;
+    padding: 0.5rem 1rem;
+    background-color: rgb(231, 231, 231);
+    border: 0.2px solid grey;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    margin-top: 15px;
+}
+.material .material__title{
+    padding: 0.5rem;
+    font-weight: bold;
+    color: rgb(247, 115, 39);
+}
+.material .material__text{
+    padding: 0.5rem;
+}
+.material .material__more{
+    padding: 0.5rem;
+    color: blue;
+}
+.material .material__link{
+    padding: 0.5rem;
 }
