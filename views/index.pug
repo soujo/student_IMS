@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="icon" type="image/x-icon" href="/static/images/favicon.ico">
+    <title>Student IMS</title>
+</head>
+
+<body>
+    include ../views/partials/navbar.pug
+    <br>
+    <header>Information Management System</header>
+    <br><br><br>
+    <div class="container">
+        <div class="image-slider">
+            <div class="slideshow-container">
+                <div class="mySlides fade">
+                  <img src="../static/images/slider/1.jpg" style="width:100%">
+                </div>              
+                <div class="mySlides fade">
+                  <img src="../static/images/slider/2.jpg" style="width:100%">
+                </div>              
+                <div class="mySlides fade">
+                  <img src="../static/images/slider/3.jpg" style="width:100%">
+                </div>              
+                <div class="mySlides fade">
+                  <img src="../static/images/slider/4.jpg" style="width:100%">
+                </div>              
+                <div class="mySlides fade">
+                  <img src="../static/images/slider/5.jpg" style="width:100%">
+                </div>              
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            </div>
+              <br>              
+            <div style="text-align:center">
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+                <span class="dot" onclick="currentSlide(4)"></span>
+                <span class="dot" onclick="currentSlide(5)"></span>
+            </div>
+        </div>
+        <div class="content-cta">            
+            <div class="content">content
+            </div>
+            <br><br><br><br>
+            <div class="cta">
+                <div class="dropdown">
+                    <button class="dropbtn login-btn">Login</button>
+                    <div class="dropdown-content login-content">
+                      <a href="/home/adminLogin">Admin</a>
+                      <a href="/home/teacherLogin">Teacher</a>
+                      <a href="/home/studentLogin">Student</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="dropbtn register-btn">Register</button>
+                    <div class="dropdown-content register-content">
+                      <a href="/home/teacherRegistration">Teacher</a>
+                      <a href="/home/registration">Student</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>Made with ❤ by <b>Soujanya Hazra</b> </footer>
+    <script src="../static/js/index.js"></script>
+</body>
+
+</html>
