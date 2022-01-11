@@ -28,6 +28,9 @@ app.use(flash());
 app.set("view engine", "pug");
 app.set("views", views_path);
 
+app.get("/home", (req, res) => {
+    res.status(200).render("index.pug");
+});
 
 app.get("/home/studentLogin", (req, res) => {
     res.status(200).render("login.pug",
