@@ -5,7 +5,7 @@ const rollNumber= require("../app");
 
 const storage = multer.diskStorage({
     destination: function (req, file, callback) {
-        callback(null, path.join(__dirname,"../../static/uploads"));
+        callback(null, path.join(__dirname,"../../static/uploads/student"));
     },
     filename: function (req, file, callback) {
         callback(null, rollNumber.roll+path.extname(file.originalname));
