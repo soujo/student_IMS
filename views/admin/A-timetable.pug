@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>#{content}</title>
+    <link rel="stylesheet" href="../../static/css/admin/A-timetable.css">
+</head>
+<body>
+    <div class="container">
+        -if(msg.length>0){
+            .success #{msg}
+        -}
+        -if(err.length>0){
+            .error #{err}
+        -}
+        include ../../views/partials/admin/header.pug
+        <div class="aside__section">
+            include ../../views/partials/admin/aside.pug
+            <section>
+                <form action="/admin/timetable" method="POST" enctype="multipart/form-data">
+                    <ul>
+                        <li>Timetable for students</li>
+                    </ul>
+                    <div class="timetable__box">
+                        <div class="timetable__heading">
+                            <label for="heading">Title:</label>
+                            <input type="text" id="heading" name="heading"  autocomplete="off">
+                        </div>
+                        <br><br>
+                        <div class="timetable__file">
+                            <input type="file" name="pdf" id="pdf" required >
+                        </div>
+                        <br>
+                        <input type="submit" value="Post">
+                    </div>
+                </form>
+            </section>
+        </div>
+        include ../../views/partials/admin/footer.pug
+    </div>
+    <script src="/static/js/admin/timetable.js"></script>
+</body>
+</html>
