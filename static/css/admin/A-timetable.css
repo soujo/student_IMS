@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
+
+
+*,*::after,*::before{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Lora', serif;
+}
+
+.aside__section{
+    display: flex;
+}
+
+section{
+    margin: 1rem;
+    height: 732px;
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+}
+section form {
+    width: 90%;
+    padding: 1rem;
+    margin-top: 1rem;
+}
+
+form ul li{
+    font-weight: 700;
+    margin-bottom: 2rem;
+    font-size: 18px;
+    margin-left: 1rem;
+}
+
+.timetable__heading
+{
+    display: inline-block;
+}
+
+form label{
+    margin: 0 0.5rem 0.5rem 0;
+    font-size: 18px;
+}
+
+form #heading{
+    margin-right: 3rem;
+}
+
+form input[type=text]{
+    font-size: 18px;
+    padding-left: 0.5rem;
+    width: 200px;
+    outline: none;
+}
+
+form input[type=submit]{
+    font-size: 18px;
+    padding: 0.4rem;
+    width: 60px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    margin-top: 1rem;
+    margin-left: 8vw;
+    cursor: pointer;
+}
+
+form input[type=submit]:hover{
+    background-color: #d3d3d3;
+}
+
+
+.success{
+    width: 66%;
+    height: 40px;
+    text-align: center;
+    padding: 0.5rem;
+    color: #ffffff;
+    background-color: #42ba96 ;
+    position: absolute;
+    top: 165px;
+    left: 381px;
+    animation: fadeIn 0.7s, hideAnimation 0s ease-in 3s;
+    animation-fill-mode: forwards;
+    opacity: 1;
+    z-index: 10;
+}
+
+.error{
+    width: 66%;
+    height: 40px;
+    text-align: center;
+    padding: 0.5rem;
+    color: #ffffff;
+    background-color: #f56b6b ;
+    position: absolute;
+    top: 165px;
+    left: 381px;
+    animation: fadeIn 0.7s, hideAnimation 0s ease-in 3s;
+    animation-fill-mode: forwards;
+    opacity: 1;
+    z-index: 10;
+}
+
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+       opacity: 1;
+    }
+  }
+
+  @keyframes hideAnimation {
+    to {
+      visibility: hidden;
+    }
+  }
