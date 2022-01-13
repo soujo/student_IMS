@@ -196,6 +196,9 @@ app.use("/admin", teacherAllocationEditRouter);
 const feedbacksRouter = require("../src/route/admin/A-feedback_route");
 app.use("/admin", feedbacksRouter);
 
+const timetableUploadRouter = require("../src/route/admin/A-timetable_route");
+app.use("/admin", timetableUploadRouter);
+
 const announcementRouter = require("../src/route/admin/A-announcement_route");
 app.use("/admin", announcementRouter);
 
