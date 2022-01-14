@@ -16,6 +16,7 @@
                 -const feedbacks= feedbackArray;
                 -let len = feedbacks.length;
                 if len != 0
+                    <li style="align-self:flex-start;margin-left:3rem;">Feedbacks</li>
                     -for(let i in feedbacks){
                         .notification 
                             .notification__text #{feedbacks[i].msg}
