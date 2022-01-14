@@ -2,7 +2,7 @@ const express = require("express");
 const Router = express.Router();
 const TeacherRegister = require("../../models/teacher/teacherRegistration");
 const Feedback=require("../../models/feedback");
-
+const TeacherAllocation = require("../../models/admin/teacherAllocation");
 
 Router.route("/feedback")
     .get(async (req, res) => {
@@ -11,13 +11,23 @@ Router.route("/feedback")
             const firstName = teacherRegNum?.firstName;
             const lastName = teacherRegNum?.lastName;
             const email = teacherRegNum?.email;
+            const image = `../static/uploads/teacher/${regNum}.jpeg`;
+
+            const teacherAllocation = await TeacherAllocation.find();
+            let regNumArr =teacherAllocation[0].regNum;
+            let deptArr =teacherAllocation[0].dept;
+            let index = regNumArr.indexOf(`${regNum}`);
+            const dept = deptArr[index];
+
 
             const param = {
-                "content": "Class Materials",
+                "content": "Submit Feedback",
                 "firstName": firstName,
                 "lastName": lastName,
                 "email":email,
                 "roll":regNum,
+                "dept":dept,
+                "image":image,
                 "msg":req.flash("Tfeedback-success")
             };
 
