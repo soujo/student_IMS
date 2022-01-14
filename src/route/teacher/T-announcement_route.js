@@ -9,10 +9,13 @@ Router.route("/announcement")
             const teacherRegNum = await TeacherRegister.findOne({ regNum });
             const firstName = teacherRegNum?.firstName;
             const lastName = teacherRegNum?.lastName;
+            const image = `../static/uploads/teacher/${regNum}.jpeg`;
             const param = {
                 "content": "Announcement",
                 "firstName": firstName,
-                "lastName": lastName
+                "lastName": lastName,
+                "image":image,
+                "msg":req.flash("announcement-success")
             };
 
             res.status(200).render("teacher/T-announcement.pug", param);
@@ -34,6 +37,7 @@ Router.route("/announcement")
                 })
 
                 const annoucementSubmitted = await annoucements.save();
+                req.flash("announcement-success","Your announcement is posted !");
                 res.status(201).redirect("/teacher/announcement");
 
             }
