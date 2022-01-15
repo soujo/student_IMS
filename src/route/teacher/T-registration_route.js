@@ -4,7 +4,10 @@ const TeacherRegister = require("../../models/teacher/teacherRegistration");
 
 Router.route("/teacherRegistration")
     .get(async (req, res) => { 
-        res.status(200).render("teacher/T-registration.pug");
+        res.status(200).render("teacher/T-registration.pug",{
+            msg:req.flash("pass-err"),
+            dup_err:req.flash("duplicate")
+        });
     })
     .post(async (req, res) => {
         try {
@@ -24,16 +27,18 @@ Router.route("/teacherRegistration")
                 });
 
                 const registered = await teachers.save();   
+                req.flash("reg-success","Registration is successful ! \n You can login now");
                 res.status(201).redirect("/home/teacherLogin");
             }
             else {
-                res.send("Password are not matching");
+                req.flash("pass-err","Password and confirm password should be different !");
+                res.redirect("/home/teacherRegistration");
             }
 
         }
         catch (err) {
-            res.status(400).send(err);
-            console.log(err);
+            req.flash("duplicate","Registration Number and email are already registered !");
+            res.redirect("/home/teacherRegistration");
         }
     })
 
