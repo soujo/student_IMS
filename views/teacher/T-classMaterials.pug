@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Materials</title>
+    <link rel="stylesheet" href="../../static/css/teacher/T-classMaterials.css">
+</head>
+<body>
+    <div class="container">      
+        include ../../views/partials/teacher/header.pug
+        <div class="aside__section">
+            include ../../views/partials/teacher/aside.pug
+            <section>
+                include ../../views/partials/teacher/flag.pug
+                <form action="/teacher/classMaterialsUpload" method="POST" enctype="multipart/form-data">
+                    <ul>
+                        <li>Class Materials for students</li>
+                    </ul>
+                    <div class="CM__box">
+                        <div class="CM__heading">
+                            <label for="heading">Title:</label>
+                            <input type="text" id="heading" name="heading" required autocomplete="off">
+                        </div>
+                        <div class="CM__by">
+                            <label for="by">By:</label>
+                            input(type="text" name="by" id="by" readonly=true value=firstName+" "+lastName)
+                        </div>
+                        <div class="CM__desc">
+                            <label for="desc" id="descLabel">Description:</label>
+                            <textarea name="desc" id="desc" cols="1" rows="8" ></textarea>
+                        </div>
+                        <br>
+                        <div class="CM__file">
+                            <input type="file" name="pdf" id="pdf" required multiple>
+                        </div>
+                        <input type="submit" value="Post">
+                    </div>
+                </form>
+            </section>
+        </div>
+        include ../../views/partials/teacher/footer.pug
+    </div>
+    <script src="/static/js/teacher/classMaterials.js"></script>
+</body>
+</html>
