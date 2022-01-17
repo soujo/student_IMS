@@ -179,6 +179,9 @@ app.use("/teacher",studentAttendanceRouter);
 const studentAttendanceEditRouter = require("../src/route/teacher/T-studentAttendanceEdit_route");
 app.use("/teacher",studentAttendanceEditRouter);
 
+const studentClassMaterialsRouter = require("../src/route/teacher/T-classMaterial_route");
+app.use("/teacher", studentClassMaterialsRouter);
+
 const teacherFeedbackRouter = require("../src/route/teacher/T-feedback_route");
 app.use("/teacher",teacherFeedbackRouter);
 
