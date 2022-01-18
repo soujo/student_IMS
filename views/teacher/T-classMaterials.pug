@@ -8,7 +8,13 @@
     <link rel="stylesheet" href="../../static/css/teacher/T-classMaterials.css">
 </head>
 <body>
-    <div class="container">      
+    <div class="container">
+        -if(msg.length>0){
+        .success #{msg}
+        -}
+        -if(err.length>0){
+            .error #{err}
+        -}      
         include ../../views/partials/teacher/header.pug
         <div class="aside__section">
             include ../../views/partials/teacher/aside.pug
