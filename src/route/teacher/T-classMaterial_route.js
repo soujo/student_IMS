@@ -9,7 +9,7 @@ let semOfTeacher;
 let regNum;
 
 Router.route("/classMaterialsUpload")
-    .get (async (req, res) => {
+    .get(async (req, res) => {
         try {
             const teacherRegNum = await TeacherRegister.findOne({ regNum });
             const firstName = teacherRegNum?.firstName;
@@ -21,7 +21,9 @@ Router.route("/classMaterialsUpload")
                 "content": "Class Materials",
                 "firstName": firstName,
                 "lastName": lastName,
-                "image":image
+                "image":image,
+                "msg": req.flash("upload-success"),
+                "err": req.flash("upload-error")
             };
 
             res.status(200).render("teacher/T-classMaterials.pug", param);
@@ -51,6 +53,7 @@ Router.route("/classMaterialsUpload")
                 pdf: req.files[0].filename
             })
             const materialsSubmitted = await materials.save();
+            req.flash("upload-success", "Class material is uploaded !");
             res.status(201).redirect("/teacher/classMaterialsUpload");
 
         }
