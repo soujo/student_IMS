@@ -167,6 +167,9 @@ app.use("/teacher",teacherRouter);
 const teacherPersonalInfoRouter = require("../src/route/teacher/T-personalInfo_route");
 app.use("/teacher",teacherPersonalInfoRouter);
 
+const teacherPersonalInfoEditRouter = require("../src/route/teacher/T-personalInfoEdit_route");
+app.use("/teacher", teacherPersonalInfoEditRouter);
+
 const teacherAnnouncementRouter = require("../src/route/teacher/T-announcement_route");
 app.use("/teacher",teacherAnnouncementRouter);
 
