@@ -48,6 +48,9 @@ const TpersonalInfoSchema = new mongoose.Schema({
     },
     address:{
         type:String
+    },
+    edit:{
+        type:String
     }
 });
 
