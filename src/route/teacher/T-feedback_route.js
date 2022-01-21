@@ -3,15 +3,19 @@ const Router = express.Router();
 const TeacherRegister = require("../../models/teacher/teacherRegistration");
 const Feedback=require("../../models/feedback");
 const TeacherAllocation = require("../../models/admin/teacherAllocation");
+const TeacherPersonalInfo = require("../../models/teacher/teacherPersonalInfo");;
 
 Router.route("/feedback")
     .get(async (req, res) => {
         try {
+
             const teacherRegNum = await TeacherRegister.findOne({ regNum });
             const firstName = teacherRegNum?.firstName;
             const lastName = teacherRegNum?.lastName;
             const email = teacherRegNum?.email;
-            const image = `../static/uploads/teacher/${regNum}.jpeg`;
+
+            const TPersonalInfo = await TeacherPersonalInfo.findOne({ regNum });
+            const image = TPersonalInfo?.image;
 
             const teacherAllocation = await TeacherAllocation.find();
             let regNumArr =teacherAllocation[0].regNum;
