@@ -15,6 +15,9 @@
             <form action="/teacher/TpersonalInfoEdit" method="POST" enctype="multipart/form-data">
                 <section>    
                     include ../../views/partials/teacher/flag.pug
+                    -if(msg.length>0){
+                        .error #{msg}
+                    -}
                     <div class="teacher__details">
                         <table>
                             <thead>
