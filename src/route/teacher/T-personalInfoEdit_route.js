@@ -47,7 +47,8 @@ Router.route("/TpersonalInfoEdit")
                 "dept": dept,
                 "sem": sem,
                 "sub": sub,
-                "image":image
+                "image":image,
+                "msg": req.flash("personalInfoEdit-err")
             }
 
             res.status(200).render("teacher/T-personalInfoEdit.pug", param);
@@ -63,12 +64,11 @@ Router.route("/TpersonalInfoEdit")
 
         const personalInfoRegNum = await TeacherPersonalInfo.findOne({ regNum });
         const edit = personalInfoRegNum?.edit;
-
-
+        
         if (edit == undefined) {
-
+            
             try {
-
+                
                 const cloudinaryResult = await cloudinary.uploader.upload(req.file.path);
 
                 const personalInfo = new TeacherPersonalInfo({
@@ -94,21 +94,26 @@ Router.route("/TpersonalInfoEdit")
                 });
 
                 const personalInfoSubmitted = await personalInfo.save();
+                req.flash("personalInfo-success", "Your data has been saved !");
                 res.status(200).redirect("/teacher/TpersonalInfo");                
             }
             catch (err) {
+                req.flash("personalInfoEdit-err", "Some error occured.Try again !");
                 res.status(400).redirect("/teacher/TpersonalInfo");
                 console.log(err);
             }
         }
         else {
             const id = personalInfoRegNum?.id;
+
             const updateDocuments = async (_id) => {
                 try {
+
                     const prevImageID = personalInfoRegNum?.cloudinary_id;
                     const prevImgDeleted = await cloudinary.uploader.destroy(prevImageID);
 
                     const cloudinaryResult = await cloudinary.uploader.upload(req.file.path);
+
 
                     let update = await TeacherPersonalInfo.findByIdAndUpdate(
                         { _id },
@@ -143,9 +148,11 @@ Router.route("/TpersonalInfoEdit")
 
                     const updated = await update.save();
                     req.flash("personalInfo-success", "Your data has been saved !");
+                    res.status(200).redirect("/teacher/TpersonalInfo");
 
                 }
                 catch (err) {
+                    req.flash("personalInfoEdit-err", "Some error occured.Try again !");
                     res.status(400).redirect("/teacher/TpersonalInfo");
                     console.log(err);
                 }
