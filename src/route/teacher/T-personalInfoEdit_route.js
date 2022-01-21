@@ -3,9 +3,11 @@ const Router = express.Router();
 const TeacherRegister = require("../../models/teacher/teacherRegistration");
 const TeacherAllocation = require("../../models/admin/teacherAllocation");
 const TeacherPersonalInfo = require("../../models/teacher/teacherPersonalInfo");
-const multerImport = require("../../multer/teacher");
-const upload = multerImport.upload;
+const multer = require("multer");
+const { cloudinary ,storage } = require("../../cloudinary/index");
+const upload = multer({ storage });
 let regNum;
+let i = 1;
 
 Router.route("/TpersonalInfoEdit")
     .get(async (req, res) => {
@@ -31,7 +33,8 @@ Router.route("/TpersonalInfoEdit")
             const sem = semArr[index];
             const sub = subArr[index];
 
-            const image = `../static/uploads/teacher/${regNum}.jpeg`;
+            const TpersonalInfoRegNum = await TeacherPersonalInfo.findOne({ regNum });
+            const image = TpersonalInfoRegNum?.image;
 
             const param = {
                 "content": "Personal Info Edit",
@@ -66,6 +69,8 @@ Router.route("/TpersonalInfoEdit")
 
             try {
 
+                const cloudinaryResult = await cloudinary.uploader.upload(req.file.path);
+
                 const personalInfo = new TeacherPersonalInfo({
                     name: req.body.name,
                     regNum: req.body.regNum,
@@ -83,7 +88,8 @@ Router.route("/TpersonalInfoEdit")
                     email: req.body.email,
                     phone: req.body.phone,
                     address: req.body.address,
-                    image: req.file.filename,
+                    image: cloudinaryResult.secure_url,
+                    cloudinary_id : cloudinaryResult.public_id,
                     edit: "firstTime"
                 });
 
@@ -99,7 +105,11 @@ Router.route("/TpersonalInfoEdit")
             const id = personalInfoRegNum?.id;
             const updateDocuments = async (_id) => {
                 try {
-                    let i = 1;
+                    const prevImageID = personalInfoRegNum?.cloudinary_id;
+                    const prevImgDeleted = await cloudinary.uploader.destroy(prevImageID);
+
+                    const cloudinaryResult = await cloudinary.uploader.upload(req.file.path);
+
                     let update = await TeacherPersonalInfo.findByIdAndUpdate(
                         { _id },
                         {
@@ -120,7 +130,8 @@ Router.route("/TpersonalInfoEdit")
                                 email: req.body.email,
                                 phone: req.body.phone,
                                 address: req.body.address,
-                                image: req.file.filename,
+                                image: cloudinaryResult.secure_url,
+                                cloudinary_id : cloudinaryResult.public_id,
                                 edit: `updated-${i++}`
                             }
                         },
