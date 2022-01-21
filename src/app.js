@@ -1,29 +1,23 @@
 const express = require("express");
 const path = require("path");
 require("dotenv").config();
+require("../src/db/conn");
 const views_path = path.join(__dirname, "../views");
 const static_path = path.join(__dirname, "../static");
 const app = express();
 const port = process.env.PORT || 80;
-const bcrypt = require("bcryptjs");
-const Register = require("../src/models/userRegistration");
-const TeacherRegister = require("../src/models/teacher/teacherRegistration");
-
 const session = require("express-session");
-const flash =require("connect-flash");
-let roll;
+const flash = require("connect-flash");
 
-
-app.use("/static",express.static(static_path));
+app.use("/static", express.static(static_path));
 app.use(express.json());
-app.use(urlencoded({ extended: false })); 
-app.use(session({
-    secret:"secret",
-    cookie:{},
-    resave:false,
-    saveUninitialized:false
-}));
 app.use(flash());
+app.use(session({
+    secret: String(process.env.SESSION_SECRET),
+    cookie: {},
+    resave: false,
+    saveUninitialized: false
+}));
 
 app.set("view engine", "pug");
 app.set("views", views_path);
@@ -32,94 +26,22 @@ app.get("/home", (req, res) => {
     res.status(200).render("index.pug");
 });
 
-app.get("/home/studentLogin", (req, res) => {
-    res.status(200).render("login.pug",
-    {
-        msg:req.flash("login-err"),
-        login_msg:req.flash("reg-success")
-    });
-});
 
-app.get("/home/teacherLogin", (req, res) => {
-    res.status(200).render("teacher/T-login.pug");
-});
+// * Home Route -
 
-app.get("/home/adminLogin", (req, res) => {
-    res.status(200).render("admin/A-login.pug");
-});
+//* Student
+const studentRegistrationRouter = require("../src/route/registration_route");
+app.use("/home", studentRegistrationRouter);
 
-app.post("/home/studentLogin",async (req, res) => {
-    try {
-        roll = req.body.roll;
-        exports.roll=roll;
-        const password = req.body.password;
+const studentLoginRouter = require("../src/route/login_route");
+app.use("/home", studentLoginRouter);
 
-        const userRoll = await Register.findOne({ roll });
-
-        const isMatch = await bcrypt.compare(password, userRoll?.password);
-        if (isMatch) {
-            res.status(200).redirect("/student/homepage");
-        }
-        else {
-            req.flash("login-err","Invalid Password");
-            res.redirect("/home/studentLogin");
-        }
-    }
-    catch (err) {
-        console.log(err);
-        req.flash("login-err","Invalid Roll");
-        res.redirect("/home/studentLogin");
-    }
-});
-
-app.post("/home/teacherLogin",async (req, res) => {
-    try {
-        regNum = req.body.regNum;
-        const password = req.body.password;
-
-        const teacherRegNum = await TeacherRegister.findOne({ regNum });
-
-        const isMatch = await bcrypt.compare(password, teacherRegNum?.password);
-        if (isMatch) {
-            res.status(200).redirect("/teacher/homepage");
-        }
-        else {
-            res.status(400).send("Invalid password details");
-        }
-    }
-    catch (err) {
-        console.log(err);
-        res.status(400).send(err);
-    }
-});
-
-app.post("/home/adminLogin", (req, res) => {
-
-    const username = req.body.username;
-    const password = req.body.password;
-
-    if(username==process.env.ADMIN_USERNAME){
-        if(password==process.env.ADMIN_PASSWORD){
-            res.status(200).redirect("/admin/homepage");
-        }
-        else{
-            req.flash("login-err", "Invalid Password");
-            res.redirect("/home/adminLogin");
-        }
-    }
-    else{
-        req.flash("login-err", "Invalid Credentials");
-        res.redirect("/home/adminLogin");
-    }
-});
-
-// * Home 
-
-const registrationRouter = require("../src/route/registration_route");
-app.use("/home", registrationRouter);
-
+//* Teacher
 const teacherRegistrationRouter = require("../src/route/teacher/T-registration_route");
-app.use("/home",teacherRegistrationRouter);
+app.use("/home", teacherRegistrationRouter);
+
+const teacherLoginRouter = require("../src/route/teacher/T-login_route");
+app.use("/home", teacherLoginRouter);
 
 
 //* Student
@@ -147,7 +69,6 @@ app.use("/student", achievementRouter);
 const achievementEditRouter = require("../src/route/achievementEdit_route");
 app.use("/student", achievementEditRouter);
 
-
 const pyqRouter = require("../src/route/pyq_route");
 app.use("/student", pyqRouter);
 
@@ -159,36 +80,36 @@ const booksRouter = require("../src/route/books_route");
 app.use("/student", booksRouter);
 
 
-//* Teacher
+//* Teacher Route
 
 const teacherRouter = require("../src/route/teacher/T-teacher_route");
-app.use("/teacher",teacherRouter);
+app.use("/teacher", teacherRouter);
 
 const teacherPersonalInfoRouter = require("../src/route/teacher/T-personalInfo_route");
-app.use("/teacher",teacherPersonalInfoRouter);
+app.use("/teacher", teacherPersonalInfoRouter);
 
 const teacherPersonalInfoEditRouter = require("../src/route/teacher/T-personalInfoEdit_route");
 app.use("/teacher", teacherPersonalInfoEditRouter);
 
 const teacherAnnouncementRouter = require("../src/route/teacher/T-announcement_route");
-app.use("/teacher",teacherAnnouncementRouter);
+app.use("/teacher", teacherAnnouncementRouter);
 
 const studentResultRouter = require("../src/route/teacher/T-studentResult_route");
-app.use("/teacher",studentResultRouter);
+app.use("/teacher", studentResultRouter);
 
 const studentAttendanceRouter = require("../src/route/teacher/T-studentAttendance_route");
-app.use("/teacher",studentAttendanceRouter);
+app.use("/teacher", studentAttendanceRouter);
 
 const studentAttendanceEditRouter = require("../src/route/teacher/T-studentAttendanceEdit_route");
-app.use("/teacher",studentAttendanceEditRouter);
+app.use("/teacher", studentAttendanceEditRouter);
 
 const studentClassMaterialsRouter = require("../src/route/teacher/T-classMaterial_route");
 app.use("/teacher", studentClassMaterialsRouter);
 
 const teacherFeedbackRouter = require("../src/route/teacher/T-feedback_route");
-app.use("/teacher",teacherFeedbackRouter);
+app.use("/teacher", teacherFeedbackRouter);
 
-//* Admin
+//* Admin Route
 
 const adminRouter = require("../src/route/admin/A-admin_route");
 app.use("/admin", adminRouter);
@@ -213,4 +134,3 @@ app.use("/admin", announcementRouter);
 app.listen(port, () => {
     console.log(`The application started successfully on port ${port}`);
 });
-
