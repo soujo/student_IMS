@@ -2,6 +2,7 @@ const express = require("express");
 const Router = express.Router();
 const TeacherRegister = require("../../models/teacher/teacherRegistration");
 const TeacherAllocation = require("../../models/admin/teacherAllocation");
+const TeacherPersonalInfo = require("../../models/teacher/teacherPersonalInfo");
 const ClassMaterial = require("../../models/teacher/studentClassMaterials");
 const CMImport = require("../../multer/classMaterials");
 const upload = CMImport.upload;
@@ -11,10 +12,13 @@ let regNum;
 Router.route("/classMaterialsUpload")
     .get(async (req, res) => {
         try {
+
             const teacherRegNum = await TeacherRegister.findOne({ regNum });
             const firstName = teacherRegNum?.firstName;
             const lastName = teacherRegNum?.lastName;
-            const image = `../static/uploads/teacher/${regNum}.jpeg`;
+
+            const TPersonalInfo = await TeacherPersonalInfo.findOne({ regNum });
+            const image = TPersonalInfo?.image;
 
 
             const param = {
