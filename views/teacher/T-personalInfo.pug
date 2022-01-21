@@ -14,8 +14,11 @@
             include ../../views/partials/teacher/aside.pug
             <section>    
                 include ../../views/partials/teacher/flag.pug 
+                -if(msg.length>0){
+                    .success #{msg}
+                -}
                 <div class="teacher__details">                    
-                    <a href="">
+                    <a href="/teacher/TpersonalInfoEdit">
                         <div class="edit">Edit</div>
                     </a>
                     <table>
@@ -31,52 +34,52 @@
                             </tr>
                             <tr>
                                 <th>Name</th>
-                                <td></td>
+                                <td>#{firstName} #{lastName}</td>
                             </tr>
                             <tr>
                                 <th>Registration Number</th>
-                                <td></td>
+                                <td>#{regNum}</td>
                             </tr>
                             <tr>
                                 <th>Enrolled Year</th>
-                                <td></td>
+                                <td>#{batch}</td>
                             </tr>
                             <tr>
                                 <th>Alloted Department</th>
-                                <td></td>
+                                <td>#{dept}</td>
                             </tr>
                             <tr>
                                 <th>Alloted Semester</th>
-                                <td></td>
+                                <td>#{sem}</td>
                             </tr>
                             <tr>
                                 <th>Alloted Subject</th>
-                                <td></td>
+                                <td>#{sub}</td>
                             </tr>
                             <tr>
                                 <th>DOB</th>
-                                <td></td>
+                                <td>#{dob}</td>
                             </tr>
                             <tr>
                                 <th>Category</th>
-                                <td></td>
+                                <td>#{category}</td>
                             </tr>
                             <tr>
                                 <th>Gender</th>
-                                <td></td>
+                                <td>#{gender}</td>
                             </tr>
                             <tr>
                                 <th>Blood Group</th>
-                                <td></td>
+                                <td>#{bloodGroup}</td>
                             </tr>
                             <tr>
                                 <th>Aadhar Number</th>
-                                <td></td>
+                                <td>#{aadhar}</td>
                             </tr>
                         </tbody>
                     </table>
                     <div class="picture">
-                        <img src="" alt="Teacher Image">
+                        img(src=image, alt="Your image")
                     </div>
                 </div>
                 <br><br><br>
@@ -90,19 +93,19 @@
                         <tbody>
                             <tr>
                                 <th>Father's Name</th>
-                                <td></td>
+                                <td>#{fatherName}</td>
                                 <th>Mother's name</th>
-                                <td></td>
+                                <td>#{motherName}</td>
                             </tr>
                             <tr>
                                 <th>Email</th>
-                                <td></td>
+                                <td>#{email}</td>
                                 <th>Mobile Number</th>
-                                <td></td>
+                                <td>#{phone}</td>
                             </tr>
                             <tr>
                                 <th>Address</th>
-                                <td></td>
+                                <td>#{address}</td>
                             </tr> 
                         </tbody>
                     </table>
