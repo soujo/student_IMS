@@ -5,10 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/static/css/teacher/T-login.css">
-    <title>Login</title>
+    <title>Teacher Login</title>
 </head>
 <body>
     include ../../views/partials/navbar.pug 
+    -if(msg.length>0){
+        .error #{msg}
+    -}
+    -if(login_msg.length>0){
+        .success #{login_msg}
+    -}
     <div class="container">
         <div class="welcome__box">
             <img class="welcome__image" src="/static/images/login.svg" alt="welcome image">
@@ -22,11 +28,11 @@
                 </div>
                 <form action="/home/teacherLogin" class="form__form" method="POST">
                         <div class="form_div">
-                            <input type="text" name="regNum" id="regNum" class="form_input" autocomplete="off" placeholder=" ">
+                            <input type="text" name="regNum" id="regNum" class="form_input" autocomplete="off" placeholder=" " required>
                             <label for="regNum" class="form_label">Registration No.</label>
                         </div>
                         <div class="form_div">
-                            <input type="password" name="password" id="password" class="form_input" autocomplete="off" placeholder=" ">
+                            <input type="password" name="password" id="password" class="form_input" autocomplete="off" placeholder=" " required>
                             <label for="password" class="form_label">Password</label>
                         </div>
                         <input type="submit" class="login" value="Login">          
