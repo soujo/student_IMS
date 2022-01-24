@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Result</title>
+    <link rel="stylesheet" href="../../static/css/teacher/T-studentResult.css">
+</head>
+<body>
+    <div class="container">
+        include ../../views/partials/teacher/header.pug
+        <div class="aside__section">
+            include ../../views/partials/teacher/aside.pug
+            <section>
+                include ../../views/partials/teacher/flag.pug  
+                <div class="student__result">
+                    <a href="/teacher/studentResultEdit">
+                        <div class="edit">Edit</div>
+                    </a>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style="width: 881px;">Student Result</th>
+                            </tr>
+                        </thead>
+                        <thead>
+                            <tr>
+                                <th>Student Name</th>
+                                <th>Roll No.</th>
+                                <th>Subject</th>
+                                <th>Letter Grade</th>
+                                <th>Points</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            -let subOfTeacher = sub;
+                            -let rollArr = rollArray;
+                            -let nameArr = nameArray;
+                            -let gradeArr = gradeArray;
+                            -let pointsArr = pointsArray;
+                            -let len = length;
+                            if len !=undefined
+                                - for(let i =0;i<len;i++){
+                                    tr
+                                        td #{nameArr[i]}
+                                        td #{rollArr[i]}
+                                        td #{subOfTeacher}
+                                        td #{gradeArr[i]}
+                                        td #{pointsArr[i]}
+                                -}
+                            else 
+                                tr 
+                                    <td style ="width:881px;">#{msg}</td>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+        include ../../views/partials/teacher/footer.pug
+    </div>
+    <script src="/static/js/teacher/studentResult.js"></script>
+</body>
+</html>
