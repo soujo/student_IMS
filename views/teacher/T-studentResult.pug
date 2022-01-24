@@ -10,6 +10,9 @@
 <body>
     <div class="container">
         include ../../views/partials/teacher/header.pug
+        -if(success.length>0){
+        .success #{success}
+        -}
         <div class="aside__section">
             include ../../views/partials/teacher/aside.pug
             <section>
