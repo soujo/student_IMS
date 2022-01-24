@@ -66,7 +66,8 @@ Router.route("/studentResult")
                 "pointsArray": pointsArr,
                 "length": length,
                 "image": image,
-                "msg": "No student registered"
+                "msg": "No student registered",
+                "success": req.flash("result-success")
             };
 
             res.status(200).render("teacher/T-studentResult.pug", param);
