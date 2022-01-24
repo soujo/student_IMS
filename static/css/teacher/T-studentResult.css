@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
+
+
+*,*::after,*::before{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Lora', serif;
+}
+
+.container header{
+    height: 150px;
+    width: 100%;
+    background-color: #81a7ee;
+    display: flex;
+    justify-content: space-between;
+}
+.aside__section{
+    display: flex;
+}
+
+section{
+    margin: 1rem;
+    height: 732px;
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+}
+
+.student__result{
+    margin-top: 2rem;
+    position: relative;  
+    width: 90%; 
+}
+
+.student__result .edit{
+    position: absolute;
+    padding: 0.1rem;
+    text-align: center;
+    width: 50px;
+    left: 800px;
+    top: 7px;
+    border-radius: 15px;
+    cursor: pointer;
+    background-color: #ececec;
+    color: black;
+
+}
+
+.student__result .edit:hover{
+    background-color: #c9c9c9;
+}
+
+
+.student__result table
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border-collapse: collapse;
+}
+
+.student__result table thead
+{
+    display: flex;
+    justify-content: center;
+    height: 35px;
+    background-color: #81a7ee;
+    margin-bottom: 0.1rem;
+    color: white;
+    border-left: 2px solid white;
+    border-right: 2px solid white;
+}
+
+
+.student__result table tbody
+{
+    display: flex;
+    flex-direction: column;
+    border-left: 2px solid white;
+    border-right: 2px solid white;
+}
+
+
+
+.student__result table tbody tr:nth-child(2n+1)
+{
+    background-color: #abc4f1;
+}
+
+
+.student__result table tbody tr:nth-child(2n)
+{
+    background-color: #d2def5;
+}
+
+
+.student__result table tbody tr td
+{
+    border:2px solid white;
+    padding: 0.5rem;
+    
+}
+
+.student__result table thead tr th
+{
+    border:2px solid white;
+    text-align: center;
+    height: 35px;
+}
+.student__result table thead tr th:nth-child(1),
+.student__result table tbody tr td:nth-child(1)
+{
+    width: 169px;
+}
+.student__result table thead tr th:nth-child(2),
+.student__result table tbody tr td:nth-child(2)
+{
+    width: 150px;
+}
+.student__result table thead tr th:nth-child(3),
+.student__result table tbody tr td:nth-child(3)
+{
+    width: 377px;
+}
+.student__result table thead tr th:nth-child(4),
+.student__result table tbody tr td:nth-child(4)
+{
+    width: 105px;
+    text-align: center;
+
+}
+.student__result table thead tr th:nth-child(5),
+.student__result table tbody tr td:nth-child(5)
+{
+    width: 80px;
+    text-align: center;
+
+}
