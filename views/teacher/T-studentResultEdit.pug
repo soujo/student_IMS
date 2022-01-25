@@ -10,6 +10,9 @@
 <body>
     <div class="container">
         include ../../views/partials/teacher/header.pug
+        -if(error.length>0){
+        .error #{error}
+        -}
         <div class="aside__section">
             include ../../views/partials/teacher/aside.pug
             <form action="/teacher/studentResultEdit" method="POST">
