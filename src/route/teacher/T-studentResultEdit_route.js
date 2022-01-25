@@ -51,7 +51,8 @@ Router.route("/studentResultEdit")
                 "nameArray": nameArr,
                 "length": length,
                 "image":image,
-                "msg": "No student registered"
+                "msg": "No student registered",
+                "error":req.flash("result-error")
             };
 
             res.status(200).render("teacher/T-studentResultEdit.pug", param);
@@ -81,10 +82,12 @@ Router.route("/studentResultEdit")
                 });
 
                 const resultUpdate = await result.save();
+                req.flash("result-success","Student Result is uploaded !");
                 res.status(200).redirect("/teacher/studentResult");
 
             }
             catch (err) {
+                req.flash("result-error","Try again after some time !");
                 res.status(200).redirect("/teacher/studentResult");
             }
 
@@ -113,10 +116,12 @@ Router.route("/studentResultEdit")
                     );
 
                     const updated = await update.save();
+                    req.flash("result-success","Student Result is uploaded !");
                     res.status(200).redirect("/teacher/studentResult")
 
                 }
                 catch (err) {
+                    req.flash("result-error","Try again after some time !");
                     res.status(200).redirect("/teacher/studentResult");
                 }
             }
