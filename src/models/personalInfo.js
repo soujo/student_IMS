@@ -65,8 +65,10 @@ const personalInfoSchema= new mongoose.Schema({
         type:String
     },
     image:{
-        data:Buffer,
-        contentType:String
+        type:String
+    },
+    cloudinary_id:{
+        type:String
     },
     edit:{
         type:String
