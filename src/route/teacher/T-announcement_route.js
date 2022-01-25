@@ -2,6 +2,7 @@ const express = require("express");
 const Router = express.Router();
 const TeacherRegister = require("../../models/teacher/teacherRegistration");
 const TeacherAnnoucement = require("../../models/teacher/teacherAnnouncement");
+const TeacherPersonalInfo = require("../../models/teacher/teacherPersonalInfo");
 
 Router.route("/announcement")
     .get(async (req, res) => {
@@ -9,7 +10,10 @@ Router.route("/announcement")
             const teacherRegNum = await TeacherRegister.findOne({ regNum });
             const firstName = teacherRegNum?.firstName;
             const lastName = teacherRegNum?.lastName;
-            const image = `../static/uploads/teacher/${regNum}.jpeg`;
+
+            const TPersonalInfo = await TeacherPersonalInfo.findOne({ regNum });
+            const image = TPersonalInfo?.image;
+            
             const param = {
                 "content": "Announcement",
                 "firstName": firstName,
