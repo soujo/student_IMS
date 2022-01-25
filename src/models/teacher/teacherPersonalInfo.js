@@ -49,6 +49,12 @@ const TpersonalInfoSchema = new mongoose.Schema({
     address:{
         type:String
     },
+    image:{
+        type:String
+    },
+    cloudinary_id:{
+        type:String
+    },
     edit:{
         type:String
     }
