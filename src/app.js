@@ -97,6 +97,9 @@ app.use("/teacher", teacherAnnouncementRouter);
 const studentResultRouter = require("../src/route/teacher/T-studentResult_route");
 app.use("/teacher", studentResultRouter);
 
+const studentResultEditRouter = require("../src/route/teacher/T-studentResultEdit_route");
+app.use("/teacher", studentResultEditRouter);
+
 const studentAttendanceRouter = require("../src/route/teacher/T-studentAttendance_route");
 app.use("/teacher", studentAttendanceRouter);
 
