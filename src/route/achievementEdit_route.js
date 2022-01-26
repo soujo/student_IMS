@@ -1,18 +1,24 @@
 const express = require("express");
 const Router = express.Router();
-const rollNumber = require("../app");
 const Register = require("../models/userRegistration");
+const PersonalInfo = require("../models/personalInfo");
 const Achievement = require("../models/achievements");
+let roll;
+let j = 1;
 
 Router.route("/achievementsEdit")
     .get( async (req, res) => {
 
         try {
-            const userRoll = await Register.findOne({ roll: rollNumber.roll });
+
+            const userRoll = await Register.findOne({ roll });
 
             const firstName = userRoll?.firstName;
             const lastName = userRoll?.lastName;
-            const image = `../static/uploads/${rollNumber.roll}.jpeg`;
+
+            const personalInfoRoll = await PersonalInfo.findOne({ roll });
+            const image = personalInfoRoll?.image;
+            
             const params = {
                 "content": "Achievements",
                 "firstName": firstName,
@@ -31,21 +37,33 @@ Router.route("/achievementsEdit")
     .post(async (req, res) => {
 
 
-        const achievementRoll = await Achievement.findOne({ roll: rollNumber.roll });
+        const achievementRoll = await Achievement.findOne({ roll });
         const edit = achievementRoll?.edit;
 
         if (edit == undefined) {
 
             try {
 
-                let achieveObjects = [];
-                for (let i = 0; i < req.body.category.length; i++) {
-                    achieveObjects.push({
-                        category: req.body.category[i],
-                        achievements_item: req.body.achievements_item[i],
-                        description_text: req.body.description_text[i],
+                let achievementArr = [];
+                if(typeof(req.body.category) == "string"){
+
+                    achievementArr.push({
+                        category:req.body.category,
+                        achievements_item:req.body.achievements_item,
+                        description_text:req.body.description_text
                     });
                 }
+                else{
+
+                    for (let i = 0; i < req.body.category.length; i++) {
+                        achievementArr.push({
+                            category: req.body.category[i],
+                            achievements_item: req.body.achievements_item[i],
+                            description_text: req.body.description_text[i],
+                        });
+                    }
+                }
+                
                 const achievements = new Achievement({
                     hobbies: req.body.hobbies,
                     language: req.body.language,
@@ -63,8 +81,8 @@ Router.route("/achievementsEdit")
                         req.body.shutterburg,
                         req.body.robotics
                     ],
-                    roll: rollNumber.roll,
-                    achievement: achieveObjects,
+                    roll: roll,
+                    achievement: achievementArr,
                     edit: "firstTime"
                 });
                 const achievementsSubmitted = await achievements.save();
@@ -85,16 +103,27 @@ Router.route("/achievementsEdit")
             const updateDocuments = async (_id) => {
                 try {
 
-                    let achieveObjects = [];
-                    for (let i = 0; i < req.body.category.length; i++) {
-                        achieveObjects.push({
-                            category: req.body.category[i],
-                            achievements_item: req.body.achievements_item[i],
-                            description_text: req.body.description_text[i],
+                    let achievementArr = [];
+
+                    if(typeof(req.body.category)== "string"){
+
+                        achievementArr.push({
+                            category:req.body.category,
+                            achievements_item:req.body.achievements_item,
+                            description_text:req.body.description_text
                         });
                     }
+                    else{
 
-                    let j = 1;
+                        for (let i = 0; i < req.body.category.length; i++) {
+                            achievementArr.push({
+                                category: req.body.category[i],
+                                achievements_item: req.body.achievements_item[i],
+                                description_text: req.body.description_text[i],
+                            });
+                        }
+                    }
+
                     let update = await Achievement.findByIdAndUpdate(
                         { _id },
                         {
@@ -115,8 +144,8 @@ Router.route("/achievementsEdit")
                                     req.body.shutterburg,
                                     req.body.robotics
                                 ],
-                                roll: rollNumber.roll,
-                                achievement: achieveObjects,
+                                roll: roll,
+                                achievement: achievementArr,
                                 edit: `updated-${j++}`
                             }
                         },
@@ -133,6 +162,7 @@ Router.route("/achievementsEdit")
                 catch (err) {
                     req.flash("achievementsEdit-err", "Some error occured.Try again !");
                     res.status(200).redirect("/student/achievementsEdit");
+                    console.log(err);
                 }
 
             };
