@@ -1,21 +1,23 @@
 const express = require("express");
 const Router = express.Router();
-const rollNumber = require("../app");
 const Register = require("../models/userRegistration");
 const PersonalInfo = require("../models/personalInfo");
 const Academics = require("../models/academics");
+let roll;
 
 Router.route("/academicsEdit")
     .get(async (req, res) => {
         try {
-            const userRoll = await Register.findOne({ roll: rollNumber.roll });
+
+            const userRoll = await Register.findOne({ roll });
 
             const firstName = userRoll?.firstName;
             const lastName = userRoll?.lastName;
 
-            const personalInfoRoll = await PersonalInfo.findOne({ roll: rollNumber.roll });
+            const personalInfoRoll = await PersonalInfo.findOne({ roll });
             const branch = personalInfoRoll?.branch;
-            const image = `../static/uploads/${rollNumber.roll}.jpeg`;
+            const image = personalInfoRoll?.image;
+            
             const params = {
                 "content":"Academics",
                 "firstName": firstName,
@@ -34,7 +36,7 @@ Router.route("/academicsEdit")
     .post(async (req, res) => {
 
 
-        const academicsRoll = await Academics.findOne({ roll:rollNumber.roll });
+        const academicsRoll = await Academics.findOne({ roll });
         const edit = academicsRoll?.edit;
 
         if (edit == undefined) {
