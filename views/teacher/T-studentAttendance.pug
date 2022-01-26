@@ -4,12 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Result</title>
+    <title>Student Attendance</title>
     <link rel="stylesheet" href="../../static/css/teacher/T-studentAttendance.css">
 </head>
 <body>
     <div class="container">
         include ../../views/partials/teacher/header.pug
+        -if(success.length>0){
+        .success #{success}
+        -}
         <div class="aside__section">
             include ../../views/partials/teacher/aside.pug
             <section>
@@ -35,14 +38,26 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Random</td>
-                                <td>Random</td>
-                                <td>Random</td>
-                                <td>Random</td>
-                                <td>Random</td>
-                                <td>Random</td>
-                            </tr>
+                            -let subOfTeacher = sub;
+                            -let rollArr = rollArray;
+                            -let nameArr = nameArray;
+                            -let totalClassArr = totalClassArray;
+                            -let classAttendedArr = classAttendedArray;
+                            -let percentageArr = percentageArray;
+                            -let len = length;
+                            if len !=undefined
+                                - for(let i =0;i<len;i++){
+                                    tr
+                                        td #{nameArr[i]}
+                                        td #{rollArr[i]}
+                                        td #{subOfTeacher}
+                                        td #{totalClassArr[i]}
+                                        td #{classAttendedArr[i]}
+                                        td #{percentageArr[i]}
+                                -}
+                            else 
+                                tr 
+                                    <td style ="width:881px;">#{msg}</td>
                         </tbody>
                     </table>
                 </div>
