@@ -4,12 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Result</title>
+    <title>Student Attendance Upload</title>
     <link rel="stylesheet" href="../../static/css/teacher/T-studentAttendanceEdit.css">
 </head>
 <body>
     <div class="container">
         include ../../views/partials/teacher/header.pug
+        -if(error.length>0){
+        .error #{error}
+        -}
         <div class="aside__section">
             include ../../views/partials/teacher/aside.pug
             <form action="/teacher/studentAttendanceEdit" method="POST">
@@ -32,14 +35,28 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>random</td>
-                                    <td>random</td>
-                                    <td>random</td>
-                                    <td>random</td>
-                                    <td>random</td>
-                                </tr>
-                            </tbody>
+                                -let subOfTeacher = sub;
+                                -let rollArr = rollArray;
+                                -let nameArr = nameArray;
+                                -let len = length;
+                                if len !=undefined
+                                    - for(let i =0;i<len;i++){
+                                        tr 
+                                            td 
+                                                input(type="text" name="name" id="name" readonly=true value=nameArr[i])  
+                                            td 
+                                                input(type="text" name="roll" id="roll" readonly=true value=rollArr[i])  
+                                            td 
+                                                input(type="text" name="sub" id="sub" readonly=true value=subOfTeacher)  
+                                            td 
+                                                input(type="number" name="totalClass" id="totalClass" required)  
+                                            td 
+                                                input(type="number" name="classAttended" id="classAttended" required)  
+                                    -}
+                                else 
+                                    tr 
+                                        <td style ="width:881px;">#{msg}</td>
+                                </tbody>
                         </table>
                         <input type="submit" value="Submit" id="submit">
                     </div>
