@@ -1,19 +1,21 @@
 const express = require("express");
 const Router = express.Router();
-const rollNumber = require("../app");
 const Register = require("../models/userRegistration");
+const PersonalInfo = require("../models/personalInfo");
 const Achievement = require("../models/achievements");
+let roll;
 
 Router.route("/achievements")
     .get(async (req, res) => {
 
         try {
-            const userRoll = await Register.findOne({ roll: rollNumber.roll });
+
+            const userRoll = await Register.findOne({ roll });
 
             const firstName = userRoll?.firstName;
             const lastName = userRoll?.lastName;
 
-            const achievementsRoll = await Achievement.findOne({ roll: rollNumber.roll });
+            const achievementsRoll = await Achievement.findOne({ roll });
 
             const hobbies = achievementsRoll?.hobbies;
             const sports = achievementsRoll?.sports;
@@ -31,7 +33,10 @@ Router.route("/achievements")
             const robotics = achievementsRoll?.clubs[10] == null ? "" : achievementsRoll?.clubs[10].toString();
 
             const achievement = achievementsRoll?.achievement;
-            const image = `../static/uploads/${rollNumber.roll}.jpeg`;
+
+            const personalInfoRoll = await PersonalInfo.findOne({ roll });
+            const image = personalInfoRoll?.image;
+            
             const params = {
                 "content":"Achievements",
                 "firstName": firstName,
