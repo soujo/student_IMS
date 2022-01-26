@@ -1,6 +1,5 @@
 const express = require("express");
 const Router = express.Router();
-const rollNumber = require("../app");
 const Register = require("../models/userRegistration");
 const PersonalInfo = require("../models/personalInfo");
 const Academics = require("../models/academics");
@@ -9,15 +8,17 @@ Router.route("/academics")
     .get(async (req, res) => {
 
         try {
-            const userRoll = await Register.findOne({ roll:rollNumber.roll });
+            
+            const userRoll = await Register.findOne({ roll });
 
             const firstName = userRoll?.firstName;
             const lastName = userRoll?.lastName;
 
-            const personalInfoRoll = await PersonalInfo.findOne({ roll:rollNumber.roll });
+            const personalInfoRoll = await PersonalInfo.findOne({ roll });
             const branch = personalInfoRoll?.branch;
+            const image = personalInfoRoll?.image;
 
-            const academicsRoll = await Academics.findOne({ roll:rollNumber.roll });
+            const academicsRoll = await Academics.findOne({ roll });
 
             const secondaryDegreeName = academicsRoll?.secondaryDegreeName;
             const secondaryBoardName = academicsRoll?.secondaryBoardName;
@@ -45,7 +46,7 @@ Router.route("/academics")
             const collegeTotalCGPA = academicsRoll?.collegeTotalCGPA;
             const collegeTotalPercentage = academicsRoll?.collegeTotalPercentage;
             const collegeDivision = academicsRoll?.collegeDivision;
-            const image = `../static/uploads/${rollNumber.roll}.jpeg`;
+        
             const params = {
                 "content":"Academics",
                 "firstName": firstName,
