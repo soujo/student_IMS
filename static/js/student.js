@@ -1,6 +1,4 @@
 const dateTime= document.querySelector(".date__time");
-const flagCross=document.querySelector(".flag__cross");
-const flag=document.getElementById("flag");
 
 let today=new Date();
 
@@ -14,8 +12,3 @@ let time = today.toLocaleString('en-IN', {
     minute:"numeric"
 });
 dateTime.innerText=`${time}`;
-
-flagCross.addEventListener("click",function (){
-    flag.classList.remove("flag"); 
-    flag.classList.add("off");
-});
