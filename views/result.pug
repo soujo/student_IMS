@@ -29,55 +29,27 @@
                                     <th>Credit Points</th>
                                 </tr>
                             </thead>
-                            <tbody>                       
-                                <tr>
-                                    <td>BSCH101</td>
-                                    <td>Chemistry-I (Gr-B)</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>4.0</td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td>BSM102</td>
-                                    <td>Mathamatics-IB</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>4.0</td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td>ESEE101</td>
-                                    <td>Basic Electrical Engineering</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>4.0</td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td>BSCH191</td>
-                                    <td>Chemistry-I Laboratory (Gr-B)</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>1.5</td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td>ESEE191</td>
-                                    <td>Basic Electrical Engineering Laboratory</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>1.0</td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td>ESME191</td>
-                                    <td>Engineering Graphics & Design (Gr-B)</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>3.0</td>
-                                    <td></td>
-                                </tr>
+                            <tbody>     
+                                -let subArr_1st=subjectArray_1st;
+                                -let gradeArr_1st=gradeArray_1st;
+                                -let subCodeArr_1st=subCodeArray_1st;
+                                -let pointsArr_1st=pointsArray_1st;
+                                -let creditArr_1st=creditArray_1st;
+                                -let creditPointsArr_1st=creditPointsArray_1st;
+                                -let len_1st = length_1st;
+                                if len_1st!=undefined 
+                                    -for (let i in subArr_1st){
+                                        tr 
+                                            td #{subCodeArr_1st[i]}
+                                            td #{subArr_1st[i]}
+                                            td #{gradeArr_1st[i]}
+                                            td #{pointsArr_1st[i]}
+                                            td #{creditArr_1st[i]}
+                                            td #{creditPointsArr_1st[i]}
+                                    -}
+                                else 
+                                    tr 
+                                        <td style="width:881px;">#{msg}</td>  
                             </tbody>
                         </table>
                     </div>
@@ -96,71 +68,27 @@
                                     <th>Credit Points</th>
                                 </tr>
                             </thead>
-                            <tbody>                       
-                                <tr>
-                                    <td>BSPH201</td>
-                                    <td>Physics-I (Gr-B)</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>4.0</td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td>BSM202</td>
-                                    <td>Mathamatics-IIB</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>4.0</td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td>ESCS201</td>
-                                    <td>Programming for Problem Solving</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>3.0</td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td>HMHU201</td>
-                                    <td>English</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>2.0</td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td>BSPH291</td>
-                                    <td>Physics-I Laboratory (Gr-B)</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>1.5</td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td>ESCS291</td>
-                                    <td>Programming for Problem Solving</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>2.0</td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td>ESME292</td>
-                                    <td>Workshop Manufacturing Practices (Gr-B)</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>3.0</td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td>HMHU291</td>
-                                    <td>Language Laboratory</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>1.0</td>
-                                    <td></td>
-                                </tr>
+                            <tbody>
+                                -let subArr_2nd =subjectArray_2nd;
+                                -let gradeArr_2nd =gradeArray_2nd;
+                                -let subCodeArr_2nd =subCodeArray_2nd;
+                                -let pointsArr_2nd =pointsArray_2nd;
+                                -let creditArr_2nd =creditArray_2nd;
+                                -let creditPointsArr_2nd =creditPointsArray_2nd;
+                                -let len_2nd =length_2nd;
+                                if len_2nd!=undefined 
+                                    -for (let i in subArr_2nd){
+                                        tr 
+                                            td #{subCodeArr_2nd[i]}
+                                            td #{subArr_2nd[i]}
+                                            td #{gradeArr_2nd[i]}
+                                            td #{pointsArr_2nd[i]}
+                                            td #{creditArr_2nd[i]}
+                                            td #{creditPointsArr_2nd[i]}
+                                    -}
+                                else 
+                                    tr 
+                                        <td style="width:881px;">#{msg}</td>   
                             </tbody>
                         </table>
                     </div>
@@ -179,87 +107,27 @@
                                     <th>Credit Points</th>
                                 </tr>
                             </thead>
-                            <tbody>                      
-                                <tr>
-                                    <td>PCEE301</td>
-                                    <td>Electric Circuit Theory</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>4.0</td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td>PCEE302</td>
-                                    <td>Analog Electronics</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>3.0</td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td>PCEE303</td>
-                                    <td>Elctromagnetic Field Theory</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>3.0</td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td>ESME301</td>
-                                    <td>Engineering Mechanics</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>3.0</td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td>BSM301</td>
-                                    <td>Mathematics-III</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>3.0</td>
-                                    <td></td>
-                                </tr>                                
-                                <tr>
-                                    <td>BS301</td>
-                                    <td>Biology For Engineers</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>3.0</td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td>MCEE301</td>
-                                    <td>Indian Constitution</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>0</td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td>PCCS391</td>
-                                    <td>Numerical Methods Laboratory</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>1.0</td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td>PCEE391</td>
-                                    <td>Circuit Theory Laboratory</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>1.0</td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td>PCEE392</td>
-                                    <td>Analog Electronics Laboratory</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>1.0</td>
-                                    <td></td>
-                                </tr>                                
+                            <tbody>        
+                                -let subArr_3rd=subjectArray_3rd;
+                                -let gradeArr_3rd=gradeArray_3rd;
+                                -let subCodeArr_3rd=subCodeArray_3rd;
+                                -let pointsArr_3rd=pointsArray_3rd;
+                                -let creditArr_3rd=creditArray_3rd;
+                                -let creditPointsArr_3rd=creditPointsArray_3rd;
+                                -let len_3rd = length_3rd;
+                                if len_3rd!=undefined 
+                                    -for (let i in subArr_3rd){
+                                        tr 
+                                            td #{subCodeArr_3rd[i]}
+                                            td #{subArr_3rd[i]}
+                                            td #{gradeArr_3rd[i]}
+                                            td #{pointsArr_3rd[i]}
+                                            td #{creditArr_3rd[i]}
+                                            td #{creditPointsArr_3rd[i]}
+                                    -}
+                                else 
+                                    tr 
+                                        <td style="width:881px;">#{msg}</td>  
                             </tbody>
                         </table>
                     </div>
