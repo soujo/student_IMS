@@ -75,6 +75,8 @@ app.use("/student", pyqRouter);
 const clubsRouter = require("../src/route/clubs_route");
 app.use("/student", clubsRouter);
 
+const attendanceRouter = require("../src/route/attendance_route");
+app.use("/student", attendanceRouter);
 
 const booksRouter = require("../src/route/books_route");
 app.use("/student", booksRouter);
