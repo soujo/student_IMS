@@ -1,3 +1,4 @@
+const { urlencoded } = require("express");
 const express = require("express");
 const path = require("path");
 require("dotenv").config();
@@ -11,6 +12,7 @@ const flash = require("connect-flash");
 
 app.use("/static", express.static(static_path));
 app.use(express.json());
+app.use(urlencoded({ extended: false }));
 app.use(flash());
 app.use(session({
     secret: String(process.env.SESSION_SECRET),
@@ -43,8 +45,12 @@ app.use("/home", teacherRegistrationRouter);
 const teacherLoginRouter = require("../src/route/teacher/T-login_route");
 app.use("/home", teacherLoginRouter);
 
+//* Admin
+const admimLoginRouter = require("../src/route/admin/A-login_route");
+app.use("/home", admimLoginRouter);
 
-//* Student
+
+//* Student Route
 const studentRouter = require("../src/route/student_route");
 app.use("/student", studentRouter);
 
