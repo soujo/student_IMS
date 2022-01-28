@@ -18,23 +18,55 @@
                 <button class="accordion">Semester 1</button> 
                 <div class="panel">
                     <div class="semester1">
-                        <ul>
-                            <li><b>Class Materials will be provided later</b></li>
-                        </ul>
+                        -const materials_1st = materialArray_1st;
+                        -let len_1st = materials_1st.length;
+                        if len_1st !=0
+                            -for(let i in materials_1st){
+                                .material 
+                                    .material__title #{materials_1st[i].heading}
+                                    .material__text #{materials_1st[i].desc}
+                                    .material__link
+                                        a(href=link + materials_1st[i].pdf target="_blank") Download
+                                    .material__more By: #{materials_1st[i].by}
+                            -}
+                        else 
+                            <li style="align-self:flex-start;margin-left:3rem;">#{msg}</li>
                     </div>
                 </div>
                 <button class="accordion">Semester 2</button> 
                 <div class="panel">
                     <div class="semester2">
-                        <ul>
-                            <li><b>Class Materials will be provided later</b></li>
-                        </ul>
+                        -const materials_2nd = materialArray_2nd;
+                        -let len_2nd = materials_2nd.length;
+                        if len_2nd !=0
+                            -for(let i in materials_2nd){
+                                .material 
+                                    .material__title #{materials_2nd[i].heading}
+                                    .material__text #{materials_2nd[i].desc}
+                                    .material__link
+                                        a(href=link + materials_2nd[i].pdf target="_blank") Download
+                                    .material__more By: #{materials_2nd[i].by}
+                            -}
+                        else 
+                            <li style="align-self:flex-start;margin-left:3rem;">#{msg}</li>
                     </div>
                 </div>
                 <button class="accordion">Semester 3</button> 
                 <div class="panel">
                     <div class="semester3">
-                        |hello
+                        -const materials_3rd = materialArray_3rd;
+                        -let len_3rd = materials_3rd.length;
+                        if len_3rd !=0
+                            -for(let i in materials_3rd){
+                                .material 
+                                    .material__title #{materials_3rd[i].heading}
+                                    .material__text #{materials_3rd[i].desc}
+                                    .material__link
+                                        a(href=link + materials_3rd[i].pdf target="_blank") Download
+                                    .material__more By: #{materials_3rd[i].by}
+                            -}
+                        else 
+                            <li style="align-self:flex-start;margin-left:3rem;">#{msg}</li>
                     </div>
                 </div>
             </section>
