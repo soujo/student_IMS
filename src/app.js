@@ -84,6 +84,9 @@ app.use("/student", attendanceRouter);
 const booksRouter = require("../src/route/books_route");
 app.use("/student", booksRouter);
 
+const timetableRouter = require("../src/route/timetable_route");
+app.use("/student", timetableRouter);
+
 const classMaterialsRouter = require("../src/route/classMaterials_route");
 app.use("/student", classMaterialsRouter);
 
