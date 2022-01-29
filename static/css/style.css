@@ -27,7 +27,7 @@ header{
 
 .container::after{
   content: "";
-  background: url("../images/background.jpg") no-repeat center center/cover;
+  background-color: #e9e9e9;
   position: absolute;
   top: 60px;
   right: 0px; 
@@ -100,7 +100,6 @@ header{
     margin-left: 10vw;
 }
 .content{
-    border: 2px solid blue;
     width: 30vw;
     height: 30vh;
 }
