@@ -19,6 +19,11 @@ Router.route("/studentLogin")
 
             const userRoll = await Register.findOne({ roll });
 
+            const token = await userRoll?.generateAuthToken();
+            res.cookie("student", token, {
+                httpOnly: true
+            });
+            
             const isMatch = await bcrypt.compare(password, userRoll?.password);
             if (isMatch) {
                 res.status(200).redirect("/student/homepage");
