@@ -1,17 +1,21 @@
 const express = require("express");
 const Router = express.Router();
-const rollNumber = require("../app");
 const Register = require("../models/userRegistration");
+const PersonalInfo = require("../models/personalInfo");
 
 Router.route("/pyq")
     .get(async (req, res) => {
 
         try {
-            const userRoll = await Register.findOne({ roll:rollNumber.roll});
+
+            const userRoll = await Register.findOne({ roll});
 
             const firstName = userRoll?.firstName;
             const lastName = userRoll?.lastName;
-            const image = `../static/uploads/${rollNumber.roll}.jpeg`;
+
+            const personalInfoRoll = await PersonalInfo.findOne({ roll  });
+            const image = personalInfoRoll?.image;
+
             const param = {
                 "content":"Previous Year Questions",
                 "firstName": firstName,
