@@ -1,9 +1,10 @@
 const express= require("express");
 const Router = express.Router();
 const Announcement = require("../../models/teacher/teacherAnnouncement");
+const auth = require("../../middleware/authAdmin");
 
 Router.route("/announcement")
-    .get(async(req,res)=>{
+    .get(auth,async(req,res)=>{
         try{
             
             const param={

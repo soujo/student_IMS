@@ -2,9 +2,11 @@ const express = require("express");
 const Router = express.Router();
 const TeacherRegister = require("../../models/teacher/teacherRegistration");
 const TeacherAllocation = require("../../models/admin/teacherAllocation");
+const auth = require("../../middleware/authAdmin");
+let i = 1;
 
 Router.route("/teacherAllocationEdit")
-    .get(async (req, res) => {
+    .get(auth,async (req, res) => {
         try {
             const teachers = await TeacherRegister.find();
 
@@ -54,7 +56,7 @@ Router.route("/teacherAllocationEdit")
 
             const updateDocuments = async (_id) => {
                 try {
-                    let i = 1;
+
                     let update = await TeacherAllocation.findByIdAndUpdate(
                         { _id },
                         {

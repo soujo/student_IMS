@@ -1,9 +1,10 @@
 const express = require("express");
 const Router = express.Router();
 const Feedback = require("../../models/feedback");
+const auth = require("../../middleware/authAdmin");
 
 Router.route("/feedbacks")
-    .get(async (req, res) => {
+    .get(auth,async (req, res) => {
         try {
             const feedbacks = await Feedback.find();
             const param = {

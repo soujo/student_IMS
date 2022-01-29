@@ -1,8 +1,9 @@
 const express = require("express");
 const Router = express.Router();
- 
+const auth = require("../../middleware/authAdmin");
+
 Router.route("/homepage")
-    .get( async (req, res) => {
+    .get(auth,async (req, res) => {
         try {
             const param = {
                 "content":"Information Management System"              

@@ -3,9 +3,10 @@ const Router = express.Router();
 const Timetable = require("../../models/admin/timetable");
 const timetableImport = require("../../multer/timetable");
 const upload = timetableImport.upload;
+const auth = require("../../middleware/authAdmin");
 
 Router.route("/timetable")
-    .get(async(req,res)=>{
+    .get(auth,async(req,res)=>{
         try{
             const param={
                 "content":"TImetable",

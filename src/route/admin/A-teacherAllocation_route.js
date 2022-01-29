@@ -1,9 +1,10 @@
 const express = require("express");
 const Router = express.Router();
 const TeacherAllocation = require("../../models/admin/teacherAllocation");
+const auth = require("../../middleware/authAdmin");
 
 Router.route("/teacherAllocation")
-    .get(async (req, res) => {
+    .get(auth,async (req, res) => {
         try {
 
             const teacherAllocation = await TeacherAllocation.find();
