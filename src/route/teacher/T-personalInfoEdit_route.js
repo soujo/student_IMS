@@ -3,6 +3,8 @@ const Router = express.Router();
 const TeacherRegister = require("../../models/teacher/teacherRegistration");
 const TeacherAllocation = require("../../models/admin/teacherAllocation");
 const TeacherPersonalInfo = require("../../models/teacher/teacherPersonalInfo");
+const jwt_decode = require("jwt-decode");
+const auth = require('../../middleware/authTeacher');
 const multer = require("multer");
 const { cloudinary , storage } = require("../../cloudinary/index");
 const upload = multer({ storage });
@@ -10,9 +12,12 @@ let regNum;
 let i = 1;
 
 Router.route("/TpersonalInfoEdit")
-    .get(async (req, res) => {
+    .get(auth,async (req, res) => {
 
         try {
+
+            const token = req.cookies?.teacher;
+            regNum = jwt_decode(token).regNum;
 
             const teacherRegNum = await TeacherRegister.findOne({ regNum });
 

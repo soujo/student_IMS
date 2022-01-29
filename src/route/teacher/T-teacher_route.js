@@ -3,10 +3,15 @@ const Router = express.Router();
 const TeacherRegister = require("../../models/teacher/teacherRegistration");
 const TeacherPersonalInfo = require("../../models/teacher/teacherPersonalInfo");
 const Announcement = require("../../models/teacher/teacherAnnouncement");
+const auth = require('../../middleware/authTeacher');
+const jwt_decode = require("jwt-decode");
  
 Router.route("/homepage")
-    .get( async (req, res) => {
+    .get(auth, async (req, res) => {
         try {
+            const token = req.cookies?.teacher;
+            const regNum = jwt_decode(token).regNum;
+
             const teacherRegNum = await TeacherRegister.findOne({ regNum });
             const firstName = teacherRegNum?.firstName;
             const lastName = teacherRegNum?.lastName;

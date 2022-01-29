@@ -5,11 +5,15 @@ const StudentPersonalInfo = require("../../models/personalInfo");
 const TeacherAllocation = require("../../models/admin/teacherAllocation");
 const TeacherPersonalInfo = require("../../models/teacher/teacherPersonalInfo");
 const StudentResult = require("../../models/teacher/studentResult");
+const auth = require('../../middleware/authTeacher');
+const jwt_decode = require("jwt-decode");
 let regNum;
 
 Router.route("/studentResult")
-    .get(async (req, res) => {
+    .get(auth, async (req, res) => {
         try {
+            const token = req.cookies?.teacher;
+            regNum = jwt_decode(token).regNum;
 
             const teacherRegNum = await TeacherRegister.findOne({ regNum });
             const firstName = teacherRegNum?.firstName;

@@ -6,12 +6,16 @@ const TeacherPersonalInfo = require("../../models/teacher/teacherPersonalInfo");
 const ClassMaterial = require("../../models/teacher/studentClassMaterials");
 const CMImport = require("../../multer/classMaterials");
 const upload = CMImport.upload;
+const auth = require('../../middleware/authTeacher');
+const jwt_decode = require("jwt-decode");
 let semOfTeacher;
 let regNum;
 
 Router.route("/classMaterialsUpload")
-    .get(async (req, res) => {
+    .get(auth, async (req, res) => {
         try {
+            const token = req.cookies?.teacher;
+            regNum = jwt_decode(token).regNum;
 
             const teacherRegNum = await TeacherRegister.findOne({ regNum });
             const firstName = teacherRegNum?.firstName;
