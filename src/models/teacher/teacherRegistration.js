@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 
 const teacherSchema = new mongoose.Schema({
     firstName: {
@@ -44,6 +45,20 @@ const teacherSchema = new mongoose.Schema({
         required: true
     }
 });
+
+
+teacherSchema.methods.generateAuthTeacherToken = async function () {
+    try {
+        const userToken = jwt.sign(
+            { regNum: this.regNum },
+            process.env.SECRET_KEY
+        );
+        return userToken;
+    }
+    catch (err) {
+        console.log(err);
+    }
+}
 
 teacherSchema.pre("save", async function (next) {
     if (this.isModified("password")) {
