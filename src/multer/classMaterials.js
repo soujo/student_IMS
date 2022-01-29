@@ -1,5 +1,6 @@
 const multer = require("multer");
 const path = require("path");
+const jwt_decode = require("jwt-decode");
 let i = 1;
 
 const storage = multer.diskStorage({
@@ -7,6 +8,8 @@ const storage = multer.diskStorage({
         callback(null, path.join(__dirname, `../../static/uploads/classMaterials`));
     },
     filename: function (req, file, callback) {
+        const token = req.cookies?.teacher;
+        const regNum = jwt_decode(token).regNum;
         callback(null, `${regNum}-${i++}` + path.extname(file.originalname));
     }
 });
