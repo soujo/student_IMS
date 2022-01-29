@@ -1,28 +1,33 @@
 const express = require("express");
 const Router = express.Router();
-const rollNumber = require("../app");
 const Register = require("../models/userRegistration");
 const PersonalInfo = require("../models/personalInfo");
-const multerImport = require("../multer/multer");
-const upload = multerImport.upload;
-
+const multer = require("multer");
+const { cloudinary ,storage } = require("../cloudinary/index");
+const upload = multer({ storage });
+let i = 1;
+let roll;
 
 Router.route("/personalInfoEdit")
     .get( async (req, res) => {
         try {
-            const userRoll = await Register.findOne({ roll: rollNumber.roll });
+
+            const userRoll = await Register.findOne({ roll });
 
             const firstName = userRoll?.firstName;
             const lastName = userRoll?.lastName;
             const gender = userRoll?.gender;
             const email = userRoll?.email;
             const phone = userRoll?.phone;
-            const image = `../static/uploads/${rollNumber.roll}.jpeg`
+
+            const personalInfoRoll = await PersonalInfo.findOne({ roll });
+            const image = personalInfoRoll?.image;
+            
             const param = {
                 "content": "Personal Info",
                 "firstName": firstName,
                 "lastName": lastName,
-                "roll": rollNumber.roll,
+                "roll": roll,
                 "gender": gender,
                 "phone": phone,
                 "email": email,
@@ -39,13 +44,15 @@ Router.route("/personalInfoEdit")
     })
     .post(upload.single("image"), async (req, res) => {
 
-
-        const personalInfoRoll = await PersonalInfo.findOne({ roll: rollNumber.roll });
+        const personalInfoRoll = await PersonalInfo.findOne({ roll });
         const edit = personalInfoRoll?.edit;
 
         if (edit == undefined) {
-
+            
             try {
+
+                const cloudinaryResult = await cloudinary.uploader.upload(req.file.path);
+
                 const personalInfoEdits = new PersonalInfo({
                     name: req.body.name,
                     email: req.body.email,
@@ -67,7 +74,8 @@ Router.route("/personalInfoEdit")
                     admissionType: req.body.admissionType,
                     fatherName: req.body.fatherName,
                     motherName: req.body.motherName,
-                    image: req.file.filename,
+                    image: cloudinaryResult.secure_url,
+                    cloudinary_id : cloudinaryResult.public_id,
                     edit: "firstTime"
                 });
 
@@ -77,7 +85,7 @@ Router.route("/personalInfoEdit")
             }
             catch (err) {
                 req.flash("personalInfoEdit-err", "Some error occured.Try again !");
-                res.status(200).redirect("/student/personalInfoEdit");
+                res.status(400).redirect("/student/personalInfoEdit");
                 console.log(err);
             }
 
@@ -86,7 +94,12 @@ Router.route("/personalInfoEdit")
             const id = personalInfoRoll?.id;
             const updateDocuments = async (_id) => {
                 try {
-                    let i = 1;
+
+                    const prevImageID = personalInfoRoll?.cloudinary_id;
+                    const prevImgDeleted = await cloudinary.uploader.destroy(prevImageID);
+
+                    const cloudinaryResult = await cloudinary.uploader.upload(req.file.path);
+
                     let update = await PersonalInfo.findByIdAndUpdate(
                         { _id },
                         {
@@ -111,7 +124,8 @@ Router.route("/personalInfoEdit")
                                 admissionType: req.body.admissionType,
                                 fatherName: req.body.fatherName,
                                 motherName: req.body.motherName,
-                                image: req.file.filename,
+                                image: cloudinaryResult.secure_url,
+                                cloudinary_id : cloudinaryResult.public_id,
                                 edit: `updated-${i++}`
                             }
                         },
@@ -127,7 +141,7 @@ Router.route("/personalInfoEdit")
                 }
                 catch (err) {
                     req.flash("personalInfoEdit-err", "Some error occured.Try again !");
-                    res.status(200).redirect("/student/personalInfoEdit");
+                    res.status(400).redirect("/student/personalInfoEdit");
                     console.log(err);
                 }
 
