@@ -3,6 +3,8 @@ const Router = express.Router();
 const Register = require("../models/userRegistration");
 const PersonalInfo = require("../models/personalInfo");
 const StudentResult = require("../models/teacher/studentResult");
+const jwt_decode = require("jwt-decode");
+const auth = require("../middleware/auth");
 const grade = ["O", "E", "A", "B", "C", "D", "F", "I"];
 const points = [10, 9, 8, 7, 6, 5, 2, 2];
 
@@ -75,8 +77,10 @@ const subjectArr_3rd = [
 const creditArr_3rd = [4, 3, 3, 3, 3, 3, 0, 1, 1, 1];
 
 Router.route("/result")
-    .get( async (req, res) => {
+    .get(auth, async (req, res) => {
         try {
+            const token = req.cookies?.student;
+            const roll = jwt_decode(token).roll;
 
             const userRoll = await Register.findOne({ roll });
 

@@ -4,10 +4,14 @@ const Register = require("../models/userRegistration");
 const PersonalInfo = require("../models/personalInfo");
 const ClassMaterials = require("../models/teacher/studentClassMaterials");
 let materials_1st, materials_2nd, materials_3rd;
+const auth = require("../middleware/auth");
+const jwt_decode = require("jwt-decode");
 
 Router.route("/classMaterials")
-    .get( async (req, res) => {
+    .get(auth, async (req, res) => {
         try {
+            const token = req.cookies?.student;
+            const roll = jwt_decode(token).roll;
 
             const userRoll = await Register.findOne({ roll });
 

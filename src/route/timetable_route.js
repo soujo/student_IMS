@@ -3,10 +3,14 @@ const Router = express.Router();
 const Register = require("../models/userRegistration");
 const PersonalInfo = require("../models/personalInfo");
 const Timetable = require("../models/admin/timetable");
+const jwt_decode = require("jwt-decode");
+const auth = require("../middleware/auth");
 
 Router.route("/timetable")
-    .get( async (req, res) => {
+    .get(auth, async (req, res) => {
         try {
+            const token = req.cookies?.student;
+            const roll = jwt_decode(token).roll;
 
             const userRoll = await Register.findOne({ roll });
 

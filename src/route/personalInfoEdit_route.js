@@ -5,12 +5,16 @@ const PersonalInfo = require("../models/personalInfo");
 const multer = require("multer");
 const { cloudinary ,storage } = require("../cloudinary/index");
 const upload = multer({ storage });
+const jwt_decode = require("jwt-decode");
+const auth = require("../middleware/auth");
 let i = 1;
 let roll;
 
 Router.route("/personalInfoEdit")
-    .get( async (req, res) => {
+    .get(auth, async (req, res) => {
         try {
+            const token = req.cookies?.student;
+            roll = jwt_decode(token).roll;
 
             const userRoll = await Register.findOne({ roll });
 
