@@ -4,7 +4,7 @@ const TeacherRegister = require("../../models/teacher/teacherRegistration");
 const TeacherAllocation = require("../../models/admin/teacherAllocation");
 const TeacherPersonalInfo = require("../../models/teacher/teacherPersonalInfo");
 const multer = require("multer");
-const { cloudinary ,storage } = require("../../cloudinary/index");
+const { cloudinary , storage } = require("../../cloudinary/index");
 const upload = multer({ storage });
 let regNum;
 let i = 1;
@@ -68,9 +68,9 @@ Router.route("/TpersonalInfoEdit")
         if (edit == undefined) {
             
             try {
-                
-                const cloudinaryResult = await cloudinary.uploader.upload(req.file.path);
-
+                const cloudinaryResult = await cloudinary.uploader.upload(req.file.path,{
+                    folder:"Student_IMS"
+                });
                 const personalInfo = new TeacherPersonalInfo({
                     name: req.body.name,
                     regNum: req.body.regNum,
@@ -99,7 +99,7 @@ Router.route("/TpersonalInfoEdit")
             }
             catch (err) {
                 req.flash("personalInfoEdit-err", "Some error occured.Try again !");
-                res.status(400).redirect("/teacher/TpersonalInfo");
+                res.status(400).redirect("/teacher/TpersonalInfoEdit");
                 console.log(err);
             }
         }
@@ -110,9 +110,13 @@ Router.route("/TpersonalInfoEdit")
                 try {
 
                     const prevImageID = personalInfoRegNum?.cloudinary_id;
-                    const prevImgDeleted = await cloudinary.uploader.destroy(prevImageID);
+                    const prevImgDeleted = await cloudinary.uploader.destroy(prevImageID,{
+                        folder:"Student_IMS"
+                    });
 
-                    const cloudinaryResult = await cloudinary.uploader.upload(req.file.path);
+                    const cloudinaryResult = await cloudinary.uploader.upload(req.file.path,{
+                        folder:"Student_IMS"
+                    });
 
 
                     let update = await TeacherPersonalInfo.findByIdAndUpdate(
@@ -153,7 +157,7 @@ Router.route("/TpersonalInfoEdit")
                 }
                 catch (err) {
                     req.flash("personalInfoEdit-err", "Some error occured.Try again !");
-                    res.status(400).redirect("/teacher/TpersonalInfo");
+                    res.status(400).redirect("/teacher/TpersonalInfoEdit");
                     console.log(err);
                 }
             };
