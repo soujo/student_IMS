@@ -1,16 +1,19 @@
 const express = require("express");
 const Router = express.Router();
 const Register = require("../models/userRegistration");
+const PersonalInfo = require("../models/personalInfo");
 const TeacherAnnoucement = require("../models/teacher/teacherAnnouncement");
-let rollNumber = require("../app");
- 
+
 Router.route("/homepage")
     .get( async (req, res) => {
-        try {
-            const userRoll = await Register.findOne({ roll: rollNumber.roll });
+        try {            
+            const userRoll = await Register.findOne({ roll });
             const firstName = userRoll?.firstName;
             const lastName = userRoll?.lastName;
-            const image = `../static/uploads/${rollNumber.roll}.jpeg`;
+
+            const personalInfoRoll = await PersonalInfo.findOne({ roll });
+            const image = personalInfoRoll?.image;
+
             const announcements = await TeacherAnnoucement.find();
             const param = {
                 "content":"Information Management System",
