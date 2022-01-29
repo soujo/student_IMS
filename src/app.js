@@ -1,18 +1,23 @@
 const { urlencoded } = require("express");
 const express = require("express");
 const path = require("path");
+const cookieParse = require("cookie-parser");
 require("dotenv").config();
 require("../src/db/conn");
 const views_path = path.join(__dirname, "../views");
 const static_path = path.join(__dirname, "../static");
 const app = express();
 const port = process.env.PORT || 80;
+const auth = require("../src/middleware/auth");
+const authTeacher = require("../src/middleware/authTeacher");
+const authAdmin = require("../src/middleware/authAdmin");
 const session = require("express-session");
 const flash = require("connect-flash");
 
 app.use("/static", express.static(static_path));
 app.use(express.json());
 app.use(urlencoded({ extended: false }));
+app.use(cookieParse());
 app.use(flash());
 app.use(session({
     secret: String(process.env.SESSION_SECRET),
@@ -26,6 +31,42 @@ app.set("views", views_path);
 
 app.get("/home", (req, res) => {
     res.status(200).render("index.pug");
+});
+
+app.get("/logout", auth, async (req, res) => {
+    try {
+        res.clearCookie("student");
+        req.session.destroy();
+        res.status(200).redirect("/home/studentLogin");
+    }
+    catch (err) {
+        res.status(200).send(err);
+        console.log(err);
+    }
+});
+
+app.get("/Tlogout", authTeacher, async (req, res) => {
+    try {
+        res.clearCookie("teacher");
+        req.session.destroy();
+        res.status(200).redirect("/home/teacherLogin");
+    }
+    catch (err) {
+        res.status(200).send(err);
+        console.log(err);
+    }
+});
+
+app.get("/Alogout", authAdmin, async (req, res) => {
+    try {
+        res.clearCookie("admin");
+        req.session.destroy();
+        res.status(200).redirect("/home/adminLogin");
+    }
+    catch (err) {
+        res.status(200).send(err);
+        console.log(err);
+    }
 });
 
 
