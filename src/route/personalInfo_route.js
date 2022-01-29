@@ -1,13 +1,13 @@
 const express = require("express");
 const Router = express.Router();
-const rollNumber = require("../app");
 const Register = require("../models/userRegistration");
 const PersonalInfo = require("../models/personalInfo");
 
 Router.route("/personalInfo")
     .get(async(req,res)=>{
         try{
-            const userRoll = await Register.findOne({ roll:rollNumber.roll });
+
+            const userRoll = await Register.findOne({ roll });
 
             const firstName = userRoll?.firstName;
             const lastName = userRoll?.lastName;
@@ -15,7 +15,7 @@ Router.route("/personalInfo")
             const email = userRoll?.email;
             const phone = userRoll?.phone;
     
-            const personalInfoRoll = await PersonalInfo.findOne({ roll:rollNumber.roll });
+            const personalInfoRoll = await PersonalInfo.findOne({ roll });
     
             const batch = personalInfoRoll?.batch;
             const branch = personalInfoRoll?.branch;
@@ -31,12 +31,13 @@ Router.route("/personalInfo")
             const fatherName = personalInfoRoll?.fatherName;
             const motherName = personalInfoRoll?.motherName;
             const address = personalInfoRoll?.address;
-            const image = `../static/uploads/${rollNumber.roll}.jpeg`;
+            const image = personalInfoRoll?.image;
+            
             const param = {
                 "content":"Personal Info",
                 "firstName": firstName,
                 "lastName": lastName,
-                "roll": rollNumber.roll,
+                "roll": roll,
                 "gender": gender,
                 "phone": phone,
                 "email": email,
