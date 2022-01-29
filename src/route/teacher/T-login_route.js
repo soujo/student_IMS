@@ -18,7 +18,12 @@ Router.route("/teacherLogin")
             const password = req.body.password;
     
             const teacherRegNum = await TeacherRegister.findOne({ regNum });
-
+            
+            const token = await teacherRegNum?.generateAuthTeacherToken();    
+            res.cookie("teacher", token, {
+                httpOnly: true
+            });
+    
             const isMatch = await bcrypt.compare(password, teacherRegNum?.password);
             if (isMatch) {
                 res.status(200).redirect("/teacher/homepage");
