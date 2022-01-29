@@ -1,31 +1,30 @@
 const express = require("express");
 const Router = express.Router();
-const rollNumber = require("../app");
 const Register = require("../models/userRegistration");
-const PersonalInfo = require("../models/personalInfo");;
+const PersonalInfo = require("../models/personalInfo");
 const Feedback=require("../models/feedback");
 
 
 Router.route("/feedback")
     .get(async (req, res) => { 
         try {
-
-            const userRoll = await Register.findOne({ roll: rollNumber.roll });
+            const userRoll = await Register.findOne({ roll });
 
             const firstName = userRoll?.firstName;
             const lastName = userRoll?.lastName;
             const email = userRoll?.email;
 
-            const personalInfoRoll = await PersonalInfo.findOne({ roll: rollNumber.roll });
+            const personalInfoRoll = await PersonalInfo.findOne({ roll });
             const branch = personalInfoRoll?.branch;
-            const image = `../static/uploads/${rollNumber.roll}.jpeg`;
+            const image = personalInfoRoll?.image;
+            
             const param = {
                 "content":"Feedback",
                 "firstName": firstName,
                 "lastName": lastName,
                 "email": email,
                 "dept": branch,
-                "roll": rollNumber.roll,
+                "roll": roll,
                 "image":image,
                 "msg":req.flash("feedback-success")
             };
