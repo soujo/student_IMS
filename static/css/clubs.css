@@ -46,16 +46,12 @@ section{
     display: none;
 }
 
-.panel .dsc,
-.panel .sac,
-.panel .riyaz,
-.panel .elysium,
-.panel .chitrank,
-.panel .keygen,
-.panel .infinitio,
-.panel .ecell,
-.panel .litmus,
-.panel .shutterburg
+.panel .club1,
+.panel .club2,
+.panel .club3,
+.panel .club4,
+.panel .club5,
+.panel .club6
 {
     width: 800px;
     height: 115px;
