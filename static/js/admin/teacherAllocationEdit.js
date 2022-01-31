@@ -20,37 +20,37 @@ teacherAllocation.style.backgroundColor = "rgb(0, 60, 128)";
 let semesterObj ={
     "1st":
     [
-        "Chemistry-I (Gr-B)",
-        "Mathematics-IB",
-        "Basic Electrical Engineering",
-        "Chemistry-I Laboratory (Gr-B)",
-        "Basic Electrical Engineering Laboratory",
-        "Engineering Graphics & Design (Gr-B)"
+        "Subject-101",
+        "Subject-102",
+        "Subject-103",
+        "Subject-104",
+        "Subject-105",
+        "Subject-106",
     ],
 
     "2nd":
     [
-        "Physics-I (Gr-B)",
-        "Mathamatics-IIB",
-        "Programming for Problem Solving",
-        "English",
-        "Physics-I Laboratory (Gr-B)",
-        "Programming for Problem Solving Laboratory",
-        "Workshop Manufacturing Practices (Gr-B)",
-        "Language Laboratory"
+        "Subject-201",
+        "Subject-202",
+        "Subject-203",
+        "Subject-204",
+        "Subject-205",
+        "Subject-206",
+        "Subject-207",
+        "Subject-208",
     ],
     "3rd":
     [
-        "Electric Circuit Theory",
-        "Analog Electronics",
-        "Elctromagnetic Field Theory",
-        "Engineering Mechanics",
-        "Mathematics-III",
-        "Biology For Engineers",
-        "Indian Constitution",
-        "Numerical Methods Laboratory",
-        "Circuit Theory Laboratory",
-        "Analog Electronics Laboratory"
+        "Subject-301",
+        "Subject-302",
+        "Subject-303",
+        "Subject-304",
+        "Subject-305",
+        "Subject-306",
+        "Subject-307",
+        "Subject-308",
+        "Subject-309",
+        "Subject-310",
     ]
 }
 
