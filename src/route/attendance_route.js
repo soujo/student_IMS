@@ -8,68 +8,68 @@ const jwt_decode = require("jwt-decode");
 let roll;
 
 const subCodeArr_1st = [
-    "BSCH101",
-    "BSM102",
-    "ESEE101",
-    "BSCH191",
-    "ESEE191",
-    "ESME191"
+    "SUB101",
+    "SUB102",
+    "SUB103",
+    "SUB104",
+    "SUB105",
+    "SUB106"
 ]
 const subjectArr_1st = [
-    "Chemistry-I (Gr-B)",
-    "Mathematics-IB",
-    "Basic Electrical Engineering",
-    "Chemistry-I Laboratory (Gr-B)",
-    "Basic Electrical Engineering Laboratory",
-    "Engineering Graphics & Design (Gr-B)"
+    "Subject-101",
+    "Subject-102",
+    "Subject-103",
+    "Subject-104",
+    "Subject-105",
+    "Subject-106",
 ]
 
 //****************** */
 const subCodeArr_2nd = [
-    "BSPH201",
-    "BSM202",
-    "ESCS201",
-    "HMHU201",
-    "BSPH291",
-    "ESCS291",
-    "ESME292",
-    "HMHU291",
+    "SUB201",
+    "SUB202",
+    "SUB203",
+    "SUB204",
+    "SUB205",
+    "SUB206",
+    "SUB207",
+    "SUB208",
 ]
 const subjectArr_2nd = [
-    "Physics-I (Gr-B)",
-    "Mathematics-IIB",
-    "Programming for Problem Solving",
-    "English",
-    "Physics-I Laboratory (Gr-B)",
-    "Programming for Problem Solving Laboratory",
-    "Workshop Manufacturing Practices (Gr-B)",
-    "Language Laboratory"
+    "Subject-201",
+    "Subject-202",
+    "Subject-203",
+    "Subject-204",
+    "Subject-205",
+    "Subject-206",
+    "Subject-207",
+    "Subject-208",
 ]
 
 //****************** */
 const subCodeArr_3rd = [
-    "PCEE301",
-    "PCEE302",
-    "PCEE303",
-    "ESME301",
-    "BSM301",
-    "BSEE301",
-    "MCEE301",
-    "PCCS391",
-    "PCEE391",
-    "PCEE392",
+    "SUB301",
+    "SUB302",
+    "SUB303",
+    "SUB304",
+    "SUB305",
+    "SUB306",
+    "SUB307",
+    "SUB308",
+    "SUB309",
+    "SUB310",
 ]
 const subjectArr_3rd = [
-    "Electric Circuit Theory",
-    "Analog Electronics",
-    "Elctromagnetic Field Theory",
-    "Engineering Mechanics",
-    "Mathematics-III",
-    "Biology For Engineers",
-    "Indian Constitution",
-    "Numerical Methods Laboratory",
-    "Circuit Theory Laboratory",
-    "Analog Electronics Laboratory"
+    "Subject-301",
+    "Subject-302",
+    "Subject-303",
+    "Subject-304",
+    "Subject-305",
+    "Subject-306",
+    "Subject-307",
+    "Subject-308",
+    "Subject-309",
+    "Subject-310",
 ]
 
 
@@ -108,25 +108,31 @@ Router.route("/attendance")
 
             let length_1st = subArr_1st?.length;
 
-            let BSCH101_TC = totalClassArr_1st[subArr_1st?.indexOf("Chemistry-I (Gr-B)")] == undefined ? "" : totalClassArr_1st[subArr_1st?.indexOf("Chemistry-I (Gr-B)")];
-            let BSM102_TC = totalClassArr_1st[subArr_1st?.indexOf("Mathematics-IB")] == undefined ? "" : totalClassArr_1st[subArr_1st?.indexOf("Mathematics-IB")];
-            let ESEE101_TC = totalClassArr_1st[subArr_1st?.indexOf("Basic Electrical Engineering")] == undefined ? "" : totalClassArr_1st[subArr_1st?.indexOf("Basic Electrical Engineering")];
-            let BSCH191_TC = totalClassArr_1st[subArr_1st?.indexOf("Chemistry-I Laboratory (Gr-B)")] == undefined ? "" : totalClassArr_1st[subArr_1st?.indexOf("Chemistry-I Laboratory (Gr-B)")];
-            let ESEE191_TC = totalClassArr_1st[subArr_1st?.indexOf("Basic Electrical Engineering Laboratory")] == undefined ? "" : totalClassArr_1st[subArr_1st?.indexOf("Basic Electrical Engineering Laboratory")];
-            let ESME191_TC = totalClassArr_1st[subArr_1st?.indexOf("Engineering Graphics & Design (Gr-B)")] == undefined ? "" : totalClassArr_1st[subArr_1st?.indexOf("Engineering Graphics & Design (Gr-B)")];
+            let SUB101_TC = totalClassArr_1st[subArr_1st?.indexOf("Subject-101")] == undefined ? "" : totalClassArr_1st[subArr_1st?.indexOf("Subject-101")];
+            let SUB102_TC = totalClassArr_1st[subArr_1st?.indexOf("Subject-102")] == undefined ? "" : totalClassArr_1st[subArr_1st?.indexOf("Subject-102")];
+            let SUB103_TC = totalClassArr_1st[subArr_1st?.indexOf("Subject-103")] == undefined ? "" : totalClassArr_1st[subArr_1st?.indexOf("Subject-103")];
+            let SUB104_TC = totalClassArr_1st[subArr_1st?.indexOf("Subject-104")] == undefined ? "" : totalClassArr_1st[subArr_1st?.indexOf("Subject-104")];
+            let SUB105_TC = totalClassArr_1st[subArr_1st?.indexOf("Subject-105")] == undefined ? "" : totalClassArr_1st[subArr_1st?.indexOf("Subject-105")];
+            let SUB106_TC = totalClassArr_1st[subArr_1st?.indexOf("Subject-106")] == undefined ? "" : totalClassArr_1st[subArr_1st?.indexOf("Subject-106")];
 
             //* Total class array
-            let newTCArr_1st = [BSCH101_TC, BSM102_TC, ESEE101_TC, BSCH191_TC, ESEE191_TC, ESME191_TC];
+            let newTCArr_1st = [SUB101_TC, SUB102_TC, SUB103_TC, SUB104_TC, SUB105_TC, SUB106_TC];
 
-            let BSCH101_CA = classAttended_1st[subArr_1st?.indexOf("Chemistry-I (Gr-B)")] == undefined ? "" : classAttended_1st[subArr_1st?.indexOf("Chemistry-I (Gr-B)")];
-            let BSM102_CA = classAttended_1st[subArr_1st?.indexOf("Mathematics-IB")] == undefined ? "" : classAttended_1st[subArr_1st?.indexOf("Mathematics-IB")];
-            let ESEE101_CA = classAttended_1st[subArr_1st?.indexOf("Basic Electrical Engineering")] == undefined ? "" : classAttended_1st[subArr_1st?.indexOf("Basic Electrical Engineering")];
-            let BSCH191_CA = classAttended_1st[subArr_1st?.indexOf("Chemistry-I Laboratory (Gr-B)")] == undefined ? "" : classAttended_1st[subArr_1st?.indexOf("Chemistry-I Laboratory (Gr-B)")];
-            let ESEE191_CA = classAttended_1st[subArr_1st?.indexOf("Basic Electrical Engineering Laboratory")] == undefined ? "" : classAttended_1st[subArr_1st?.indexOf("Basic Electrical Engineering Laboratory")];
-            let ESME191_CA = classAttended_1st[subArr_1st?.indexOf("Engineering Graphics & Design (Gr-B)")] == undefined ? "" : classAttended_1st[subArr_1st?.indexOf("Engineering Graphics & Design (Gr-B)")];
+            let SUB101_CA  = classAttended_1st[subArr_1st?.indexOf("Subject-101")] == undefined ? "" : classAttended_1st[subArr_1st?.indexOf("Subject-101")];
+            let SUB102_CA  = classAttended_1st[subArr_1st?.indexOf("Subject-102")] == undefined ? "" : classAttended_1st[subArr_1st?.indexOf("Subject-102")];
+            let SUB103_CA  = classAttended_1st[subArr_1st?.indexOf("Subject-103")] == undefined ? "" : classAttended_1st[subArr_1st?.indexOf("Subject-103")];
+            let SUB104_CA  = classAttended_1st[subArr_1st?.indexOf("Subject-104")] == undefined ? "" : classAttended_1st[subArr_1st?.indexOf("Subject-104")];
+            let SUB105_CA  = classAttended_1st[subArr_1st?.indexOf("Subject-105")] == undefined ? "" : classAttended_1st[subArr_1st?.indexOf("Subject-105")];
+            let SUB106_CA  = classAttended_1st[subArr_1st?.indexOf("Subject-106")] == undefined ? "" : classAttended_1st[subArr_1st?.indexOf("Subject-106")];
 
             //* Class Attended array
-            let newCAArr_1st = [BSCH101_CA, BSM102_CA, ESEE101_CA, BSCH191_CA, ESEE191_CA, ESME191_CA];
+            let newCAArr_1st = [SUB101_CA, 
+                SUB102_CA, 
+                SUB103_CA, 
+                SUB104_CA, 
+                SUB105_CA, 
+                SUB106_CA
+            ];
 
             //* Percentage array
             for (let i = 0; i < newCAArr_1st.length; i++) {
@@ -163,29 +169,38 @@ Router.route("/attendance")
 
             let length_2nd = subArr_2nd?.length;
 
-            let BSPH201_TC = totalClassArr_2nd[subArr_2nd?.indexOf("Physics-I (Gr-B)")] == undefined ? "" : totalClassArr_2nd[subArr_2nd?.indexOf("Physics-I (Gr-B)")];
-            let BSM202_TC = totalClassArr_2nd[subArr_2nd?.indexOf("Mathematics-IIB")] == undefined ? "" : totalClassArr_2nd[subArr_2nd?.indexOf("Mathematics-IIB")];
-            let ESCS201_TC = totalClassArr_2nd[subArr_2nd?.indexOf("Programming for Problem Solving")] == undefined ? "" : totalClassArr_2nd[subArr_2nd?.indexOf("Programming for Problem Solving")];
-            let HMHU201_TC = totalClassArr_2nd[subArr_2nd?.indexOf("English")] == undefined ? "" : totalClassArr_2nd[subArr_2nd?.indexOf("English")];
-            let BSPH291_TC = totalClassArr_2nd[subArr_2nd?.indexOf("Physics-I Laboratory (Gr-B)")] == undefined ? "" : totalClassArr_2nd[subArr_2nd?.indexOf("Physics-I Laboratory (Gr-B)")];
-            let ESCS291_TC = totalClassArr_2nd[subArr_2nd?.indexOf("Programming for Problem Solving Laboratory")] == undefined ? "" : totalClassArr_2nd[subArr_2nd?.indexOf("Programming for Problem Solving Laboratory")];
-            let ESME292_TC = totalClassArr_2nd[subArr_2nd?.indexOf("Workshop Manufacturing Practices (Gr-B)")] == undefined ? "" : totalClassArr_2nd[subArr_2nd?.indexOf("Workshop Manufacturing Practices (Gr-B)")];
-            let HMHU291_TC = totalClassArr_2nd[subArr_2nd?.indexOf("Language Laboratory")] == undefined ? "" : totalClassArr_2nd[subArr_2nd?.indexOf("Language Laboratory")];
-
+            let SUB201_TC = totalClassArr_2nd[subArr_2nd?.indexOf("Subject-201")] == undefined ? "" : totalClassArr_2nd[subArr_2nd?.indexOf("Subject-201")];
+            let SUB202_TC = totalClassArr_2nd[subArr_2nd?.indexOf("Subject-202")] == undefined ? "" : totalClassArr_2nd[subArr_2nd?.indexOf("Subject-202")];
+            let SUB203_TC = totalClassArr_2nd[subArr_2nd?.indexOf("Subject-203")] == undefined ? "" : totalClassArr_2nd[subArr_2nd?.indexOf("Subject-203")];
+            let SUB204_TC = totalClassArr_2nd[subArr_2nd?.indexOf("Subject-204")] == undefined ? "" : totalClassArr_2nd[subArr_2nd?.indexOf("Subject-204")];
+            let SUB205_TC = totalClassArr_2nd[subArr_2nd?.indexOf("Subject-205")] == undefined ? "" : totalClassArr_2nd[subArr_2nd?.indexOf("Subject-205")];
+            let SUB206_TC = totalClassArr_2nd[subArr_2nd?.indexOf("Subject-206")] == undefined ? "" : totalClassArr_2nd[subArr_2nd?.indexOf("Subject-206")];
+            let SUB207_TC = totalClassArr_2nd[subArr_2nd?.indexOf("Subject-207")] == undefined ? "" : totalClassArr_2nd[subArr_2nd?.indexOf("Subject-207")];
+            let SUB208_TC = totalClassArr_2nd[subArr_2nd?.indexOf("Subject-208")] == undefined ? "" : totalClassArr_2nd[subArr_2nd?.indexOf("Subject-208")];
+            
             //* Total class array
-            let newTCArr_2nd = [BSPH201_TC, BSM202_TC, ESCS201_TC, HMHU201_TC, BSPH291_TC, ESCS291_TC, ESME292_TC, HMHU291_TC];
-
-            let BSPH201_CA = classAttended_2nd[subArr_2nd?.indexOf("Physics-I (Gr-B)")] == undefined ? "" : classAttended_2nd[subArr_2nd?.indexOf("Physics-I (Gr-B)")];
-            let BSM202_CA = classAttended_2nd[subArr_2nd?.indexOf("Mathematics-IIB")] == undefined ? "" : classAttended_2nd[subArr_2nd?.indexOf("Mathematics-IIB")];
-            let ESCS201_CA = classAttended_2nd[subArr_2nd?.indexOf("Programming for Problem Solving")] == undefined ? "" : classAttended_2nd[subArr_2nd?.indexOf("Programming for Problem Solving")];
-            let HMHU201_CA = classAttended_2nd[subArr_2nd?.indexOf("English")] == undefined ? "" : classAttended_2nd[subArr_2nd?.indexOf("English")];
-            let BSPH291_CA = classAttended_2nd[subArr_2nd?.indexOf("Physics-I Laboratory (Gr-B)")] == undefined ? "" : classAttended_2nd[subArr_2nd?.indexOf("Physics-I Laboratory (Gr-B)")];
-            let ESCS291_CA = classAttended_2nd[subArr_2nd?.indexOf("Programming for Problem Solving Laboratory")] == undefined ? "" : classAttended_2nd[subArr_2nd?.indexOf("Programming for Problem Solving Laboratory")];
-            let ESME292_CA = classAttended_2nd[subArr_2nd?.indexOf("Workshop Manufacturing Practices (Gr-B)")] == undefined ? "" : classAttended_2nd[subArr_2nd?.indexOf("Workshop Manufacturing Practices (Gr-B)")];
-            let HMHU291_CA = classAttended_2nd[subArr_2nd?.indexOf("Language Laboratory")] == undefined ? "" : classAttended_2nd[subArr_2nd?.indexOf("Language Laboratory")];
-
+            let newTCArr_2nd = [SUB201_TC, SUB202_TC, SUB203_TC, SUB204_TC, SUB205_TC, SUB206_TC, SUB207_TC, SUB208_TC];
+            
+            let SUB201_CA = classAttended_2nd[subArr_2nd?.indexOf("Subject-201")] == undefined ? "" : classAttended_2nd[subArr_2nd?.indexOf("Subject-201")];
+            let SUB202_CA = classAttended_2nd[subArr_2nd?.indexOf("Subject-202")] == undefined ? "" : classAttended_2nd[subArr_2nd?.indexOf("Subject-202")];
+            let SUB203_CA = classAttended_2nd[subArr_2nd?.indexOf("Subject-203")] == undefined ? "" : classAttended_2nd[subArr_2nd?.indexOf("Subject-203")];
+            let SUB204_CA = classAttended_2nd[subArr_2nd?.indexOf("Subject-204")] == undefined ? "" : classAttended_2nd[subArr_2nd?.indexOf("Subject-204")];
+            let SUB205_CA = classAttended_2nd[subArr_2nd?.indexOf("Subject-205")] == undefined ? "" : classAttended_2nd[subArr_2nd?.indexOf("Subject-205")];
+            let SUB206_CA = classAttended_2nd[subArr_2nd?.indexOf("Subject-206")] == undefined ? "" : classAttended_2nd[subArr_2nd?.indexOf("Subject-206")];
+            let SUB207_CA = classAttended_2nd[subArr_2nd?.indexOf("Subject-207")] == undefined ? "" : classAttended_2nd[subArr_2nd?.indexOf("Subject-207")];
+            let SUB208_CA = classAttended_2nd[subArr_2nd?.indexOf("Subject-208")] == undefined ? "" : classAttended_2nd[subArr_2nd?.indexOf("Subject-208")];
+            
             //* Class Attended array
-            let newCAArr_2nd = [BSPH201_CA, BSM202_CA, ESCS201_CA, HMHU201_CA, BSPH291_CA, ESCS291_CA, ESME292_CA, HMHU291_CA];
+            let newCAArr_2nd = [
+                SUB201_CA, 
+                SUB202_CA, 
+                SUB203_CA, 
+                SUB204_CA, 
+                SUB205_CA, 
+                SUB206_CA, 
+                SUB207_CA, 
+                SUB208_CA, 
+            ];
 
             //* Percentage array
             for (let i = 0; i < newCAArr_2nd.length; i++) {
@@ -222,33 +237,55 @@ Router.route("/attendance")
 
             let length_3rd = subArr_3rd?.length;
 
-            let PCEE301_TC = totalClassArr_3rd[subArr_3rd?.indexOf("Electric Circuit Theory")] == undefined ? "" : totalClassArr_3rd[subArr_3rd?.indexOf("Electric Circuit Theory")];
-            let PCEE302_TC = totalClassArr_3rd[subArr_3rd?.indexOf("Analog Electronics")] == undefined ? "" : totalClassArr_3rd[subArr_3rd?.indexOf("Analog Electronics")];
-            let PCEE303_TC = totalClassArr_3rd[subArr_3rd?.indexOf("Elctromagnetic Field Theory")] == undefined ? "" : totalClassArr_3rd[subArr_3rd?.indexOf("Elctromagnetic Field Theory")];
-            let ESME301_TC = totalClassArr_3rd[subArr_3rd?.indexOf("Engineering Mechanics")] == undefined ? "" : totalClassArr_3rd[subArr_3rd?.indexOf("Engineering Mechanics")];
-            let BSM301_TC = totalClassArr_3rd[subArr_3rd?.indexOf("Mathematics-III")] == undefined ? "" : totalClassArr_3rd[subArr_3rd?.indexOf("Mathematics-III")];
-            let BSEE301_TC = totalClassArr_3rd[subArr_3rd?.indexOf("Biology For Engineers")] == undefined ? "" : totalClassArr_3rd[subArr_3rd?.indexOf("Biology For Engineers")];
-            let MCEE301_TC = totalClassArr_3rd[subArr_3rd?.indexOf("Indian Constitution")] == undefined ? "" : totalClassArr_3rd[subArr_3rd?.indexOf("Indian Constitution")];
-            let PCCS391_TC = totalClassArr_3rd[subArr_3rd?.indexOf("Numerical Methods Laboratory")] == undefined ? "" : totalClassArr_3rd[subArr_3rd?.indexOf("Numerical Methods Laboratory")];
-            let PCEE391_TC = totalClassArr_3rd[subArr_3rd?.indexOf("Circuit Theory Laboratory")] == undefined ? "" : totalClassArr_3rd[subArr_3rd?.indexOf("Circuit Theory Laboratory")];
-            let PCEE392_TC = totalClassArr_3rd[subArr_3rd?.indexOf("Analog Electronics Laboratory")] == undefined ? "" : totalClassArr_3rd[subArr_3rd?.indexOf("Analog Electronics Laboratory")];
-
+            let SUB301_TC = totalClassArr_3rd[subArr_3rd?.indexOf("Subject-301")] == undefined ? "" : totalClassArr_3rd[subArr_3rd?.indexOf("Subject-301")];
+            let SUB302_TC = totalClassArr_3rd[subArr_3rd?.indexOf("Subject-302")] == undefined ? "" : totalClassArr_3rd[subArr_3rd?.indexOf("Subject-302")];
+            let SUB303_TC = totalClassArr_3rd[subArr_3rd?.indexOf("Subject-303")] == undefined ? "" : totalClassArr_3rd[subArr_3rd?.indexOf("Subject-303")];
+            let SUB304_TC = totalClassArr_3rd[subArr_3rd?.indexOf("Subject-304")] == undefined ? "" : totalClassArr_3rd[subArr_3rd?.indexOf("Subject-304")];
+            let SUB305_TC = totalClassArr_3rd[subArr_3rd?.indexOf("Subject-305")] == undefined ? "" : totalClassArr_3rd[subArr_3rd?.indexOf("Subject-305")];
+            let SUB306_TC = totalClassArr_3rd[subArr_3rd?.indexOf("Subject-306")] == undefined ? "" : totalClassArr_3rd[subArr_3rd?.indexOf("Subject-306")];
+            let SUB307_TC = totalClassArr_3rd[subArr_3rd?.indexOf("Subject-307")] == undefined ? "" : totalClassArr_3rd[subArr_3rd?.indexOf("Subject-307")];
+            let SUB308_TC = totalClassArr_3rd[subArr_3rd?.indexOf("Subject-308")] == undefined ? "" : totalClassArr_3rd[subArr_3rd?.indexOf("Subject-308")];
+            let SUB309_TC = totalClassArr_3rd[subArr_3rd?.indexOf("Subject-309")] == undefined ? "" : totalClassArr_3rd[subArr_3rd?.indexOf("Subject-309")];
+            let SUB310_TC = totalClassArr_3rd[subArr_3rd?.indexOf("Subject-310")] == undefined ? "" : totalClassArr_3rd[subArr_3rd?.indexOf("Subject-310")];
+            
             //* Total class array
-            let newTCArr_3rd = [PCEE301_TC, PCEE302_TC, PCEE303_TC, ESME301_TC, BSM301_TC, BSEE301_TC, MCEE301_TC, PCCS391_TC, PCEE391_TC, PCEE392_TC];
+            let newTCArr_3rd = [
+                SUB301_TC,
+                SUB302_TC,
+                SUB303_TC,
+                SUB304_TC,
+                SUB305_TC,
+                SUB306_TC,
+                SUB307_TC,
+                SUB308_TC,
+                SUB309_TC,
+                SUB310_TC
+            ];
 
-            let PCEE301_CA = classAttended_3rd[subArr_3rd?.indexOf("Electric Circuit Theory")] == undefined ? "" : classAttended_3rd[subArr_3rd?.indexOf("Electric Circuit Theory")];
-            let PCEE302_CA = classAttended_3rd[subArr_3rd?.indexOf("Analog Electronics")] == undefined ? "" : classAttended_3rd[subArr_3rd?.indexOf("Analog Electronics")];
-            let PCEE303_CA = classAttended_3rd[subArr_3rd?.indexOf("Elctromagnetic Field Theory")] == undefined ? "" : classAttended_3rd[subArr_3rd?.indexOf("Elctromagnetic Field Theory")];
-            let ESME301_CA = classAttended_3rd[subArr_3rd?.indexOf("Engineering Mechanics")] == undefined ? "" : classAttended_3rd[subArr_3rd?.indexOf("Engineering Mechanics")];
-            let BSM301_CA = classAttended_3rd[subArr_3rd?.indexOf("Mathematics-III")] == undefined ? "" : classAttended_3rd[subArr_3rd?.indexOf("Mathematics-III")];
-            let BSEE301_CA = classAttended_3rd[subArr_3rd?.indexOf("Biology For Engineers")] == undefined ? "" : classAttended_3rd[subArr_3rd?.indexOf("Biology For Engineers")];
-            let MCEE301_CA = classAttended_3rd[subArr_3rd?.indexOf("Indian Constitution")] == undefined ? "" : classAttended_3rd[subArr_3rd?.indexOf("Indian Constitution")];
-            let PCCS391_CA = classAttended_3rd[subArr_3rd?.indexOf("Numerical Methods Laboratory")] == undefined ? "" : classAttended_3rd[subArr_3rd?.indexOf("Numerical Methods Laboratory")];
-            let PCEE391_CA = classAttended_3rd[subArr_3rd?.indexOf("Circuit Theory Laboratory")] == undefined ? "" : classAttended_3rd[subArr_3rd?.indexOf("Circuit Theory Laboratory")];
-            let PCEE392_CA = classAttended_3rd[subArr_3rd?.indexOf("Analog Electronics Laboratory")] == undefined ? "" : classAttended_3rd[subArr_3rd?.indexOf("Analog Electronics Laboratory")];
-
+            let SUB301_CA = classAttended_3rd[subArr_3rd?.indexOf("Subject-301")] == undefined ? "" : classAttended_3rd[subArr_3rd?.indexOf("Subject-301")];
+            let SUB302_CA = classAttended_3rd[subArr_3rd?.indexOf("Subject-302")] == undefined ? "" : classAttended_3rd[subArr_3rd?.indexOf("Subject-302")];
+            let SUB303_CA = classAttended_3rd[subArr_3rd?.indexOf("Subject-303")] == undefined ? "" : classAttended_3rd[subArr_3rd?.indexOf("Subject-303")];
+            let SUB304_CA = classAttended_3rd[subArr_3rd?.indexOf("Subject-304")] == undefined ? "" : classAttended_3rd[subArr_3rd?.indexOf("Subject-304")];
+            let SUB305_CA = classAttended_3rd[subArr_3rd?.indexOf("Subject-305")] == undefined ? "" : classAttended_3rd[subArr_3rd?.indexOf("Subject-305")];
+            let SUB306_CA = classAttended_3rd[subArr_3rd?.indexOf("Subject-306")] == undefined ? "" : classAttended_3rd[subArr_3rd?.indexOf("Subject-306")];
+            let SUB307_CA = classAttended_3rd[subArr_3rd?.indexOf("Subject-307")] == undefined ? "" : classAttended_3rd[subArr_3rd?.indexOf("Subject-307")];
+            let SUB308_CA = classAttended_3rd[subArr_3rd?.indexOf("Subject-308")] == undefined ? "" : classAttended_3rd[subArr_3rd?.indexOf("Subject-308")];
+            let SUB309_CA = classAttended_3rd[subArr_3rd?.indexOf("Subject-309")] == undefined ? "" : classAttended_3rd[subArr_3rd?.indexOf("Subject-309")];
+            let SUB310_CA = classAttended_3rd[subArr_3rd?.indexOf("Subject-310")] == undefined ? "" : classAttended_3rd[subArr_3rd?.indexOf("Subject-310")];
+            
             //* Class Attended array
-            let newCAArr_3rd = [PCEE301_CA, PCEE302_CA, PCEE303_CA, ESME301_CA, BSM301_CA, BSEE301_CA, MCEE301_CA, PCCS391_CA, PCEE391_CA, PCEE392_CA];
+            let newCAArr_3rd =[
+                SUB301_CA,
+                SUB302_CA,
+                SUB303_CA,
+                SUB304_CA,
+                SUB305_CA,
+                SUB306_CA,
+                SUB307_CA,
+                SUB308_CA,
+                SUB309_CA,
+                SUB310_CA,
+            ];
 
             //* Percentage array
             for (let i = 0; i < newCAArr_3rd.length; i++) {
