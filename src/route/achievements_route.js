@@ -27,11 +27,11 @@ Router.route("/achievements")
             const language = achievementsRoll?.language;
 
             const club1 = achievementsRoll?.clubs[0] == null ? "" : achievementsRoll?.clubs[0].toString();
-            const club2 = achievementsRoll?.clubs[0] == null ? "" : achievementsRoll?.clubs[0].toString();
-            const club3 = achievementsRoll?.clubs[0] == null ? "" : achievementsRoll?.clubs[0].toString();
-            const club4 = achievementsRoll?.clubs[0] == null ? "" : achievementsRoll?.clubs[0].toString();
-            const club5 = achievementsRoll?.clubs[0] == null ? "" : achievementsRoll?.clubs[0].toString();
-            const club6 = achievementsRoll?.clubs[0] == null ? "" : achievementsRoll?.clubs[0].toString();
+            const club2 = achievementsRoll?.clubs[1] == null ? "" : achievementsRoll?.clubs[1].toString();
+            const club3 = achievementsRoll?.clubs[2] == null ? "" : achievementsRoll?.clubs[2].toString();
+            const club4 = achievementsRoll?.clubs[3] == null ? "" : achievementsRoll?.clubs[3].toString();
+            const club5 = achievementsRoll?.clubs[4] == null ? "" : achievementsRoll?.clubs[4].toString();
+            const club6 = achievementsRoll?.clubs[5] == null ? "" : achievementsRoll?.clubs[5].toString();
             
 
             const achievement = achievementsRoll?.achievement;
