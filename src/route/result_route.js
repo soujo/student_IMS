@@ -9,71 +9,72 @@ const grade = ["O", "E", "A", "B", "C", "D", "F", "I"];
 const points = [10, 9, 8, 7, 6, 5, 2, 2];
 
 const subCodeArr_1st = [
-    "BSCH101",
-    "BSM102",
-    "ESEE101",
-    "BSCH191",
-    "ESEE191",
-    "ESME191"
+    "SUB101",
+    "SUB102",
+    "SUB103",
+    "SUB104",
+    "SUB105",
+    "SUB106"
 ]
 const subjectArr_1st = [
-    "Chemistry-I (Gr-B)",
-    "Mathematics-IB",
-    "Basic Electrical Engineering",
-    "Chemistry-I Laboratory (Gr-B)",
-    "Basic Electrical Engineering Laboratory",
-    "Engineering Graphics & Design (Gr-B)"
+    "Subject-101",
+    "Subject-102",
+    "Subject-103",
+    "Subject-104",
+    "Subject-105",
+    "Subject-106",
 ]
-const creditArr_1st = [4, 4, 4, 1.5, 1, 3];
 
 //****************** */
 const subCodeArr_2nd = [
-    "BSPH201",
-    "BSM202",
-    "ESCS201",
-    "HMHU201",
-    "BSPH291",
-    "ESCS291",
-    "ESME292",
-    "HMHU291",
+    "SUB201",
+    "SUB202",
+    "SUB203",
+    "SUB204",
+    "SUB205",
+    "SUB206",
+    "SUB207",
+    "SUB208",
 ]
 const subjectArr_2nd = [
-    "Physics-I (Gr-B)",
-    "Mathematics-IIB",
-    "Programming for Problem Solving",
-    "English",
-    "Physics-I Laboratory (Gr-B)",
-    "Programming for Problem Solving Laboratory",
-    "Workshop Manufacturing Practices (Gr-B)",
-    "Language Laboratory"
+    "Subject-201",
+    "Subject-202",
+    "Subject-203",
+    "Subject-204",
+    "Subject-205",
+    "Subject-206",
+    "Subject-207",
+    "Subject-208",
 ]
-const creditArr_2nd = [4, 4, 3, 2, 1.5, 2, 3, 1];
 
 //****************** */
 const subCodeArr_3rd = [
-    "PCEE301",
-    "PCEE302",
-    "PCEE303",
-    "ESME301",
-    "BSM301",
-    "BSEE301",
-    "MCEE301",
-    "PCCS391",
-    "PCEE391",
-    "PCEE392",
+    "SUB301",
+    "SUB302",
+    "SUB303",
+    "SUB304",
+    "SUB305",
+    "SUB306",
+    "SUB307",
+    "SUB308",
+    "SUB309",
+    "SUB310",
 ]
 const subjectArr_3rd = [
-    "Electric Circuit Theory",
-    "Analog Electronics",
-    "Elctromagnetic Field Theory",
-    "Engineering Mechanics",
-    "Mathematics-III",
-    "Biology For Engineers",
-    "Indian Constitution",
-    "Numerical Methods Laboratory",
-    "Circuit Theory Laboratory",
-    "Analog Electronics Laboratory"
+    "Subject-301",
+    "Subject-302",
+    "Subject-303",
+    "Subject-304",
+    "Subject-305",
+    "Subject-306",
+    "Subject-307",
+    "Subject-308",
+    "Subject-309",
+    "Subject-310",
 ]
+
+const creditArr_1st = [4, 4, 4, 1.5, 1, 3];
+const creditArr_2nd = [4, 4, 3, 2, 1.5, 2, 3, 1];
 const creditArr_3rd = [4, 3, 3, 3, 3, 3, 0, 1, 1, 1];
 
 Router.route("/result")
@@ -105,15 +106,22 @@ Router.route("/result")
             }
             let length_1st = subArr_1st?.length;
 
-            let BSCH101_grade = gradeArr_1st[subArr_1st?.indexOf("Chemistry-I (Gr-B)")] == undefined ? "" : gradeArr_1st[subArr_1st.indexOf("Chemistry-I (Gr-B)")];
-            let BSM102_grade = gradeArr_1st[subArr_1st?.indexOf("Mathematics-IB")] == undefined ? "" : gradeArr_1st[subArr_1st.indexOf("Mathematics-IB")];
-            let ESEE101_grade = gradeArr_1st[subArr_1st?.indexOf("Basic Electrical Engineering")] == undefined ? "" : gradeArr_1st[subArr_1st.indexOf("Basic Electrical Engineering")];
-            let BSCH191_grade = gradeArr_1st[subArr_1st?.indexOf("Chemistry-I Laboratory (Gr-B)")] == undefined ? "" : gradeArr_1st[subArr_1st.indexOf("Chemistry-I Laboratory (Gr-B)")];
-            let ESEE191_grade = gradeArr_1st[subArr_1st?.indexOf("Basic Electrical Engineering Laboratory")] == undefined ? "" : gradeArr_1st[subArr_1st.indexOf("Basic Electrical Engineering Laboratory")];
-            let ESME191_grade = gradeArr_1st[subArr_1st?.indexOf("Engineering Graphics & Design (Gr-B)")] == undefined ? "" : gradeArr_1st[subArr_1st.indexOf("Engineering Graphics & Design (Gr-B)")];
+            let SUB101_grade = gradeArr_1st[subArr_1st?.indexOf("Subject-101")] == undefined ? "" : gradeArr_1st[subArr_1st?.indexOf("Subject-101")];
+            let SUB102_grade = gradeArr_1st[subArr_1st?.indexOf("Subject-102")] == undefined ? "" : gradeArr_1st[subArr_1st?.indexOf("Subject-102")];
+            let SUB103_grade = gradeArr_1st[subArr_1st?.indexOf("Subject-103")] == undefined ? "" : gradeArr_1st[subArr_1st?.indexOf("Subject-103")];
+            let SUB104_grade = gradeArr_1st[subArr_1st?.indexOf("Subject-104")] == undefined ? "" : gradeArr_1st[subArr_1st?.indexOf("Subject-104")];
+            let SUB105_grade = gradeArr_1st[subArr_1st?.indexOf("Subject-105")] == undefined ? "" : gradeArr_1st[subArr_1st?.indexOf("Subject-105")];
+            let SUB106_grade = gradeArr_1st[subArr_1st?.indexOf("Subject-106")] == undefined ? "" : gradeArr_1st[subArr_1st?.indexOf("Subject-106")];
 
             //* 1st sem grade array
-            let newGradeArr_1st = [BSCH101_grade, BSM102_grade, ESEE101_grade, BSCH191_grade, ESEE191_grade, ESME191_grade];
+            let newGradeArr_1st = [
+                SUB101_grade,
+                SUB102_grade,
+                SUB103_grade,
+                SUB104_grade,
+                SUB105_grade,
+                SUB106_grade
+            ];
 
             //*1st sem points array            
             for (let i = 0; i < newGradeArr_1st.length; i++) {
@@ -153,17 +161,26 @@ Router.route("/result")
                 gradeArr_2nd.push(students_2nd[i].grade[index_2nd]);
             }
             let length_2nd = subArr_2nd?.length;
-            let BSPH201_grade = gradeArr_2nd[subArr_2nd?.indexOf("Physics-I (Gr-B)")] == undefined ? "" : gradeArr_2nd[subArr_2nd?.indexOf("Physics-I (Gr-B)")];
-            let BSM202_grade = gradeArr_2nd[subArr_2nd?.indexOf("Mathematics-IIB")] == undefined ? "" : gradeArr_2nd[subArr_2nd?.indexOf("Mathematics-IIB")];
-            let ESCS201_grade = gradeArr_2nd[subArr_2nd?.indexOf("Programming for Problem Solving")] == undefined ? "" : gradeArr_2nd[subArr_2nd?.indexOf("Programming for Problem Solving")];
-            let HMHU201_grade = gradeArr_2nd[subArr_2nd?.indexOf("English")] == undefined ? "" : gradeArr_2nd[subArr_2nd?.indexOf("English")];
-            let BSPH291_grade = gradeArr_2nd[subArr_2nd?.indexOf("Physics-I Laboratory (Gr-B)")] == undefined ? "" : gradeArr_2nd[subArr_2nd?.indexOf("Physics-I Laboratory (Gr-B)")];
-            let ESCS291_grade = gradeArr_2nd[subArr_2nd?.indexOf("Programming for Problem Solving Laboratory")] == undefined ? "" : gradeArr_2nd[subArr_2nd?.indexOf("Programming for Problem Solving Laboratory")];
-            let ESME292_grade = gradeArr_2nd[subArr_2nd?.indexOf("Workshop Manufacturing Practices (Gr-B)")] == undefined ? "" : gradeArr_2nd[subArr_2nd?.indexOf("Workshop Manufacturing Practices (Gr-B)")];
-            let HMHU291_grade = gradeArr_2nd[subArr_2nd?.indexOf("Language Laboratory")] == undefined ? "" : gradeArr_2nd[subArr_2nd?.indexOf("Language Laboratory")];
+            let SUB201_TC = gradeArr_2nd[subArr_2nd?.indexOf("Subject-201")] == undefined ? "" : gradeArr_2nd[subArr_2nd?.indexOf("Subject-201")];
+            let SUB202_TC = gradeArr_2nd[subArr_2nd?.indexOf("Subject-202")] == undefined ? "" : gradeArr_2nd[subArr_2nd?.indexOf("Subject-202")];
+            let SUB203_TC = gradeArr_2nd[subArr_2nd?.indexOf("Subject-203")] == undefined ? "" : gradeArr_2nd[subArr_2nd?.indexOf("Subject-203")];
+            let SUB204_TC = gradeArr_2nd[subArr_2nd?.indexOf("Subject-204")] == undefined ? "" : gradeArr_2nd[subArr_2nd?.indexOf("Subject-204")];
+            let SUB205_TC = gradeArr_2nd[subArr_2nd?.indexOf("Subject-205")] == undefined ? "" : gradeArr_2nd[subArr_2nd?.indexOf("Subject-205")];
+            let SUB206_TC = gradeArr_2nd[subArr_2nd?.indexOf("Subject-206")] == undefined ? "" : gradeArr_2nd[subArr_2nd?.indexOf("Subject-206")];
+            let SUB207_TC = gradeArr_2nd[subArr_2nd?.indexOf("Subject-207")] == undefined ? "" : gradeArr_2nd[subArr_2nd?.indexOf("Subject-207")];
+            let SUB208_TC = gradeArr_2nd[subArr_2nd?.indexOf("Subject-208")] == undefined ? "" : gradeArr_2nd[subArr_2nd?.indexOf("Subject-208")];
 
             //* 2nd sem grade array
-            let newGradeArr_2nd = [BSPH201_grade, BSM202_grade, ESCS201_grade, HMHU201_grade, BSPH291_grade, ESCS291_grade, ESME292_grade, HMHU291_grade];
+            let newGradeArr_2nd = [
+                SUB201_TC,
+                SUB202_TC,
+                SUB203_TC,
+                SUB204_TC,
+                SUB205_TC,
+                SUB206_TC,
+                SUB207_TC,
+                SUB208_TC
+            ];
 
             //*2nd sem points array            
             for (let i = 0; i < newGradeArr_2nd.length; i++) {
@@ -199,20 +216,31 @@ Router.route("/result")
                 subArr_3rd.push(students_3rd[i].sub[index_3rd]);
                 gradeArr_3rd.push(students_3rd[i].grade[index_3rd]);
             }
-            let length_3rd = subArr_3rd?.length;
-            let PCEE301_grade = gradeArr_3rd[subArr_3rd?.indexOf("Electric Circuit Theory")] == undefined ? "" : gradeArr_3rd[subArr_3rd?.indexOf("Electric Circuit Theory")];
-            let PCEE302_grade = gradeArr_3rd[subArr_3rd?.indexOf("Analog Electronics")] == undefined ? "" : gradeArr_3rd[subArr_3rd?.indexOf("Analog Electronics")];
-            let PCEE303_grade = gradeArr_3rd[subArr_3rd?.indexOf("Elctromagnetic Field Theory")] == undefined ? "" : gradeArr_3rd[subArr_3rd?.indexOf("Elctromagnetic Field Theory")];
-            let ESME301_grade = gradeArr_3rd[subArr_3rd?.indexOf("Engineering Mechanics")] == undefined ? "" : gradeArr_3rd[subArr_3rd?.indexOf("Engineering Mechanics")];
-            let BSM301_grade = gradeArr_3rd[subArr_3rd?.indexOf("Mathematics-III")] == undefined ? "" : gradeArr_3rd[subArr_3rd?.indexOf("Mathematics-III")];
-            let BSEE301_grade = gradeArr_3rd[subArr_3rd?.indexOf("Biology For Engineers")] == undefined ? "" : gradeArr_3rd[subArr_3rd?.indexOf("Biology For Engineers")];
-            let MCEE301_grade = gradeArr_3rd[subArr_3rd?.indexOf("Indian Constitution")] == undefined ? "" : gradeArr_3rd[subArr_3rd?.indexOf("Indian Constitution")];
-            let PCCS391_grade = gradeArr_3rd[subArr_3rd?.indexOf("Numerical Methods Laboratory")] == undefined ? "" : gradeArr_3rd[subArr_3rd?.indexOf("Numerical Methods Laboratory")];
-            let PCEE391_grade = gradeArr_3rd[subArr_3rd?.indexOf("Circuit Theory Laboratory")] == undefined ? "" : gradeArr_3rd[subArr_3rd?.indexOf("Circuit Theory Laboratory")];
-            let PCEE392_grade = gradeArr_3rd[subArr_3rd?.indexOf("Analog Electronics Laboratory")] == undefined ? "" : gradeArr_3rd[subArr_3rd?.indexOf("Analog Electronics Laboratory")];
-
+            let length_3rd = subArr_3rd?.length; 
+            let SUB301_TC = gradeArr_3rd[subArr_3rd?.indexOf("Subject-301")] == undefined ? "" : gradeArr_3rd[subArr_3rd?.indexOf("Subject-301")];
+            let SUB302_TC = gradeArr_3rd[subArr_3rd?.indexOf("Subject-302")] == undefined ? "" : gradeArr_3rd[subArr_3rd?.indexOf("Subject-302")];
+            let SUB303_TC = gradeArr_3rd[subArr_3rd?.indexOf("Subject-303")] == undefined ? "" : gradeArr_3rd[subArr_3rd?.indexOf("Subject-303")];
+            let SUB304_TC = gradeArr_3rd[subArr_3rd?.indexOf("Subject-304")] == undefined ? "" : gradeArr_3rd[subArr_3rd?.indexOf("Subject-304")];
+            let SUB305_TC = gradeArr_3rd[subArr_3rd?.indexOf("Subject-305")] == undefined ? "" : gradeArr_3rd[subArr_3rd?.indexOf("Subject-305")];
+            let SUB306_TC = gradeArr_3rd[subArr_3rd?.indexOf("Subject-306")] == undefined ? "" : gradeArr_3rd[subArr_3rd?.indexOf("Subject-306")];
+            let SUB307_TC = gradeArr_3rd[subArr_3rd?.indexOf("Subject-307")] == undefined ? "" : gradeArr_3rd[subArr_3rd?.indexOf("Subject-307")];
+            let SUB308_TC = gradeArr_3rd[subArr_3rd?.indexOf("Subject-308")] == undefined ? "" : gradeArr_3rd[subArr_3rd?.indexOf("Subject-308")];
+            let SUB309_TC = gradeArr_3rd[subArr_3rd?.indexOf("Subject-309")] == undefined ? "" : gradeArr_3rd[subArr_3rd?.indexOf("Subject-309")];
+            let SUB310_TC = gradeArr_3rd[subArr_3rd?.indexOf("Subject-310")] == undefined ? "" : gradeArr_3rd[subArr_3rd?.indexOf("Subject-310")];
+            
             //*3rd sem grade array
-            let newGradeArr_3rd = [PCEE301_grade, PCEE302_grade, PCEE303_grade, ESME301_grade, BSM301_grade, BSEE301_grade, MCEE301_grade, PCCS391_grade, PCEE391_grade, PCEE392_grade];
+            let newGradeArr_3rd = [
+                SUB301_TC,
+                SUB302_TC,
+                SUB303_TC,
+                SUB304_TC,
+                SUB305_TC,
+                SUB306_TC,
+                SUB307_TC,
+                SUB308_TC,
+                SUB309_TC,
+                SUB310_TC
+            ];
 
             //*3rd sem points array            
             for (let i = 0; i < newGradeArr_3rd.length; i++) {
