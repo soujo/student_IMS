@@ -185,7 +185,6 @@ ul li{
 .description table tbody tr td:nth-child(4)
 {
     width: 505px;
-    /* width: 428px; */
 }
 .description table thead tr th:nth-child(5),
 .description table tbody tr td:nth-child(5)
