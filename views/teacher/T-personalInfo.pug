@@ -80,7 +80,7 @@
                         </tbody>
                     </table>
                     <div class="picture">
-                        img(src=image, alt="Your image")
+                        img(src=image || String(process.env.DEFAULT_IMG), alt="Your image")
                     </div>
                 </div>
                 <br><br><br>
