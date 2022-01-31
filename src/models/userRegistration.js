@@ -34,7 +34,7 @@ const studentSchema = new mongoose.Schema({
 
     },
     roll: {
-        type: Number,
+        type: String,
         required: true,
         unique: true
     },

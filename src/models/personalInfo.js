@@ -6,7 +6,7 @@ const personalInfoSchema= new mongoose.Schema({
         uppercase:true
     },
     roll:{ 
-        type:Number
+        type:String
     },
     batch:{
         type:Number

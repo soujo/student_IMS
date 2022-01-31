@@ -10,7 +10,7 @@ const feedbackSchema= new mongoose.Schema({
         type:String
     },
     roll:{
-        type:Number
+        type:String
     },
     msg:{
         type:String

@@ -18,7 +18,7 @@ const achievementSchema = new mongoose.Schema(
             type: Array
         },
         roll: {
-            type: Number
+            type: String
         },
         achievement: [ 
             {

@@ -92,7 +92,7 @@ const academicsSchema= new mongoose.Schema({
         uppercase:true
     },
     roll:{
-        type:Number
+        type:String
     },
     edit:{
         type:String
