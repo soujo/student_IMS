@@ -6,6 +6,7 @@ const Academics = require("../models/academics");
 const auth = require("../middleware/auth");
 const jwt_decode = require("jwt-decode");
 let roll;
+let i = 1;
 
 Router.route("/academicsEdit")
     .get(auth,async (req, res) => {
@@ -74,7 +75,7 @@ Router.route("/academicsEdit")
                     collegeTotalPercentage: req.body.collegeTotalPercentage,
                     collegeDivision: req.body.collegeDivision,
                     branch: req.body.branch,
-                    roll: rollNumber.roll,
+                    roll: roll,
                     edit: "firstTime"
                 });
 
@@ -95,7 +96,6 @@ Router.route("/academicsEdit")
             const id = academicsRoll?.id;
             const updateDocuments = async (_id) => {
                 try {
-                    let i = 1;
                     let update = await Academics.findByIdAndUpdate(
                         { _id },
                         {
@@ -126,7 +126,7 @@ Router.route("/academicsEdit")
                                 collegeTotalPercentage: req.body.collegeTotalPercentage,
                                 collegeDivision: req.body.collegeDivision,
                                 branch: req.body.branch,
-                                roll: rollNumber.roll,
+                                roll: roll,
                                 edit: `updated-${i++}`
                             }
                         },
