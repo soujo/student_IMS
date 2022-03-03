@@ -189,3 +189,17 @@ ul li{
       visibility: hidden;
     }
   }
+
+@media screen and (min-width:1367px) and (max-width:1440px) {
+    .extra__curricular table tbody tr td:nth-child(4){
+        width: 357px;
+    }
+    .description table thead tr th:nth-child(4),
+    .description table tbody tr td:nth-child(4)
+    {
+        width: 632px;
+    }
+    .extra__curricular .edit{
+        left: 880px;
+    }
+}

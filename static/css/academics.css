@@ -177,3 +177,16 @@ section{
       visibility: hidden;
     }
   }
+
+@media screen and (min-width:1367px) and (max-width:1440px) {
+    .secondary__details table tbody tr td:nth-child(4),
+    .institute__details table tbody tr td:nth-child(4),
+    .senior__secondary__details table tbody tr td:nth-child(4)
+    {
+        width: 236px;
+    }
+
+    .secondary__details .edit{
+        left: 880px;
+    }
+}

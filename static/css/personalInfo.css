@@ -221,3 +221,22 @@ section{
       visibility: hidden;
     }
   }
+
+@media screen and (min-width:1367px) and (max-width:1440px) {
+    .student__details .picture{
+        width:386px;
+    }
+    .communication__details table tbody tr td,
+    .admission__details table tbody tr td
+    {
+        width: 261px;
+
+    }
+    .communication__details tbody tr:last-child td{
+        width: 725px;
+    }
+    .student__details .edit{
+        left: 880px;
+    
+    }
+}
